@@ -1,0 +1,107 @@
+ENTITIES
+
+User
+Chat
+Post
+Comment
+Like
+Group
+Event
+Show
+
+_____________________________________________________________________________
+
+class User
+
+    1. userId int
+    2. name String
+    3. profilePicture String
+    4. password String
+    5. place String
+    6. education String
+    7. friend String
+
+    1. editProfile()
+    2. changePassword()
+    3. searchProfile()
+_____________________________________________
+
+class Chat
+
+    1. date String
+    2. time String
+    3. message String
+
+    1. 
+    2. 
+_____________________________________________
+
+class Post
+
+    1. date String 
+    2. time String 
+    3. message String
+
+    1. 
+    2. 
+_____________________________________________
+
+class Like
+
+    1. date String  
+    2. time String  
+    3. message String 
+
+    1. 
+    2. 
+_____________________________________________
+
+class User
+
+    1. 
+    2. 
+    3.
+
+    1. 
+    2. 
+_____________________________________________
+
+class User
+
+    1. 
+    2. 
+    3.
+
+    1. 
+    2. 
+_____________________________________________
+
+class User
+
+    1. 
+    2. 
+    3.
+
+    1. 
+    2. 
+_____________________________________________
+
+class User
+
+    1. 
+    2. 
+    3.
+
+    1. 
+    2. 
+_____________________________________________
+
+class User
+
+    1. 
+    2. 
+    3.
+
+    1. 
+    2. 
+_____________________________________________

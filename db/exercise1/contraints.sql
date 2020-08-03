@@ -25,3 +25,7 @@ MODIFY department VARCHAR(30) DEFAULT 'computer science';
 -- create INDEX for email
 CREATE INDEX email_index 
     ON exercise1.students(email);
+    
+-- add UNIQUE constraint
+ ALTER TABLE exercise1.students
+MODIFY email VARCHAR(30) UNIQUE; 

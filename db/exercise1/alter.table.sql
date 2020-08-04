@@ -1,5 +1,5 @@
 -- add new columns 
- ALTER TABLE exercise1.students 
+ ALTER TABLE exercise1.student 
    ADD COLUMN email     VARCHAR(30)
  , ADD COLUMN score     INT(2)
  , ADD COLUMN dob       VARCHAR(10)
@@ -9,15 +9,15 @@
  , ADD COLUMN course_id INT(2);
   
 -- modify datatype of dob in students
- ALTER TABLE exercise1.students
+ ALTER TABLE exercise1.student
 MODIFY dob DATE; 
 
--- drop a column from students
- ALTER TABLE exercise1.students
+-- drop a column from student
+ ALTER TABLE exercise1.student
   DROP COLUMN score2;
 
--- rename column in students
- ALTER TABLE exercise1.students
+-- rename column in student
+ ALTER TABLE exercise1.student
 RENAME COLUMN score1 
     TO score; 
 

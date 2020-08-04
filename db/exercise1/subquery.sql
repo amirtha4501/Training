@@ -1,8 +1,16 @@
-select roll_no, first_name, department, score from exercise1.students
-  where course_id in (select roll_no from exercise1.courses where students.score > course_id.min_score);
+-- get students who is eligible to attend courses
+SELECT roll_no, first_name, department, course_id, score 
+  FROM exercise1.student
+ WHERE course_id IN
+       (SELECT id 
+          FROM exercise1.course 
+         WHERE student.score >= course.min_score);
   
-
+-- get students who didn't choose data science course
+SELECT roll_no, first_name
+  FROM exercise1.student 
+ WHERE course_id IN
+       (SELECT id 
+          FROM exercise1.course 
+         WHERE NOT course_name = 'data science');
   
-  
-select * from exercise1.courses;
-select * from exercise1.students;

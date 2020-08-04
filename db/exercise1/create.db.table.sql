@@ -11,7 +11,7 @@ CREATE TABLE exercise1.student (
 ) ENGINE = InnoDB;
    
 -- create course table
-CREATE TABLE exercise1.courses (
+CREATE TABLE exercise1.course (
     PRIMARY KEY (id)
     , id          INT(2)      NOT NULL
     , course_name VARCHAR(30) NOT NULL
@@ -24,6 +24,7 @@ CREATE TABLE exercise1.staff (
    , staff_id     INT         NOT NULL
    , staff_name   VARCHAR(25) NOT NULL
    , department   VARCHAR(45)
+   , course_id    INT(2)      NOT NULL
    , age          INT
 );
 

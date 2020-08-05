@@ -5,3 +5,11 @@ ALTER TABLE exercise2.employee
 -- increment 10% of every employee salary
 UPDATE exercise2.employee 
    SET annual_salary = annual_salary + (annual_salary * 10 / 100);
+   
+-- add area column
+ALTER TABLE exercise2.employee
+  ADD COLUMN area INT;
+
+-- add lead column
+ALTER TABLE exercise2.employee
+  ADD COLUMN lead_id INT;

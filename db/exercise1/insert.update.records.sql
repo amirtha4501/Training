@@ -17,7 +17,7 @@ VALUES (5, 'kavitha', 'bme', 'kavi@gmail.com', '2001-05-04', 21, 3, 60);
 
 INSERT INTO exercise1.course (id, course_name, min_score)
 VALUES (1, 'data science', 85)
-	   , (2, 'artificial intelligence', 75)
+	    , (2, 'artificial intelligence', 75)
        , (3, 'building architecture', 50)
        , (4, 'networking', 90);
        

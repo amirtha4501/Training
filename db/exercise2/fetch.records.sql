@@ -46,6 +46,12 @@ SELECT e.emp_id, e.first_name, e.department_id, e.area
 HAVING COUNT(e.emp_id) = 1
 );
 
+-- get employee having birthday on current day 
+SELECT emp_id, first_name, dob 
+  FROM exercise2.employee
+ WHERE MONTH(dob) = MONTH(CURDATE()) 
+   AND DAY(dob) = DAY(CURDATE());
+
 -- get fresher from employees
 SELECT emp_id, first_name, dob 
   FROM exercise2.employee 
@@ -56,8 +62,3 @@ SELECT employee.emp_id, employee.first_name AS emp_name, department.department_n
   FROM exercise2.employee AS employee, exercise2.department AS department 
  WHERE employee.department_id = department.id;
  
--- get employee having birthday on current day 
-SELECT emp_id, first_name, dob 
-  FROM exercise2.employee
- WHERE MONTH(dob) = MONTH(CURDATE()) 
-   AND DAY(dob) = DAY(CURDATE());

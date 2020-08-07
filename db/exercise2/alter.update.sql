@@ -1,8 +1,8 @@
--- make emp_id as primary key
+-- 3. make emp_id as primary key
 ALTER TABLE exercise2.employee 
   ADD PRIMARY KEY (emp_id);
   
--- increment 10% of every employee salary
+-- 4. increment 10% of every employee salary
 UPDATE exercise2.employee 
    SET annual_salary = annual_salary + (annual_salary * 10 / 100);
    

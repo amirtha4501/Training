@@ -8,7 +8,7 @@ CREATE TABLE exercise1.student (
     , first_name  VARCHAR(25) NOT NULL
     , last_name   VARCHAR(25)
     , department  VARCHAR(25)
-) ENGINE = InnoDB;
+);
    
 -- create course table
 CREATE TABLE exercise1.course (

@@ -12,7 +12,8 @@ SELECT first_name
   FROM exercise1.student LIMIT 1;                    
 
 SELECT first_name
-  FROM exercise1.student ORDER BY roll_no DESC LIMIT 1;                    
+  FROM exercise1.student 
+ ORDER BY roll_no DESC LIMIT 1;                    
 
 -- filter records - AND, OR, NOT, LIKE, IN, ANY, wildcards ( % _ )
 
@@ -36,12 +37,12 @@ SELECT roll_no, first_name, department, age, course_id
  WHERE department = ANY 
        (SELECT department 
           FROM exercise1.staff
-		 WHERE NOT age = 25);
+		     WHERE NOT age = 25);
 
 SELECT roll_no, first_name, department, age, course_id
   FROM exercise1.student
  WHERE department = ALL 
        (SELECT department 
           FROM exercise1.staff
-		 WHERE department IN ('civil', 'bme', 'computer science'));
+		     WHERE department IN ('civil', 'bme', 'computer science'));
          

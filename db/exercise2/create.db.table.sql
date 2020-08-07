@@ -1,6 +1,6 @@
 CREATE DATABASE exercise2;
 
--- create employee table
+-- 1. create employee table
 CREATE TABLE exercise2.employee (
     PRIMARY KEY (emp_id)
     , emp_id          INT         NOT NULL
@@ -15,7 +15,7 @@ CREATE TABLE exercise2.employee (
           ON DELETE CASCADE
 ) ENGINE = InnoDB;
 
--- create department table
+-- 1. create department table
 CREATE TABLE exercise2.department (
     PRIMARY KEY (id)
     , id              INT

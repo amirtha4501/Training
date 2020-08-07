@@ -1,4 +1,4 @@
--- insert values into employee
+-- 2. insert values into employee
 INSERT INTO exercise2.employee ( emp_id, first_name, surname, dob, date_of_joining, annual_salary, department_id)
 VALUES (1, 'amirtha', 'easwaran', '2001-05-04', '2018-05-06', 70000, 3)
        , (2, 'samirtha', 'shankar', '2001-05-04', '2018-05-06', 70000, 1)

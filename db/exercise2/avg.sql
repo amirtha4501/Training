@@ -1,3 +1,3 @@
--- get the average salary
-SELECT AVG(annual_salary) AS Avg_salary
+-- 6. get the average salary
+SELECT AVG(annual_salary) Avg_salary
   FROM exercise2.employee;

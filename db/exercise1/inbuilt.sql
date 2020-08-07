@@ -1,8 +1,8 @@
 SELECT NOW();
 
-SELECT MIN(age) AS min_age, MAX(age) AS max_age 
+SELECT MIN(age) min_age, MAX(age) max_age 
   FROM exercise1.student;
 
-SELECT SUM(score) AS overall_score, AVG(score) AS avg_score, COUNT(roll_no) AS avg_student
+SELECT SUM(score) overall_score, AVG(score) avg_score, COUNT(roll_no) avg_student
   FROM exercise1.student 
  WHERE department IN ('bme', 'civil');

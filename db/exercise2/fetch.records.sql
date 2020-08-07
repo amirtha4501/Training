@@ -1,25 +1,28 @@
--- ? get highest and least paid employee
-SELECT e1.emp_id, e1.first_name, e1.annual_salary, e1.department_id
+-- 5. get highest and least paid employee
+(SELECT e1.emp_id, e1.first_name, e1.annual_salary, e1.department_id
   FROM exercise2.employee e1
-  JOIN (SELECT department_id, MAX(annual_salary) AS salary 
+  JOIN (SELECT department_id, MAX(annual_salary) salary 
           FROM exercise2.employee
          GROUP BY department_id) e2
-    ON e1.department_id = e2.department_id AND e1.annual_salary = e2.salary 
+    ON e1.department_id = e2.department_id 
+       AND e1.annual_salary = e2.salary) 
  UNION 
-SELECT e1.emp_id, e1.first_name, e1.annual_salary, e1.department_id 
+(SELECT e1.emp_id, e1.first_name, e1.annual_salary, e1.department_id 
   FROM exercise2.employee e1
-  JOIN (SELECT department_id, MIN(annual_salary) AS salary 
+  JOIN (SELECT department_id, MIN(annual_salary) salary 
           FROM exercise2.employee
          GROUP BY department_id) e2
-    ON e1.department_id = e2.department_id AND e1.annual_salary = e2.salary;
+    ON e1.department_id = e2.department_id 
+       AND e1.annual_salary = e2.salary)
+       ORDER BY department_id;
 
 -- get minimum and maximum salary of each department
 
-SELECT department_id, MAX(annual_salary) AS max_salary, MIN(annual_salary) AS min_salary
+SELECT department_id, MAX(annual_salary) max_salary, MIN(annual_salary) min_salary
   FROM exercise2.employee 
  GROUP BY department_id;
 
-SELECT department_id, MAX(annual_salary) AS salary 
+SELECT department_id, MAX(annual_salary) salary 
   FROM exercise2.employee
  GROUP BY department_id
  UNION ALL
@@ -27,8 +30,7 @@ SELECT department_id, MIN(annual_salary)
   FROM exercise2.employee 
  GROUP BY department_id;
 
-
--- ? list staff from same area and same department
+-- ? 8. list staff from same area and same department
 
 SELECT DISTINCT e2.emp_id, e2.first_name, e2.area, e2.department_id
   FROM exercise2.employee e1
@@ -43,22 +45,21 @@ SELECT e.emp_id, e.first_name, e.department_id, e.area
        (SELECT e.emp_id 
           FROM exercise2.employee e 
          GROUP BY e.department_id, e.area
-HAVING COUNT(e.emp_id) = 1
-);
+        HAVING COUNT(e.emp_id) = 1);
 
--- get employee having birthday on current day 
+-- 9. get employee having birthday on current day 
 SELECT emp_id, first_name, dob 
   FROM exercise2.employee
  WHERE MONTH(dob) = MONTH(CURDATE()) 
    AND DAY(dob) = DAY(CURDATE());
 
--- get fresher from employees
+-- 10. get fresher from employees
 SELECT emp_id, first_name, dob 
   FROM exercise2.employee 
  WHERE department_id IS NULL;
 
--- get employee names and their respective department name
-SELECT employee.emp_id, employee.first_name AS emp_name, department.department_name 
-  FROM exercise2.employee AS employee, exercise2.department AS department 
+-- 11. get employee names and their respective department name
+SELECT employee.emp_id, employee.first_name emp_name, department.department_name 
+  FROM exercise2.employee employee, exercise2.department department 
  WHERE employee.department_id = department.id;
  

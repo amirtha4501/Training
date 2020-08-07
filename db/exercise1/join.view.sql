@@ -30,7 +30,7 @@ SELECT student.first_name, student.department, staff.staff_name, course.course_n
         
  INNER JOIN exercise1.course AS course 
  ON student.course_id = course.id 
-    AND student.course_id = staff.course_id;
+   AND student.course_id = staff.course_id;
         
 -- get all student and staff belong to same institution with and without duplicates
 
@@ -49,12 +49,13 @@ SELECT staff.staff_name, staff.age, staff.department
 -- create view
 CREATE VIEW exercise1.student_course AS 
 SELECT student.roll_no, student.first_name, course.course_name
-  FROM exercise1.student AS student
-  JOIN exercise1.course AS course
+  FROM exercise1.student student
+  JOIN exercise1.course course
     ON student.course_id = course.id;
 
 -- select values from view
-SELECT * FROM exercise1.student_course;
+SELECT roll_no, first_name, course_name 
+  FROM exercise1.student_course;
 
 -- drop view
 DROP VIEW exercise1.student_course;    

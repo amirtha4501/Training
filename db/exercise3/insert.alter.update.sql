@@ -24,14 +24,14 @@ MODIFY stud_id INT NOT NULL;
 
 UPDATE exercise3.semester_fee sf
   LEFT JOIN exercise3.student s
-  ON sf.stud_id = s.id
+    ON sf.stud_id = s.id
    SET sf.paid_year = YEAR(NOW()), 
        sf.paid_status = 'paid'
  WHERE s.roll_number = '18cs1111';
 
 UPDATE exercise3.semester_fee sf
   LEFT JOIN exercise3.student s
-  ON sf.stud_id = s.id
+    ON sf.stud_id = s.id
    SET sf.paid_year = YEAR(NOW()), 
        sf.paid_status = 'paid'
  WHERE s.roll_number IN ('18cs1114', '18cs1115', '18cs1118');

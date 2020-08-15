@@ -1,174 +1,260 @@
 -- 1. college details which are having IT / CSC departments across all the universities
 
 -- 1a
-SELECT c.code, c.name college_name, u.university_name, c.city, c.state, c.year_opened, d.dept_name, e.name hod
-  FROM exercise3.college c 
-  LEFT JOIN exercise3.university u
-  ON u.univ_code = c.univ_code
-  LEFT JOIN exercise3.department d 
-  ON d.dept_code IN 
-       (SELECT cd.udept_code 
-          FROM exercise3.college_department cd 
-         WHERE cd.college_id = c.id)
-  LEFT JOIN exercise3.employee e
-  ON e.college_id = c.id
-       AND e.desig_id IN 
-       (SELECT des.id
-          FROM exercise3.designation des
-         WHERE des.name = 'hod')
- WHERE d.dept_name IN ('cse', 'it');
+SELECT college.code
+      ,college.name college_name
+      ,university.university_name
+      ,college.city
+      ,college.state
+      ,college.year_opened
+      ,department.dept_name
+      ,employee.name hod
+  FROM exercise3.college
+  LEFT JOIN exercise3.university
+    ON university.univ_code = college.univ_code
+  LEFT JOIN exercise3.department
+    ON department.dept_code IN 
+       (SELECT college_department.udept_code 
+          FROM exercise3.college_department
+         WHERE college_department.college_id = college.id)
+  LEFT JOIN exercise3.employee
+    ON employee.college_id = college.id
+       AND employee.desig_id IN 
+       (SELECT designation.id
+          FROM exercise3.designation
+         WHERE designation.name = 'hod')
+ WHERE department.dept_name IN ('cse', 'it');
  
 -- 1b
-SELECT c.code, c.name college_name, u.university_name, c.city, c.state, c.year_opened, dept.dept_name, e.name hod
-  FROM exercise3.employee e
-  LEFT JOIN exercise3.designation des
-  ON e.desig_id = des.id
-  LEFT JOIN exercise3.college_department cd
-  ON e.cdept_id = cd.cdept_id
-  LEFT JOIN exercise3.department dept 
-  ON cd.udept_code = dept.dept_code
-  LEFT JOIN exercise3.college c 
-  ON cd.college_id = c.id
-  LEFT JOIN exercise3.university u
-  ON c.univ_code = u.univ_code 
- WHERE des.name = 'hod' 
-   AND dept.dept_name IN ('cse', 'it');
+SELECT college.code
+      ,college.name college_name
+      ,university.university_name
+      ,college.city
+      ,college.state
+      ,college.year_opened
+      ,department.dept_name
+      ,employee.name hod
+  FROM exercise3.employee
+  LEFT JOIN exercise3.designation
+    ON employee.desig_id = designation.id
+  LEFT JOIN exercise3.college_department
+    ON employee.cdept_id = college_department.cdept_id
+  LEFT JOIN exercise3.department 
+    ON college_department.udept_code = department.dept_code
+  LEFT JOIN exercise3.college
+    ON college_department.college_id = college.id
+  LEFT JOIN exercise3.university
+    ON college.univ_code = university.univ_code 
+ WHERE designation.name = 'hod' 
+   AND department.dept_name IN ('cse', 'it');
 
 
 -- 2. final year students details who are studying under a particular university and selected cities alone
-SELECT s.roll_number, s.name, s.gender, s.dob, s.email, s.phone, s.address, c.name college_name, d.dept_name department_name
-  FROM exercise3.student s 
-  LEFT JOIN exercise3.college c 
-  ON s.college_id = c.id
-  LEFT JOIN exercise3.department d 
-  ON dept_code IN 
-       (SELECT cd.udept_code 
-          FROM exercise3.college_department cd 
-         WHERE s.cdept_id = cd.cdept_id) 
-  LEFT JOIN exercise3.university u 
-  ON c.univ_code = u.univ_code 
+SELECT student.roll_number
+      ,student.name
+      ,student.gender
+      ,student.dob
+      ,student.email
+      ,student.phone
+      ,student.address
+      ,college.name college_name
+      ,department.dept_name department_name
+  FROM exercise3.student
+  LEFT JOIN exercise3.college
+    ON student.college_id = college.id
+  LEFT JOIN exercise3.department 
+    ON dept_code IN 
+       (SELECT college_department.udept_code 
+          FROM exercise3.college_department
+         WHERE student.cdept_id = college_department.cdept_id) 
+  LEFT JOIN exercise3.university
+    ON college.univ_code = university.univ_code 
  WHERE academic_year = YEAR(NOW()) - 3 
-   AND c.city IN ('chennai','coimbatore') 
-   AND u.university_name = ('anna university');
+   AND college.city IN ('chennai', 'coimbatore') 
+   AND university.university_name = ('anna university');
 
 -- 3. students details who are studying under a particular university and selected cities
-SELECT s.roll_number, s.name, s.gender, s.dob, s.email, s.phone, s.address, c.name college_name, d.dept_name department_name, e.name hod_name
-  FROM exercise3.student s
-  LEFT JOIN exercise3.college c
-  ON c.id = s.college_id
-  LEFT JOIN exercise3.department d 
-  ON d.dept_code IN 
-       (SELECT cd.udept_code 
-          FROM exercise3.college_department cd 
-         WHERE cd.college_id = c.id)
-  LEFT JOIN exercise3.employee e
-  ON e.college_id = c.id
-       AND e.desig_id IN 
-       (SELECT des.id
-          FROM exercise3.designation des
-         WHERE des.name = 'hod')
-  LEFT JOIN exercise3.university u 
-  ON c.univ_code = u.univ_code 
- WHERE c.city IN ('chennai','coimbatore') 
-   AND u.university_name = ('anna university') LIMIT 20;
+SELECT student.roll_number
+      ,student.name
+      ,student.gender
+      ,student.dob
+      ,student.email
+      ,student.phone
+      ,student.address
+      ,college.name college_name
+      ,department.dept_name department_name
+      ,employee.name hod_name
+  FROM exercise3.student
+  LEFT JOIN exercise3.college
+    ON college.id = student.college_id
+  LEFT JOIN exercise3.department
+    ON department.dept_code IN 
+       (SELECT college_department.udept_code 
+          FROM exercise3.college_department
+         WHERE college_department.college_id = college.id)
+  LEFT JOIN exercise3.employee
+    ON employee.college_id = college.id
+       AND employee.desig_id IN 
+       (SELECT designation.id
+          FROM exercise3.designation
+         WHERE designation.name = 'hod')
+  LEFT JOIN exercise3.university
+    ON college.univ_code = university.univ_code 
+ WHERE college.city IN ('chennai', 'coimbatore') 
+   AND university.university_name = ('anna university') LIMIT 20;
  
 -- 4. employee details sorted by rank and college_name
-SELECT e.id, e.name, e.dob, e.email, e.phone, c.name college_name, c.city college_location, d.dept_name department_name, des.rank
-  FROM exercise3.employee e
-  LEFT JOIN exercise3.college c 
-  ON e.college_id = c.id
-  LEFT JOIN exercise3.university u 
-  ON c.univ_code = u.univ_code 
-  LEFT JOIN exercise3.designation des
-  ON e.desig_id = des.id
-  LEFT JOIN exercise3.department d 
-  ON dept_code IN 
-       (SELECT cd.udept_code 
-          FROM exercise3.college_department cd 
-         WHERE e.cdept_id = cd.cdept_id) 
- WHERE c.city IN ('chennai','coimbatore') 
-   AND u.university_name = ('anna university') 
- ORDER BY c.name, des.rank;
+SELECT employee.id
+      ,employee.name
+      ,employee.dob
+      ,employee.email
+      ,employee.phone
+      ,college.name college_name
+      ,college.city college_location
+      ,department.dept_name department_name
+      ,designation.rank
+  FROM exercise3.employee
+  LEFT JOIN exercise3.college 
+    ON employee.college_id = college.id
+  LEFT JOIN exercise3.university
+    ON college.univ_code = university.univ_code 
+  LEFT JOIN exercise3.designation
+    ON employee.desig_id = designation.id
+  LEFT JOIN exercise3.department 
+    ON dept_code IN 
+       (SELECT college_department.udept_code 
+          FROM exercise3.college_department
+         WHERE employee.cdept_id = college_department.cdept_id) 
+ WHERE college.city IN ('chennai', 'coimbatore') 
+   AND university.university_name = ('anna university') 
+ ORDER BY college.name, designation.rank;
  
 -- 5. students details along with their GRADE,CREDIT, etc., with pagination
-SELECT s.id, s.roll_number, s.name, s.gender, s.dob, s.email, s.phone, s.address, c.name college_name, u.university_name, sr.grade, sr.credits, sr.semester,
-       CASE WHEN grade='a+' THEN 10 / credits
-            WHEN grade='a' THEN 9 / credits
-            WHEN grade='b+' THEN 8 / credits
-            WHEN grade='b' THEN 7 / credits
-            WHEN grade='c' THEN 6 / credits
-            WHEN grade='f' THEN 0 / credits
+SELECT student.id
+      ,student.roll_number
+      ,student.name
+      ,student.gender
+      ,student.dob
+      ,student.email
+      ,student.phone
+      ,student.address
+      ,college.name college_name
+      ,university.university_name
+      ,semester_result.grade
+      ,semester_result.credits
+      ,semester_result.semester
+      ,CASE WHEN grade='a+' THEN 10
+            WHEN grade='a'  THEN 9
+            WHEN grade='b+' THEN 8
+            WHEN grade='b'  THEN 7
+            WHEN grade='c'  THEN 6
+            WHEN grade='f'  THEN 0
        END gpa
-  FROM exercise3.student s 
-  LEFT JOIN exercise3.college c 
-    ON s.college_id = c.id
-  LEFT JOIN exercise3.university u 
-    ON c.univ_code = u.univ_code
-  LEFT JOIN exercise3.semester_result sr
-    ON s.id = sr.stud_id 
- ORDER BY c.name, sr.semester
+  FROM exercise3.student
+  LEFT JOIN exercise3.college 
+    ON student.college_id = college.id
+  LEFT JOIN exercise3.university 
+    ON college.univ_code = university.univ_code
+  LEFT JOIN exercise3.semester_result
+    ON student.id = semester_result.stud_id 
+ ORDER BY college.name, semester_result.semester
  LIMIT 10 OFFSET 10;
 
 -- 8. employee vacancy position in all the departments from all the colleges 
-SELECT des.name designation, des.rank, c.name college, dept.dept_name, u.university_name 
-  FROM exercise3.college_department cd
- CROSS JOIN exercise3.designation des
- CROSS JOIN exercise3.employee e
-  LEFT JOIN exercise3.department dept 
-  ON cd.udept_code = dept.dept_code 
-  LEFT JOIN exercise3.college c 
-  ON cd.college_id = c.id
-  LEFT JOIN exercise3.university u 
-  ON c.univ_code = u.univ_code
- WHERE e.cdept_id = cd.cdept_id 
-   AND e.desig_id = des.id;
+SELECT designation.name designation
+      ,designation.rank
+      ,college.name college
+      ,department.dept_name
+      ,university.university_name 
+  FROM exercise3.college_department
+ CROSS JOIN exercise3.designation
+ CROSS JOIN exercise3.employee
+  LEFT JOIN exercise3.department 
+    ON college_department.udept_code = department.dept_code 
+  LEFT JOIN exercise3.college
+    ON college_department.college_id = college.id
+  LEFT JOIN exercise3.university 
+    ON college.univ_code = university.univ_code
+ WHERE employee.cdept_id = college_department.cdept_id 
+   AND employee.desig_id = designation.id;
  
 -- 9. 
-SELECT sf.semester, SUM(amount) collected_amount
-  FROM exercise3.semester_fee sf
- WHERE paid_status = 'paid' 
- GROUP BY semester;
+--  9a. collected and uncollected semester fees amount per semester for each college under an university. Result should be filtered based on given year.
+SELECT semester_fee.semester 
+      ,SUM(IF(semester_fee.paid_status = 'paid', semester_fee.amount, 0)) Collected_amount 
+      ,SUM(IF(semester_fee.paid_status = 'unpaid', semester_fee.amount, 0)) Uncollected_amount
+      ,college.name college_name
+      ,university.university_name
+  FROM exercise3.semester_fee
+  LEFT JOIN exercise3.student 
+    ON semester_fee.stud_id = student.id
+  LEFT JOIN exercise3.college 
+    ON college.id = student.college_id 
+  LEFT JOIN exercise3.university
+    ON university.univ_code = college.univ_code
+ WHERE semester_fee.paid_year IN ('2019', '2018','2020')
+ GROUP BY college.name;
+ 
+ -- 9b. Collected semester fees amount for each university for the given year
+SELECT SUM(IF(semester_fee.paid_status = 'paid', semester_fee.amount, 0)) Collected_amount
+      ,university.university_name
+  FROM exercise3.semester_fee
+  LEFT JOIN exercise3.student 
+    ON semester_fee.stud_id = student.id
+  LEFT JOIN exercise3.college 
+    ON college.id = student.college_id 
+  LEFT JOIN exercise3.university
+    ON university.univ_code = college.univ_code
+ WHERE semester_fee.paid_year IN ('2019', '2018','2020')
+ GROUP BY university.university_name;
+
 
 -- 10.  shows students details who scored above specified gpa
 
--- 10a
-SELECT s.roll_number, s.name, s.dob, s.gender, s.email, s.phone, s.address, s.academic_year, 
-       CASE WHEN grade='a+' THEN 10 / credits
-            WHEN grade='a' THEN 9 / credits
-            WHEN grade='b+' THEN 8 / credits
-            WHEN grade='b' THEN 7 / credits
-            WHEN grade='c' THEN 6 / credits
-            WHEN grade='f' THEN 0 / credits
+-- 10a students details who scored above 8 GPA in semester 4
+SELECT student.roll_number
+      ,student.name
+      ,student.dob
+      ,student.gender
+      ,student.email
+      ,student.phone
+      ,student.address
+      ,student.academic_year
+      ,CASE WHEN grade='a+' THEN 10
+            WHEN grade='a'  THEN 9
+            WHEN grade='b+' THEN 8
+            WHEN grade='b'  THEN 7
+            WHEN grade='c+' THEN 6
+            WHEN grade='c'  THEN 5
+            WHEN grade='f'  THEN 4
+            WHEN grade='u'  THEN 0
         END gpa
-  FROM exercise3.student s
- INNER JOIN exercise3.semester_result sr
- ON sr.stud_id = s.id
- WHERE sr.semester = 4
-   AND CASE WHEN grade='a+' THEN 10 / credits
-            WHEN grade='a' THEN 9 / credits
-            WHEN grade='b+' THEN 8 / credits
-            WHEN grade='b' THEN 7 / credits
-            WHEN grade='c' THEN 6 / credits
-            WHEN grade='f' THEN 0 / credits
-       END > 8;
-       
--- 10b
-SELECT s.roll_number, s.name, s.dob, s.gender, s.email, s.phone, s.address, s.academic_year, 
-       CASE WHEN grade='a+' THEN 10 / credits
-            WHEN grade='a' THEN 9 / credits
-            WHEN grade='b+' THEN 8 / credits
-            WHEN grade='b' THEN 7 / credits
-            WHEN grade='c' THEN 6 / credits
-            WHEN grade='f' THEN 0 / credits
-        END gpa
-  FROM exercise3.student s
- INNER JOIN exercise3.semester_result sr
- ON sr.stud_id = s.id
- WHERE sr.semester = 4
-   AND CASE WHEN grade='a+' THEN 10 / credits
-            WHEN grade='a' THEN 9 / credits
-            WHEN grade='b+' THEN 8 / credits
-            WHEN grade='b' THEN 7 / credits
-            WHEN grade='c' THEN 6 / credits
-            WHEN grade='f' THEN 0 / credits
-       END > 5;
+  FROM exercise3.student
+ INNER JOIN exercise3.semester_result
+    ON semester_result.stud_id = student.id
+ WHERE semester_result.semester = 4
+   AND grade IN ('a+', 'a');
+        
+-- 10b students details who scored above 5 GPA in semester 4
+SELECT student.roll_number
+      ,student.name
+      ,student.dob
+      ,student.gender
+      ,student.email
+      ,student.phone
+      ,student.address
+      ,student.academic_year 
+      ,CASE WHEN grade='a+' THEN 10
+            WHEN grade='a'  THEN 9
+            WHEN grade='b+' THEN 8
+            WHEN grade='b'  THEN 7
+            WHEN grade='c+' THEN 6
+            WHEN grade='c'  THEN 5
+            WHEN grade='f'  THEN 4
+            WHEN grade='u'  THEN 0
+       END gpa
+  FROM exercise3.student
+ INNER JOIN exercise3.semester_result
+    ON semester_result.stud_id = student.id
+ WHERE semester_result.semester = 4
+   AND semester_result.grade NOT IN ('c', 'f', 'u');

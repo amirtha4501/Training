@@ -7,4 +7,4 @@ RENAME TABLE exercise1.courses
     
 -- drop the table students
   DROP TABLE exercise1.students;
-  
+

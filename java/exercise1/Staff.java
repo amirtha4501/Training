@@ -32,8 +32,7 @@ public class Staff {
         staffName = name;
     }
     
-    public Staff(int num) {
-    }
+    public Staff(int num) { }
     
     public void showStaff(String consType) {
         System.out.println("From " + consType + " constructor \n" + "staffId: " + staffId);

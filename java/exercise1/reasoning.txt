@@ -1,0 +1,12 @@
+Why we can't create object for abstract class
+
+An abstract class may or may not have implementations for one or more methods. 
+If there is a possibility to create an object for abstract class, 
+and if we call any abstract methods in it, then JVM will not be able to decide what to do and how to allocate class memory.
+So that it is not possible to create an object for abstract class. 
+However, we can instantiate an abstract class if and only if it doesn't have any abstract methods in it.
+
+Why we can't create object for interface
+
+Similarly in interface, there is no implementation of methods and hence the JVM will also get strucked to allocate the memory for those.
+Hence, we can't instantiate an object for it.    

@@ -1,0 +1,12 @@
+/*
+    REQUIREMENTS:
+        - To find the methods that a class which implements the java.lang.CharSequence interface have to implement
+        - To find whether the interface, public interface Marker {} is valid or not
+*/
+
+The methods such as length, toString, charAt and subSequence shoud be 
+implemented by a class, if it implements the java.lang.CharSequence interface.
+
+It is possible to have an empty interface i.e. interface without any methods.
+They are called Marker interfaces or tagging interfaces. It is to inform java compiler that the classes implementing
+such interface can add special behavior.

@@ -1,0 +1,16 @@
+REQUIREMENTS:
+    - To find the static nested class, inner class does box define
+    - To find the superclass of Box's inner class
+    - To find which of the Box's nested classes that's used from any other classes
+    - To create an instance of Box's Filler class
+
+
+- The static nested class of Box class is Box.Filler which participates in layout but has no view.
+
+- The inner class that Box defines is Box.AccessibleBox
+
+- The superclass of Box's inner class is Container.AccessibleAWTContainer
+
+- The Box.Filler can be used by any other classes
+
+- To create an instance of Filler class: new Box.Filler(minDimension, prefDimension, maxDimension)

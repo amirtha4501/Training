@@ -17,13 +17,12 @@ class Adder {
 
         int sum = 0;
 
-        if(args.length > 1) {
-            for(String i: args) {
+        if (args.length > 1) {
+            for (String i: args) {
                 sum += Integer.parseInt(i);
             }
             System.out.println(sum);
-        }
-        else {
+        } else {
             System.out.println("Enter more than 1 argument");
         }
     }

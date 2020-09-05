@@ -17,10 +17,9 @@ class WrapDemo {
     public static void main(String[] args) {
 
         System.out.println("Hex string is " + Integer.toHexString(65)); 
-    
         System.out.println("base 5 string is " + Integer.valueOf("230", 5)); 
     
-        Double dblVal = (-2.0/0.0);
+        Double dblVal = (-2.0 / 0.0);
         System.out.println("has the special value? " + dblVal.isNaN());
     }
 }

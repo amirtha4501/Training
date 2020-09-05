@@ -18,6 +18,7 @@ public class NumberHolder {
     public float aFloat;
 
     public static void main(String[] args) {
+        
         NumberHolder numberHolder = new NumberHolder();
         
         numberHolder.anInt = 8;

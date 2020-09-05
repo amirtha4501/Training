@@ -3,6 +3,13 @@
         - To implement the CharSequence interface
     ENTITY: 
         - CharSeqDemo
+    METHOD SIGNATURE:
+        - private int fromEnd(int i);
+        - public char charAt(int i);
+        - public int length();
+        - public CharSequence subSequence(int start, int end);
+        - public String toString();
+        - private static int random(int max);
     WORK TO BE DONE:
         - create a method called fromEnd with a int parameter which returns the index in reverse order
         - create a method called charAt with int parameter that checks that the int is valid for the string or not
@@ -12,20 +19,12 @@
             check if the start and end index are not valid, throw exception
             else give such values to the method with fromEnd method for the index
             return the reversed string
-    METHOD SIGNATURE:
-        - private int fromEnd(int i);
-        - public char charAt(int i);
-        - public int length();
-        - public CharSequence subSequence(int start, int end);
-        - public String toString();
-        - private static int random(int max);
-    
-    -- referred from internet
 */
 
 package in.kpriet.training.java.interfaces;
 
 class CharSeqDemo implements CharSequence {
+
     private String s;
 
     public CharSeqDemo(String s) {
@@ -70,10 +69,11 @@ class CharSeqDemo implements CharSequence {
     }
 
     private static int random(int max) {
-        return (int) Math.round(Math.random() * (max+1));
+        return (int) Math.round(Math.random() * (max + 1));
     }
 
     public static void main(String[] args) {
+        
         CharSeqDemo s = new CharSeqDemo("Hello there! Have a nice day");
 
         for (int i = 0; i < s.length(); i++) {

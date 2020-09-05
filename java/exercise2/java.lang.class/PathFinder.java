@@ -20,6 +20,5 @@ class PathFinder {
 
         ProcessBuilder builder = new ProcessBuilder("C:.ProgramFiles.Notepad.exe PathFinder.java");
         ProcessBuilder build = new ProcessBuilder("notepad.exe");
-        // Process process = build.start();
     }
 }

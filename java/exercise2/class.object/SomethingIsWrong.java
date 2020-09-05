@@ -4,10 +4,10 @@
     ENTITY: 
         - SomethingIsWrong
         - Rectangle 
-    WORK TO BE DONE:
-        - create a class called rectangle with properties width, height and method area
     METHOD SIGNATURE:
         - int area();
+    WORK TO BE DONE:
+        - create a class called rectangle with properties width, height and method area
 */
 
 package in.kpriet.training.java.classes.objects;
@@ -22,7 +22,9 @@ class Rectangle {
 }
 
 public class SomethingIsWrong {
+
     public static void main(String[] args) {
+    
         Rectangle myRect = new Rectangle();
         myRect.width = 40;
         myRect.height = 50;

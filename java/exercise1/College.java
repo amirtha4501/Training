@@ -11,11 +11,12 @@ class Student {
     
     void getRecords() {
         int rollNo = 5;
+        
         System.out.println("Outer class " + name + "'s record: ");
         
         // Method local inner class
         class SemesterResult {
-        
+
             int maths;
             int physics;
             int chemistry;
@@ -28,14 +29,15 @@ class Student {
             
             void calculateGPA() {
                 System.out.println("Rollno " + rollNo + " " + name);
-                System.out.println("GPA from innerclass SemesterResult is " + ((maths + physics + chemistry) / 3) );
+                System.out.println("GPA from innerclass SemesterResult is " + ((maths + physics + chemistry) / 3));
             }
         }
         
-        SemesterResult semRes = new SemesterResult();
-        semRes.calculateGPA();
+        SemesterResult semesterResult = new SemesterResult();
+        semesterResult.calculateGPA();
     }
 }
+
 
 class College {
     
@@ -45,8 +47,8 @@ class College {
         student.getRecords();
         
         /* It is not possible to instantiate method local inner class from outside
-            SemesterResult semResult = new SemesterResult();
-            semResult.calculateGPA();
+            SemesterResult semesterResult = new SemesterResult();
+            semesterResult.calculateGPA();
         */
     }
 }

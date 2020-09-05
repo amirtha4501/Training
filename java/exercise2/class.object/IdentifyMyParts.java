@@ -45,7 +45,6 @@ public class IdentifyMyParts {
         System.out.println("\ny value from obj1 after change is " + identify1.y); // 15
         System.out.println("y value from obj2 after change is " + identify2.y);   // 3
 
-
         // Question 2
         IdentifyMyParts a = new IdentifyMyParts();
         IdentifyMyParts b = new IdentifyMyParts();

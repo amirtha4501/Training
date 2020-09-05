@@ -40,6 +40,7 @@ public class ClassB extends ClassA {
     }
 
     public static void main(String[] args) {
+        
         ClassA a = new ClassA();
         ClassB b = new ClassB();
 
@@ -59,7 +60,7 @@ public class ClassB extends ClassA {
 
 /*
     - methodTwo of ClassB overrides the method of classA
-    - methodFour of classB hides the method of classB
+    - methodFour of classB hides the method of classA
     - If static method of classB tries to hide instance method of classA, it will throw overriding method is static
     - If instance method of classB tries to override the static method of classA, it will throw overridden method is static
 */

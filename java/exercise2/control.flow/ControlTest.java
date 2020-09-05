@@ -18,8 +18,7 @@ class ControlTest {
             if (aNumber == 0) {
                 System.out.println("first string");
             }
-        }
-        else {
+        } else {
             System.out.println("second string");
         }
         System.out.println("third string");

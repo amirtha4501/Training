@@ -32,10 +32,10 @@ public class Staff {
         staffName = name;
     }
     
-    public Staff(int num) { }
+    public Staff(int number) { }
     
-    public void showStaff(String consType) {
-        System.out.println("From " + consType + " constructor \n" + "staffId: " + staffId);
+    public void showStaff(String constructorType) {
+        System.out.println("From " + constructorType + " constructor \n" + "staffId: " + staffId);
         System.out.println("secretKey: " + secretKey);
         System.out.println("departmentName: " + departmentName);
         System.out.println("staffName: " + staffName + "\n");

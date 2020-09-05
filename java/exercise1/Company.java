@@ -7,6 +7,7 @@ class Employee {
     } 
 } 
 
+
 class Company { 
 
     // An anonymous class with Employee as base class 
@@ -18,7 +19,7 @@ class Company {
         } 
     };
     
-    public static void main(String[] args){ 
+    public static void main(String[] args) { 
     
         employee.viewEmployee(); 
     } 

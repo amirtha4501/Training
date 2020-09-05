@@ -22,6 +22,7 @@ enum Progress {
 }
 
 class Enumeration {
+  
     public static void main(String[] args) {
 
       /* error: incomparable types: Status and Progress

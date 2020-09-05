@@ -13,7 +13,7 @@
         - check if the index is even with the help of modulo operator and if yes, convert the element to uppercase
 */
 
-package in.kpriet.training.java.strings;
+package in.kpriet.training.java.stringsdemo;
 
 import java.util.Arrays;
 
@@ -25,9 +25,9 @@ class StringPrinter {
 
         String temp;
 
-        for(int i = 0; i <= places.length - 1; i++) {
-            for(int j = i+1; j < places.length; j++) {
-                if(places[i].toLowerCase().compareTo(places[j].toLowerCase()) > 0) {
+        for (int i = 0; i <= places.length - 1; i++) {
+            for (int j = i + 1; j < places.length; j++) {
+                if (places[i].toLowerCase().compareTo(places[j].toLowerCase()) > 0) {
                     temp = places[i];
                     places[i] = places[j];
                     places[j] = temp;
@@ -35,8 +35,8 @@ class StringPrinter {
             }
         }
 
-        for(int i = 0; i <= places.length - 1; i++) {
-            if(i % 2 == 0) {
+        for (int i = 0; i <= places.length - 1; i++) {
+            if (i % 2 == 0) {
                 places[i] = places[i].toUpperCase();
             }
         }
@@ -45,6 +45,7 @@ class StringPrinter {
     }
 
     public static void main(String[] args) {
+        
         StringPrinter printer = new StringPrinter();
         printer.sortArray(places);
     }

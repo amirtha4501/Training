@@ -5,13 +5,13 @@
         - Animal
         - Cat
         - Snake
+    METHOD SIGNATURE:
+        - void makeSound();
+        - void makeSound(String name, String sound);
     WORK TO BE DONE:
         - Create two methods with same name and different parameter counts in Animal class
         - Call the methods with different parameters
         - Override the methods of Animal by the child 
-    METHOD SIGNATURE:
-        - void makeSound();
-        - void makeSound(String name, String sound);
 */
 
 package in.kpriet.training.java.inheritance;
@@ -27,6 +27,7 @@ class Animal {
     }
 }
 
+
 class Cat extends Animal {
 
     // constructor overriding
@@ -34,6 +35,7 @@ class Cat extends Animal {
         System.out.println("Hey there! I'm kitty - Child cat.\nI say mmam mamm meew");
     }
 }
+
 
 class Snake extends Animal {
     String name;
@@ -48,6 +50,7 @@ class Snake extends Animal {
         System.out.println("Hey there! I'm " + name + " - Child snake\nI say " + sound);
     }
 }
+
 
 class InheritTester {
     

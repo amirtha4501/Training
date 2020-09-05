@@ -24,6 +24,7 @@ class Product {
     }
 }
 
+
 class SuperMarket {
     
     public static void main(String[] args) {
@@ -33,8 +34,8 @@ class SuperMarket {
         product.listProducts();
         System.out.println("Discount amount from inner class " + product.discountAmount); 
         
-        Product productOuter = new Product();
-        System.out.println("Product cost from outer class " + productOuter.productCost); 
+        Product productOuterClass = new Product();
+        System.out.println("Product cost from outer class " + productOuterClass.productCost); 
 
         /* 
         Since non-static members and inner class both are strongly associated with outer class object, they can't exist

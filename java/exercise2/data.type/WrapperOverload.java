@@ -3,14 +3,14 @@
         - To demonstrate overloading with Wrapper types
     ENTITY: 
         - WrapperOverload
-    WORK TO BE DONE:
-        - create methods with same name and different parameter types
-        - call the method with same parameter type and similar parameter type
     METHOD SIGNATURE:
         - void wrapMethod(int val);
         - void wrapMethod(float val)
         - void wrapMethod(Integer val)
         - void wrapMethod(Float val)
+    WORK TO BE DONE:
+        - create methods with same name and different parameter types
+        - call the method with same parameter type and similar parameter type
 */
 
 package in.kpriet.training.java.data.type;

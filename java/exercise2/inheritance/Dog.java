@@ -4,12 +4,12 @@
     ENTITY: 
         - Animal
         - Dog
-    WORK TO BE DONE:
-        - Inherit two methods with same name and different parameter counts
-        - Override the method 1
     METHOD SIGNATURE:
         - void makeSound();
         - void makeSound(String name, String sound);
+    WORK TO BE DONE:
+        - Inherit two methods with same name and different parameter counts
+        - Override the method 1
 */
 
 package in.kpriet.training.java.inheritance;
@@ -32,6 +32,5 @@ class Dog extends Animal {
         
         dog.makeSound();
         dog.makeSound("tommy", "lol lol bow bow");
-        
     }
 }

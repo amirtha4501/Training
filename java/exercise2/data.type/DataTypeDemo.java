@@ -1,4 +1,4 @@
-/* ?
+/* 
     REQUIREMENTS:
         - To print the classname of all the primitive data types
         - To invert the value of a boolean
@@ -8,15 +8,14 @@
         - DataTypeDemo
     WORK TO BE DONE:
         - use type.class with the method getName() and to display it
-
         - use complement operator to invert the boolean value
-
         - create a variable of type Integer and try to compare.
 */
 
 package in.kpriet.training.java.data.type;
 
 class DataTypeDemo {
+    
     public static void main(String[] args) throws ClassNotFoundException {  
    
         Class integer = int.class;  

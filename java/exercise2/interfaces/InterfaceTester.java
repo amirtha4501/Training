@@ -16,9 +16,11 @@ interface SomethingIsWrong {
     }
 }
 
+
 class InterfaceTester implements SomethingIsWrong {
     
     public static void main(String[] args) {
+        
         SomethingIsWrong.aMethod(1);
     }
 }

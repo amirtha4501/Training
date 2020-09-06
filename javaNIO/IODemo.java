@@ -1,13 +1,15 @@
 import java.io.*;
 
-class IODemo {
-    public static void main(String[] args) {
-        InputStream input = new FileInputStream("...");
+public class IODemo {
+   public static void main(String[] args) throws Exception {
 
-        BufferedReader reader = new BufferedReader(new InputStreamReader(input));
-        
-        String name = reader.readLine();
-        String age = reader.readLine();
-        String phone = reader.readLine();        
-    }
+        FileReader fileReader = new FileReader("C:\\1DEV\\mytraining\\javaNIO\\temp1.txt"); 
+  
+        // Convert fileReader to bufferedReader 
+        BufferedReader buffReader = new BufferedReader(fileReader); 
+  
+        while (buffReader.ready()) { 
+            System.out.println(buffReader.readLine()); 
+        } 
+    }    
 }

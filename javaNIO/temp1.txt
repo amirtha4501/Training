@@ -1,1 +1,4 @@
 I'm from temp1.txt from the directory C:\\1DEV\\mytraining\\javaNIO
+ammu
+20
+phone

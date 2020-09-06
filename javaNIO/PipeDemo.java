@@ -4,7 +4,8 @@ import java.nio.channels.Pipe;
 
 class PipeDemo {
 
-    public static void main(String[] args) throws IOException {    
+    public static void main(String[] args) throws IOException {  
+          
         Pipe pipe = Pipe.open(); // create instance of pipe
 
         /* WRITING TO A FILE */

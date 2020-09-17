@@ -7,7 +7,6 @@ class ListArrayDemo {
 
     public static void main(String[] args) {
         
-        // List<String> chocolatesList = new ArrayList<>();
         List<String> chocolatesList = new ArrayList<>();
 
         chocolatesList.add("Caramel");
@@ -20,7 +19,9 @@ class ListArrayDemo {
         for(String chocky: chocolatesList) {
             System.out.print(chocky + " ");
         }
+        
         System.out.println();
+
         for(String chocky: chocolatesArray) {
             System.out.print(chocky + " ");
         }

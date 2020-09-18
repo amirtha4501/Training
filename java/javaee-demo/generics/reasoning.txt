@@ -1,0 +1,11 @@
+public final class Algorithm {
+    public static <T> T max(T x, T y) {
+        return x > y ? x : y;
+    }
+}
+
+The given class will not get compiled. Because the '>' operator is not applicable to the given types.
+Those operators are only applicable to primitive types.
+
+If we try to do it, we get,
+    error: bad operand types for binary operator '>'

@@ -14,7 +14,6 @@ import java.lang.FunctionalInterface;
 
 @FunctionalInterface
 interface RectangleInterface {
-    
     float calculateVolume(float length, float height, float width);
 }
 
@@ -28,7 +27,6 @@ class RectangleDemo {
         calculator = (length, height, width) -> {
             return length * height * width;
         };
-
         System.out.println("The volume of a rectangle is: " + calculator.calculateVolume(4, 2, 8));
     }
 }

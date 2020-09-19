@@ -1,3 +1,14 @@
+/*
+    REQUIREMENTS:
+        - To explain the working of contains(), isEmpty() with example.
+    ENTITIES:
+        - SetMethodsDemo
+    WORK TO BE DONE:
+        - create a set and add elements to it
+        - check whether the set is empty or not using isEmpty() method
+        - check whether the set contains the specified element or not using contains() method
+*/
+
 import java.util.Set;
 import java.util.HashSet;
 
@@ -9,7 +20,7 @@ class SetMethodsDemo {
 
         System.out.println("values list empty - " + values.isEmpty());
 
-        for(int i = 3; i < 8; i++) {
+        for (int i = 3; i < 8; i++) {
             values.add(i + 1);
         }
         

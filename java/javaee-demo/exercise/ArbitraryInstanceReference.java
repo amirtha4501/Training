@@ -24,6 +24,7 @@ public class ArbitraryInstanceReference {
 
     
     static class Person {
+        
         String name;
         
         Person(String name) {

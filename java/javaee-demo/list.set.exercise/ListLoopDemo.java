@@ -1,3 +1,21 @@
+/*
+    REQUIREMENTS:
+        - Create a list 
+            => Print the values in the list using 
+                - For loop
+                - For Each
+                - Iterator
+                - Stream API
+    ENTITIES:
+        - ListLoopDemo
+    WORK TO BE DONE:
+        - create a list and add elements to it
+        - use simple for loop to print the list elements
+        - use enhanced for loop to print the list elements
+        - use iterator to print the list elements
+        - use stream() to print the list elements
+*/
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Iterator;

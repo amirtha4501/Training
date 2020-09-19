@@ -25,7 +25,6 @@ class MultiCatchDemo {
         } catch (ArrayIndexOutOfBoundsException | ArithmeticException e) {
             System.out.println("\nIndex out of bound exception and arithmetic exception");
         } 
-
         System.out.println("\nAfter try catch...");
     }
 }

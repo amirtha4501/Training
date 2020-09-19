@@ -1,3 +1,15 @@
+/*
+    REQUIREMENTS:
+        - To explain about contains(), subList(), retainAll() with example
+    ENTITIES:
+        - ListMethodsDemo
+    WORK TO BE DONE:
+        - create lists and add elements to it
+        - use retainAll() method
+        - use contains() method
+        - use subList() method
+*/
+
 import java.util.List;
 import java.util.ArrayList;
 
@@ -8,11 +20,11 @@ class ListMethodsDemo {
         List<Integer> numbers = new ArrayList<Integer>();
         List<Integer> values = new ArrayList<Integer>();
 
-        for(int i = 0; i < 5; i++) {
+        for (int i = 0; i < 5; i++) {
             numbers.add(i + 1);
         }
 
-        for(int i = 3; i < 8; i++) {
+        for (int i = 3; i < 8; i++) {
             values.add(i + 1);
         }
         

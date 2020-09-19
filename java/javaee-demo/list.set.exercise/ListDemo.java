@@ -1,3 +1,18 @@
+/*
+    REQUIREMENTS:
+        - To create a list
+            => Add 10 values in the list
+            => Create another list and perform addAll() method with it
+            => Find the index of some value with indexOf() and lastIndexOf()
+    ENTITIES:
+        - ListDemo
+    WORK TO BE DONE:
+        - create a list and add elements to it
+        - create a new list and get its element from a list with addAll() method
+        - display the values in the new list
+        - use indexOf() and lastIndexOf() method to find index and print
+*/
+
 import java.util.ArrayList;
 import java.util.List;
 

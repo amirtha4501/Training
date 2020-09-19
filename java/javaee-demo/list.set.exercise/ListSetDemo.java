@@ -1,3 +1,14 @@
+/*
+    REQUIREMENTS:
+        - To convert the list to a set
+    ENTITIES:
+        - ListSetDemo
+    WORK TO BE DONE:
+        - create a list and add elements to it
+        - create a set and use addAll() method to get the list elements into it
+        - display the values
+*/
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;

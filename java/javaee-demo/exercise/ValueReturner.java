@@ -13,8 +13,7 @@
 import java.lang.FunctionalInterface;
 
 @FunctionalInterface
-interface ReturnInterface {
-    
+interface ReturnInterface { 
     int getValue();
 }
 

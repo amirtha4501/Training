@@ -1,3 +1,20 @@
+/*
+    REQUIREMENTS:
+        - To create a set
+            => Add 10 values
+            => Perform addAll() and removeAll() to the set.
+            => Iterate the set using 
+                - Iterator
+                - for-each
+    ENTITIES:
+        - SetDemo
+    WORK TO BE DONE:
+        - create a set and add elements to it
+        - add all elements of set one to another using addAll() method
+        - use retainAll() method to get the intersection
+        - print the values using enhanced for loop and Iterator
+*/
+
 import java.util.Iterator;
 import java.util.Set;
 import java.util.HashSet;
@@ -30,7 +47,8 @@ class SetDemo {
 
         // Iterator
         Iterator<String> iterator = snackSet.iterator();
-        while(iterator.hasNext()) {
+        
+        while (iterator.hasNext()) {
             String element = iterator.next();
             System.out.println(element);
         }

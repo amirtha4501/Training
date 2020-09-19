@@ -15,7 +15,6 @@ import java.lang.FunctionalInterface;
 
 @FunctionalInterface
 interface CalculatorInterface {
-    
     int calculateDifference(int number1, int number2);
 }
 
@@ -31,7 +30,6 @@ class LambdaDemo {
             if (difference < 0) { difference *= -1; }
             return difference;
         };
-
         System.out.println("The difference is: " + calculator.calculateDifference(4, 20));
     }
 }

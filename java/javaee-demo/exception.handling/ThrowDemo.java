@@ -37,7 +37,6 @@ class ThrowDemo {
 
         demo.checker(0);
         demo.checker(90);
-
     }
 }
 

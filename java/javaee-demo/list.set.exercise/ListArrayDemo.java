@@ -1,3 +1,14 @@
+/*
+    REQUIREMENTS:
+        - To convert the list to a array
+    ENTITIES:
+        - ListArrayDemo
+    WORK TO BE DONE:
+        - create a list and add elements to it
+        - create an array and get its element from a list with toArray() method
+        - display the values
+*/
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;

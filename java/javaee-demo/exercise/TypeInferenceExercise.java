@@ -9,9 +9,10 @@
         - remove the data type int in the function call's parameter
 */
 
-interface BiFunction{
+interface BiFunction {
     int print(int number1, int number2);
 }
+
 
 public class TypeInferenceExercise {
     public static void main(String[] args) {

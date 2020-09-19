@@ -36,7 +36,7 @@ class HashSetDemo {
 
         mobiles.remove("redme");
 
-        for(String mobile: mobiles) {
+        for (String mobile: mobiles) {
             System.out.print(mobile + " ");
         }
 
@@ -52,7 +52,7 @@ class HashSetDemo {
 
         System.out.println("\n" + numbers);
 
-        for(Integer number: numbers) {
+        for (Integer number: numbers) {
             System.out.print(number + " ");
         }
 
@@ -62,7 +62,7 @@ class HashSetDemo {
 
         Object[] arrayNumbers = numbers.toArray();
         
-        for(Object arrayNumber: arrayNumbers) {
+        for (Object arrayNumber: arrayNumbers) {
             System.out.print(arrayNumber + " ");
         }
 

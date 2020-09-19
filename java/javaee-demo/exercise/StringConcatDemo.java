@@ -15,7 +15,6 @@ import java.lang.FunctionalInterface;
 
 @FunctionalInterface
 interface ConcatInterface {
-    
     String concatString(String firstName, String lastName);
 }
 

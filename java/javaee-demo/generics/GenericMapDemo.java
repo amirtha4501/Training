@@ -25,7 +25,7 @@ class GenericMapDemo {
 
         System.out.println(members);
 
-        for(Integer number : members.keySet()) {
+        for(Integer number: members.keySet()) {
             String name = members.get(number);
             System.out.println(number + ":" + name);
         }

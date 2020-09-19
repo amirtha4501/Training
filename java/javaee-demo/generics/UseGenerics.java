@@ -1,3 +1,7 @@
+/*
+    To find the output of the program
+*/
+
 class UseGenerics {
 
     public static void main(String args[]) {  

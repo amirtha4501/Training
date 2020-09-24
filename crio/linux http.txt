@@ -1,0 +1,11 @@
+The cURL utility
+
+curl -X GET https://www.flipkart.com -o ~/flipkart.html
+curl https://www.flipkart.com
+curl -X GET http://www.flipkart.com -o flipkart.html 	-/-	curl -X GET http://www.flipkart.com
+curl -i -X GET http://www.flipkart.com -o flipkart.html	-/-	curl -i -X GET http://www.flipkart.com
+curl -v -X GET http://www.flipkart.com -o flipkart.html	-/- 	curl -v -X GET http://www.flipkart.com
+curl -v -L -X GET http://www.flipkart.com -o flipkart.html	 # still using http and not https
+
+
+

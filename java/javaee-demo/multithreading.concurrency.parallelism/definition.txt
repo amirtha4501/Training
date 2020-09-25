@@ -1,0 +1,12 @@
+Concurrency
+
+Concurrency means that an application is making progress on more than 
+one task at the same time (concurrently).
+Concurrency means executing multiple tasks at the same time but not necessarily simultaneously.
+Concurrency is about dealing with lots of things at once. 
+
+Parallelism
+
+Parallelism means that an application splits its tasks up into smaller subtasks which can be processed in parallel, for instance 
+on multiple CPUs at the exact same time.
+Parallelism is about doing lots of things at once.

@@ -7,6 +7,15 @@
         - create an array of numbers
         - print value 3 divided by numbers within try block
         - catch ArrayIndexOutOfBoundsException and ArithmeticException
+    PSEUDOCODE:
+        {
+            In the main function
+
+            try
+                print "Try with finally block"
+            finally 
+                print "finally block"
+        }
 */
 
 class TryBlockDemo {

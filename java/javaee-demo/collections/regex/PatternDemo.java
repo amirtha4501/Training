@@ -17,6 +17,15 @@
             -> if it has any special characters, return false
         - if any condition return false, print 'invalid input'
         - else print 'valid input'
+    PSEUDOCODE:
+        {
+            create a string called password
+
+            design a pattern and compile it using Pattern class
+
+            check whether the string matches the pattern 
+            print the result
+        }    
 */
 
 import java.util.regex.Matcher;

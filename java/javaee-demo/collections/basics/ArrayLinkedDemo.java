@@ -10,6 +10,21 @@
         - Iterate through the items in the ArrayList.
             -> for each item, add it to the linked list
         - display the list
+    PSEUDOCODE:
+        {
+            In the main function
+            
+            create a array list and add elements into the list
+            
+            for each element in the array list
+                print element
+            
+            create a linked list
+            pass the arraylist into the linked list
+
+            for each element in the array list
+                print element
+        }
 */
 
 import java.util.List;

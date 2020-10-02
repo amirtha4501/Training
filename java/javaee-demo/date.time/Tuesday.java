@@ -7,6 +7,14 @@
         - get date a input from user as string
         - convert it to date type
         - calculate the date on friday  
+    PSEUDOCODE:
+        {
+            In the main function
+
+            get date input
+            convert string to local date
+            print the result
+        }
 */
 
 import java.util.Scanner;
@@ -31,6 +39,5 @@ class Tuesday {
         LocalDate date = LocalDate.parse(inputDate, formatter);
 
         System.out.println(date.format(calendar));
-
     }
 }

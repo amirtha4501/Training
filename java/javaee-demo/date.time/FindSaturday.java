@@ -9,6 +9,22 @@
         - get month as an input from user as september
         - convert it to uppercase
         - calculate all the saturday 
+    PSEUDOCODE:
+        {
+            In the main function
+
+            get input year
+            get input month and convert it to uppercase
+            print month input
+
+            give the inputs into calendar
+
+            while calendar.get(Calendar.MONTH) == month
+                get day of the week
+                if day == saturday
+                    get day of month
+                    add to calendar
+        }
 */
 
 import java.util.Scanner;
@@ -16,6 +32,7 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 public class FindSaturday {
+
     public static void main(String[] args) {
         
         Scanner scanner = new Scanner(System.in);  
@@ -36,6 +53,6 @@ public class FindSaturday {
                 System.out.println(calendar.get(Calendar.DAY_OF_MONTH));
             }
             calendar.add(Calendar.DAY_OF_YEAR, 1);
-        }  while (calendar.get(Calendar.MONTH) == month);
+        } while (calendar.get(Calendar.MONTH) == month);
     }
 }

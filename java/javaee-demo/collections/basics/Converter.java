@@ -9,6 +9,17 @@
         - add elements to the list
         - iterate over the list
             -> if element starts with a or A, print the element
+    PSEUDOCODE:
+        {
+            In the main function
+            
+            create a array list 
+            add elements into the list
+            
+            for each element in the array list
+                convert element to uppercase
+                print the element
+        }
 */
 
 import java.util.List;

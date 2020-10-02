@@ -9,6 +9,19 @@
         - set date time into calendar object
         - convert calendar to date type 
         - print the output
+    PSEUDOCODE:
+        {
+            In the main function
+
+            get the date instance
+
+            get the calendar instance
+            instance.setTime(date)
+            print date
+
+            Date newDate = calendar.getTime()
+            print newDate
+        }
 */
 
 import java.util.Calendar;
@@ -27,6 +40,6 @@ class Converter {
 
         // Converting Calendar to Date 
         Date newDate = calendar.getTime(); 
-        System.out.println("Calendar to Date: " + date);
+        System.out.println("Calendar to Date: " + newDate);
     }
 }

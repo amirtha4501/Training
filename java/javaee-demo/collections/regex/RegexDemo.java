@@ -19,6 +19,24 @@
             -> if it has any special characters, return false
         - if any condition return false, print 'invalid input'
         - else print 'valid input'
+    PSEUDOCODE:
+        {
+            In the main function
+
+            create a regex pattern
+            create a string called greeting
+
+            check the pattern and print the result
+
+            use lookingAt and print
+
+            while (matcher.find()) {
+                System.out.println("Found at: "+ matcher.start() + " - " + matcher.end());
+            }
+
+            use replaceAll()
+            use appendReplacement()
+        }
 */
 
 import java.util.regex.Matcher;
@@ -45,7 +63,6 @@ class RegexDemo {
         while (matcher2.find()) {
             System.out.println("Found at: "+ matcher2.start() + " - " + matcher2.end());
         }
-
         
         String search = "a";
         String input = "ragfafuaa";
@@ -57,7 +74,6 @@ class RegexDemo {
             count++; 
         }
         System.out.println(count);
-
 
         String text = "I like India. I like TN.";
         String textPattern = "((like) (.+?))";

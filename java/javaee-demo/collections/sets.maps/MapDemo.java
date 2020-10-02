@@ -13,6 +13,23 @@
         - remove element
         - check if key exists in map and value exists in map
         - replace the element in map with new element
+    PSEUDOCODE:
+        {
+            In the main function
+
+            create a hashmap called fruits
+            put elements to fruits
+            print fruits
+
+            remove element from fruits
+
+            check whether the fruits contains the element with the key
+            check whether the fruits contains the element with the value
+            print the results
+
+            replace the element in the fruits
+            print fruits
+        }
 */
 
 import java.util.Map;

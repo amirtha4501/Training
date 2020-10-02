@@ -14,6 +14,27 @@
         - create, add and traverse linked hash set
         - create linked hash set and convert to an array using toArray() method
         - create tree set and add values to it
+    PSEUDOCODE:
+        {
+            In the main function
+
+            create a hashset called mobiles
+            add the elements to the mobiles hashset
+            print mobiles
+
+            remove a element from mobiles
+
+            for each mobile in mobiles
+                print mobile
+            
+            create a linked hashset called numbers
+            add a elements to the numbers linked hashset
+
+            for each number in numbers
+                print the number
+            
+            do same for object and treeset
+        }
 */
 
 import java.util.HashSet;

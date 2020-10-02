@@ -2,8 +2,7 @@
     REQUIREMENTS:
         - To write a Java program to calculate your age 
     ENTITIES:
-        - Converter
-        - Printer
+        - AgeCalculator
     METHOD SIGNATURE:
         - public void run();
     WORK TO BE DONE:
@@ -11,6 +10,22 @@
         - calculate current date
         - calculate difference between the input and the current date
         - print the difference
+    PSEUDOCODE:
+        {
+            In the main function
+            
+            get dob as input from user
+
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy")
+            
+            parse the inputDate and formatter using LocalDate parse method
+
+            get year, month, day of month from LocalDate of method
+
+            calculate the difference between dob and the current date
+
+            print age
+        }
 */
 
 import java.util.Scanner;

@@ -20,6 +20,35 @@
         - if quantity greater than 120
             -> then revenue is revenue - discount where discount is 15 / 100 * unit price * quantity 
         - print result with discount percentage where discount percentage is discount * 100
+    PSEUDOCODE:
+        {
+            In the main function
+
+            discountRate = 0f
+            discountAmount = 0f
+            unitPrice = 0f
+            quantity = 0
+            revenue = 0f
+
+            get unit price as input from the user of float type
+            
+            get quantity as input from the user of type int
+
+            if quantity < 100
+                revenue = unitPrice * quantity
+            else if quantity >= 100 and quantity <= 120
+                discountRate = 10 / 100
+                revenue = unitPrice * quantity
+                discountAmount = revenue * discountRate
+                revenue -= discountAmount
+            else if quantity > 120
+                discountRate = 15 / 100
+                revenue = unitPrice * quantity
+                discountAmount = revenue * discountRate
+                revenue -= discountAmount
+            
+            print the revenue, discount amount and discount rate
+        }
 */
 
 import java.util.Scanner;

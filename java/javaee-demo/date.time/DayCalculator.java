@@ -9,6 +9,17 @@
         - give year and month to a converter
         - calculate the days
         - display the result  
+    PSEUDOCODE:
+        {
+            In the main function
+
+            get year as input from user
+            get month as input from user
+
+            YearMonth yearMonth = YearMonth.of(year, month)
+            get length of month
+            print days
+        }
 */
 
 import java.time.YearMonth;

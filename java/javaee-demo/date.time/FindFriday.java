@@ -8,6 +8,17 @@
         - get date a input from user as string
         - convert it to date type
         - calculate the previous friday 
+    PSEUDOCODE:
+        {
+            In the main function
+
+            get date as input from user
+
+            convert the string date to localdate
+
+            calculate previous friday with temporal adjusters previous method
+            print the date
+        }
 */
 
 import java.util.Scanner;

@@ -19,6 +19,35 @@
             -> else, print false
         - check if a string is 8-12 characters long and have atleast 1 uppercase 
           and lowercase letter and atleast 1 digit
+    PSEUDOCODE:
+        {
+            In the main function
+
+            string1 = "Hello*"
+            string2 = "Hell\\+"
+            string3 = "Hello{2}"
+            string4 = "Hello{2,4}"
+
+            text1 = "Hello"
+            text2 = "Helloo"
+            text3 = "Helloo"
+            text4 = "Hellooo"
+
+            matches1 = text1.matches(string1)
+            matches2 = text2.matches(string2)
+            matches3 = text3.matches(string3)
+            matches4 = text4.matches(string4)
+
+            print the matches
+
+            design a patten for email
+            create a string called email
+            check and print the result
+            
+            design a patten for password
+            create a string called password
+            check and print the result
+        }
 */
 
 import java.util.regex.Pattern;
@@ -53,7 +82,6 @@ class QuantifierDemo {
         Pattern passChecker = Pattern.compile("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,20}$");
         String password = "amirtha23A";
         Matcher passMatcher = passChecker.matcher(password);
-        System.out.println(passMatcher.matches());
-        
+        System.out.println(passMatcher.matches());        
     }
 }

@@ -12,6 +12,17 @@
         - remove elements at last
         - get element at the first position
         - get element at the last position
+    PSEUDOCODE:
+        {
+            In the main function
+
+            create a array deque and print it
+            add elements at first with addFirst()
+            add elements at last with addLast()
+            remove elements at first with removeFirst() and pollFirst() 
+            remove elements at last with removeLast() and pollLast()
+            print the results
+        }
 */
 
 import java.util.ArrayDeque;

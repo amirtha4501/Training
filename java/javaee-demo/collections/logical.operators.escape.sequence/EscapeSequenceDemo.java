@@ -12,6 +12,18 @@
     WORK TO BE DONE:
         - create strings
         - use escape characters
+    PSEUDOCODE:
+        {
+            In the main function
+
+            create string1 with a text to demonstrate ""
+            create string2 with a text to demonstrate \t\n..
+            create string3 with escaping characters
+
+            print string1
+            print string2
+            print string3
+        }
 */
 
 class EscapeSequenceDemo {

@@ -9,6 +9,19 @@
         - remove element using poll() method
         - remove element using remove() method
         - print the result
+    PSEUDOCODE:
+        {
+            In the main function
+
+            create a linked list of type queue
+            print the queue
+            
+            poll the element from the queue
+            print the result
+
+            remove the element from the queue
+            print the result
+        }
 */
 
 import java.util.Queue;

@@ -7,6 +7,19 @@
         - initialise a stack
         - add elements into the stack
         - remove elements into the stack
+    PSEUDOCODE:
+        {
+            In the main function
+
+            create a stact called products
+            print the products
+            
+            push the elements into the stack
+            print the products
+
+            pop the element 
+            print the result
+        }
 */
 
 import java.util.Stack;

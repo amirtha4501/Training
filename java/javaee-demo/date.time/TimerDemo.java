@@ -13,6 +13,27 @@
         - call schedule method with run method, start time and delay
         - calculate the end time
         - print the statement with time in milli seconds
+    PSEUDOCODE:
+        class Printer extends TimerTask {
+            Printer(start) {
+                this.start = start
+            }
+
+            function run {
+                get end time 
+                get duration between start and end
+                print values
+            }
+        }
+
+        {
+            In the main function
+
+            get timer instance
+            get start time
+            give start time to printer class
+            invoke schedule method
+        }
 */
 
 import java.util.Timer; 

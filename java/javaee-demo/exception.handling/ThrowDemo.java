@@ -9,6 +9,31 @@
     WORK TO BE DONE:
         - create two methods, one for throwing error and one uses throws keyword
         - catch the throws part
+    PSEUDOCODE:
+        {
+            In function checker(int number1, int number2) {
+                return number1 / number2
+            }
+
+            In function checker(int number) {
+                if number == 0
+                    throw arithmetic exception
+                else 
+                    print valid
+            }
+
+            In the main function
+
+            get throw demo instance
+
+            try 
+                print the checker(3, 0) with 2 arguments
+            catch ArithmeticException occurs
+                print "error message"
+                
+                invoke checker(0)
+                invoke checker(90)
+        }
 */
 
 class ThrowDemo {

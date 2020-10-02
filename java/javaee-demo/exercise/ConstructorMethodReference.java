@@ -7,6 +7,27 @@
         - MyInterface
     METHOD SIGNATURE:
         - MyClass printWord();
+    WORK TO BE DONE:
+        - create interface
+        - create class called myclass
+        - call method with reference
+    PSEUDOCODE:
+        interface {
+            ClassType printword()
+        }
+
+        class {
+            constructor {
+                print "hello"
+            }
+        }
+
+        {
+            In the main function
+
+            MyInterface myClass = MyClass::new;
+            myClass.printWord()
+        }
 */
 
 import java.util.List;

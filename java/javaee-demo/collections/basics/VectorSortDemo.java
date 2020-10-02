@@ -8,6 +8,19 @@
         - add elements to it
         - compare and sort the list
         - display the elements 
+    PSEUDOCODE:
+        {
+            In the main function
+
+            create a vector called cycles
+
+            add elements to the vector
+            print the result
+
+            Create comparator
+            sort it by giving vector and comparator
+            print the result
+        }
 */
 
 import java.util.Collections;

@@ -5,6 +5,15 @@
         - ExceptionDemo
     WORK TO BE DONE:
         - place the print statement in try block and catch the exception
+    PSEUDOCODE:
+        {
+            In the main function
+
+            create an arr with values 1, 2, 3, 4, 5
+            try to get arr[7]
+            catch if ArrayIndexOutOfBoundsException occurs
+                print it
+        }
 */
 
 public class ExceptionDemo {  

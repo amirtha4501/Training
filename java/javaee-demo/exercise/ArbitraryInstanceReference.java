@@ -8,6 +8,23 @@
     WORK TO BE DONE:
         - create a method that print name inside the inner class
         - call the method using reference
+    PSEUDOCODE:
+        {
+            In the main function
+
+            create people list and add values to it.
+            people.forEach(Person::printName)
+
+            static class person {
+                person(name) {
+                    name = name
+                }
+
+                function printName {
+                    print name
+                }
+            }
+        }
 */
 
 import java.util.List;

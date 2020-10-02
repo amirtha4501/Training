@@ -3,11 +3,28 @@
         - To convert the given anonymous class into lambda expression.
     ENTITIES:
         - EvenOrOdd
+        - CheckNumber
     METHOD SIGNATURE:
-        String concatString(String firstName, String lastName);
+        - public boolean isEven(int value);
     WORK TO BE DONE:
-        - create an functional interface with method signature calculateDifference(number1, number2) with return type int
-        - write a lambda expression that returns the difference.
+        - create an functional interface with method signature public boolean isEven(int value); with return type boolean
+        - check if number is mod of 2
+            -> true
+        - else 
+            -> false
+        - print result
+    PSEUDOCODE:
+        {
+            In the main function
+
+            calculate using lambda
+            if value % 2 == 0
+                return true;
+            else 
+                return false;
+
+            print result
+        }
 */
 
 interface CheckNumber {

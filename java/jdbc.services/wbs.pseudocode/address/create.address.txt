@@ -15,10 +15,10 @@ WORK TO BE DONE:
     1.1 Throw AppException with message "postalCode should not be empty"
 2. Establish connection using JDBC driver and store it in con of type Connection
 3. Prepare insert query and store it in insertQuery of type String
-4. Prepare "ps" using con, return auto genarated keys to return the generated id
+4. Prepare "ps" using con, return auto generated keys to return the generated id
    and insertQuery
 5. Set address in ps and execute ps
-6. Check whether the genaratedAddressId is zero
+6. Check whether the generatedAddressId is zero
     6.1 Throw AppException with message "Address creation failed"
 7. Return generatedAddressId
 
@@ -43,7 +43,7 @@ PSEUDOCODE:
                 PreparedStatement ps = con.prepareStatement(insertQuery, RETURN_GENERATED_KEYS);
                 ps.setString(1, address.street);
                 ps.setString(2, address.city);
-                ps.setString(3,address.postalCode);
+                ps.setString(3, address.postalCode);
                 long generatedAddressId = ps.executeUpdate();
             } catch() {
                 System.out.println(errorCode, errorMessage);
@@ -53,6 +53,6 @@ PSEUDOCODE:
                 throw new AppException(errorCode, "Address creation failed");
             }
 
-            return genaratedAddressId;      
+            return generatedAddressId;      
         }
     }

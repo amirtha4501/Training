@@ -1,14 +1,14 @@
 REQUIREMENTS:
-1. To perform update operation for Address Service
+1. To perform update operation for Person Service
 
 ENTITY:
-1. Address
-2. AddressService
+1. Person
+2. PersonService
 3. AppException
 4. ErrorCode
 
 METHOD SIGNATURE:
-1. public Address update(int id, Address address);
+1. public Person update(int id, Person person);
 
 WORK TO BE DONE:
 1. Establish connection using JDBC driver and store it in con of type Connection
@@ -20,11 +20,11 @@ WORK TO BE DONE:
 
 PSEUDOCODE:
 
-    class AddressService {
+    class PersonService {
 
-        public String update(int id, Address address) {
+        public String update(int id, Person person) {
             
-            if (address.id <= 0) {
+            if (person.id <= 0) {
                 throw new AppException(errorCode, "id is invalid");
             }
             
@@ -35,11 +35,12 @@ PSEUDOCODE:
             try {
                 Connection con = DriverManager.getConnection(url, username, password);
 
-                String updateQuery = "UPDATE address set street=?, city=?, postalCode=? WHERE id = id";
+                String updateQuery = "UPDATE person SET name=?, email=?, birth_date=?, created_date=? WHERE id = id";
                 PreparedStatement ps = con.prepareStatement(updateQuery);
-                ps.setString(address.street, street);
-                ps.setString(address.city, city);
-                ps.setString(address.postalCode, postalCode);
+                ps.setString(person.name, name);
+                ps.setString(person.email, email);
+                ps.setString(person.birth_date, birth_date);
+                ps.setString(person.created_date, created_date);
                 
                 ResultSet rs = ps.executeUpdate(); 
             } catch() {

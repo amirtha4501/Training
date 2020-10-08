@@ -23,3 +23,23 @@ assign env variable for the dbString, username, password
 
 Warning about SSL connection when connecting to MySQL database:
 jdbc:mysql://localhost:3303/Employee?autoReconnect=true&useSSL=false
+
+
+
+EXECUTE ADDRESS:
+
+class MyClass {
+	public static void main(String[] args) throws AppException {
+		AddressService addressService = new AddressService();
+		Address address = new Address();
+		address.street = "street";
+		address.city = "city";
+		address.postalCode = 123456;
+		addressService.create(address);
+	}
+}
+
+System.out.println(addressService.read(1));
+System.out.println(addressService.readAll());
+System.out.println(addressService.update(3, address));
+System.out.println(addressService.delete(3));

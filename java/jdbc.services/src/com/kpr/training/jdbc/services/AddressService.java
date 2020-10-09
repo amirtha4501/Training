@@ -2,8 +2,8 @@ package com.kpr.training.jdbc.services;
 
 import com.kpr.training.jdbc.exception.AppException;
 import com.kpr.training.jdbc.exception.ExceptionCode;
+import com.kpr.training.jdbc.model.Address;
 import com.kpr.training.jdbc.services.AppConfig;
-import com.kpr.training.jdbc.services.Address;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -39,7 +39,7 @@ public class AddressService {
             	System.out.println("Address created with id: " + generatedAddressId);
             }
             
-        } catch(Exception e) {
+        } catch (Exception e) {
 			System.out.println("error: " + e);
 		}
 
@@ -65,21 +65,28 @@ public class AddressService {
             
             ResultSet rs = ps.executeQuery(); 
 
-            if(rs.next()) {
-            
+            if (rs.next()) {            
             	String street = rs.getString("street"); 
             	String city = rs.getString("city"); 
             	long postalCode = rs.getLong("postal_code");
             	
         		address.street = street;
         		address.city = city;
-        		address.postalCode = postalCode;
+        		address.postalCode = postalCode;	
             }
-        } catch(Exception e) {
-			System.out.println("error: " + e);
+        } catch (Exception e) {
+			System.out.println("error: " + e.getMessage());
 		}
 
-		return address;
+		// ! print without try block
+		try {
+			if (address.isEmpty()) {
+				throw new AppException(ExceptionCode.READ_FAILED, "id not found");
+			}
+		} catch (AppException e) {
+			System.out.println("errorCode:" + e.getErrorCode() + " " + e.getErrorMessage());
+		}
+		return address;		
 	}
 	
 	public List<Address> readAll() throws AppException {
@@ -106,7 +113,7 @@ public class AddressService {
         		
         		addresses.add(address);
             }
-        } catch(Exception e) {
+        } catch (Exception e) {
 			System.out.println("error: " + e);
 		}
 		return addresses; 
@@ -127,12 +134,16 @@ public class AddressService {
             ps.setString(2, address.city);
             ps.setLong(3, address.postalCode);
             
-            ps.executeUpdate();
-            
-        } catch(Exception e) {
-			System.out.println("error: " + e);
+            int result = ps.executeUpdate();
+            if (result == 0) {
+            	throw new AppException(ExceptionCode.UPDATE_FAILED, "id not found");
+            }
+        } catch (AppException e) {
+			System.out.println("errorCode:" + e.getErrorCode() + " " + e.getErrorMessage());
+		} catch (Exception e) {
+			System.out.println("error: " + e.getMessage());
 		}
-
+		
 		return address;
 	}
 	
@@ -150,8 +161,12 @@ public class AddressService {
             PreparedStatement ps = con.prepareStatement(deleteQuery);
             
             result = ps.executeUpdate(); 
-
-        } catch(Exception e) {
+            if (result == 0) {
+            	throw new AppException(ExceptionCode.DELETE_FAILED, "id not found");
+            }
+		} catch (AppException e) {
+			System.out.println("errorCode:" + e.getErrorCode() + " " + e.getErrorMessage());
+        } catch (Exception e) {
 			System.out.println("error: " + e);
 		}
 		

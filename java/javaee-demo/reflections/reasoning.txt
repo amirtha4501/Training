@@ -1,0 +1,32 @@
+Loading is the process of finding the binary representation of a class or interface type 
+with a particular name and creating a class or interface from that binary representation
+
+STATIC CLASS LOADING
+Creating objects and instance using new keyword. 
+The retrieval of class definition and instantiation of the object is done at compile time.
+
+DYNAMIC CLASS LOADING
+It is achieved through Run time type identification,also called as reflection.
+
+Reloading the class is not possible using java's builtin class loaders.
+In order to reload the class, the ClassLoader subclass should be implemented.
+
+CONSTRUCTOR TYPES
+Default
+No-arg
+Parameterized
+
+The constructor is to initialize the current state of the object by setting the initial values.
+It's not called directly by your code, it's called by the memory allocation 
+and object initialization code in the runtime. Hence
+
+METHOD:
+    - Return values
+    - To exhibit the functionality of the object
+    - Invoked explicitly
+    - Class name and method need not to be same
+CONSTRUCTOR:
+    - Does not return any values
+    - To initialize an object
+    - Invoked implicitly
+    - Class name and method need to be same

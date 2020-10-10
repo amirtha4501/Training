@@ -1,6 +1,6 @@
 /*
     REQUIREMENTS:
-        - To write a program to print employees name list by implementing iterable interface.
+        - To write a program to print employees name list by implementing iterable interface
     ENTITIES:
         - Employee
         - EmployeeTester

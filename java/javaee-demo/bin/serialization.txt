@@ -1,0 +1,9 @@
+Serialization
+    - It is the process of converting an object into byte streams
+
+Serialization Purpose
+    - The sequence of bytes includes object's data, object type and type of data stored in an object
+    - It is used to save object's state to recreate the object when needed.
+
+If one of the members in a class does not implement Serializable interface
+    - It will throw NotSerializableException, if the object includes a reference of an non serializable object

@@ -1,0 +1,15 @@
+Reference to a static method	
+    Class::staticMethod	
+    String::valueOf	
+
+Reference to an instance method of a particular object	
+    instance::instanceMethod	
+    s:toString	 
+
+Reference to an instance method of an arbitrary object of a particular type
+	Class:instanceMethod	
+    String::toString
+
+Reference to a constructor	
+    Class::new	
+    String::new	

@@ -62,10 +62,10 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Field; 
 import java.lang.reflect.Constructor; 
 
-class Demo { 
+class DemoClass { 
     private String name; 
 
-    public Demo() { 
+    public DemoClass() { 
         name = "ammu";
     } 
 
@@ -87,11 +87,11 @@ class ClassDemo {
 
     public static void main(String args[]) throws Exception {
 
-        private ClassDemo() {
+//        private ClassDemo() {
             // private constructor
-        }
+//        }
 
-        Demo demo = new Demo(); 
+    	DemoClass demo = new DemoClass(); 
 
         Class myClass = demo.getClass(); 
         System.out.println("Class name: " + myClass.getName()); 

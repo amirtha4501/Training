@@ -116,7 +116,7 @@ public class Person {
     
     public static void main(String[] args) {
         
-        Person person = new Person("Jane", IsoChronology.INSTANCE.date(1990, 7, 15), Person.Sex.FEMALE, "jane@example.com"));
+        Person person = new Person("Jane", IsoChronology.INSTANCE.date(1990, 7, 15), Person.Sex.FEMALE, "jane@example.com");
         // person.createRoster();
     }
 }

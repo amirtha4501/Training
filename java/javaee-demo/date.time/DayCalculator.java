@@ -40,6 +40,6 @@ class DayCalculator {
         YearMonth yearMonth = YearMonth.of(year, month);
         int days = yearMonth.lengthOfMonth(); //28  
         
-        System.out.println("Total days: ", days);
+        System.out.println("Total days: " + days);
     }
 }

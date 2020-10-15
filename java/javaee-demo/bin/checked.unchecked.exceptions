@@ -1,0 +1,11 @@
+CHECKED EXCEPTIONS:
+    - Exceptions occur during compile time.
+    - The compiler checks at the compile time that whether the program contains handlers or not.
+    - These exceptions extend java.lang.Exception class 
+    - eg. IOException, ClassNotFoundException, FileNotFoundException, SQLException,..
+
+UNCHECKED EXCEPTIONS:
+    - Exceptions occur during run time.
+    - These exceptions cannot be anticipated and recovered like programming bugs, such as logic errors.
+    - These exceptions extend java.lang.RuntimeException class.
+    - eg. ArithmeticException, ClassCastException, NullPointerException, ArrayIndexOutOfBoundsException,..

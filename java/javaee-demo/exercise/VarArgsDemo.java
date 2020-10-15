@@ -26,7 +26,7 @@ class VarArgsDemo {
         VarArgsInterface intAdder;
 
         intAdder = (int... numbers) -> {
-            int total;
+            int total = 0;
             for (int number: numbers) {
                 total += number;
             }

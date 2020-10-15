@@ -18,15 +18,14 @@
 */
 
 import java.util.Scanner;
+import java.util.Calendar;
 import java.time.LocalDate;
-import java.time.DayOfWeek;
 import java.time.format.DateTimeFormatter;
-import java.time.temporal.TemporalAdjusters;
 
 class Tuesday {
     public static void main(String[] args) {
 
-        // Calendar calendar = Calendar.getInstance();
+        Calendar calendar = Calendar.getInstance();
 
         Scanner scanner = new Scanner(System.in);  
         System.out.print("Enter date(dd/mm/yy): ");
@@ -38,6 +37,6 @@ class Tuesday {
         //convert String to LocalDate
         LocalDate date = LocalDate.parse(inputDate, formatter);
 
-        System.out.println(date.format(calendar));
+        System.out.println(date);
     }
 }

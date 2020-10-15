@@ -1,0 +1,9 @@
+Stream tokenizer
+    - It takes an input stream and parses it into "tokens", allowing the tokens to be read one at a time.
+    - It can recognize identifiers, numbers, quoted strings, and various comment styles.
+    - Methods
+        -> nextToken()
+        -> pushBack()
+        -> eolIsSignificant()
+        -> parseNumbers()
+        

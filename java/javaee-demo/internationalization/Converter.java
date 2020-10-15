@@ -35,7 +35,7 @@
 import java.text.NumberFormat;
 import java.util.Locale;
 
-class Converter {
+class InternationalizationConverter {
 
     public static void main(String[] args) {
 

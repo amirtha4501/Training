@@ -10,7 +10,7 @@ class UseGenerics {
 
         m.set(1); // it works
 
-        m.set("merit"); // throws compilation error
+        //m.set("merit"); // throws compilation error
         System.out.println(m.get());
     }
 }

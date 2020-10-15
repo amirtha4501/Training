@@ -1,0 +1,4 @@
+#Properties Demo
+#Fri Oct 02 15:21:50 IST 2020
+age=19
+name=ammu

@@ -1,0 +1,19 @@
+(int x, int y) -> x + y; 
+(x, y) -> x + y; 
+
+The both expressions are valid. But it should be used in correct context.
+
+(int x, int y) -> x + y; 
+This expression says that the parameter must be of type int.
+
+(x, y) -> x + y; 
+This expression parameter type can be inferred from the context in which the lambda expression is executed.
+
+__________________________________________________________________________________________________________________
+
+(int x, y) -> x + y;
+
+The expression is invalid because the type for only one of the parameter is explicitly declared.
+Hence, the correct expressions are(with respect to context)
+            (int x, int y) -> x + y; 
+            (x, y) -> x + y; 

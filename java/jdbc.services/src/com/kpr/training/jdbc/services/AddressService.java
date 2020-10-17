@@ -1,7 +1,7 @@
 package com.kpr.training.jdbc.services;
 
-import com.kpr.training.jdbc.exception.AppException;
-import com.kpr.training.jdbc.exception.ExceptionCode;
+import com.kpr.training.jdbc.exceptions.AppException;
+import com.kpr.training.jdbc.exceptions.ExceptionCode;
 import com.kpr.training.jdbc.model.Address;
 import com.kpr.training.jdbc.services.AppConfig;
 
@@ -78,13 +78,8 @@ public class AddressService {
 			System.out.println("error: " + e.getMessage());
 		}
 
-		// ! print without try block
-		try {
-			if (address.isEmpty()) {
-				throw new AppException(ExceptionCode.READ_FAILED, "id not found");
-			}
-		} catch (AppException e) {
-			System.out.println("errorCode:" + e.getErrorCode() + " " + e.getErrorMessage());
+		if (address.isEmpty()) {
+			throw new AppException(ExceptionCode.READ_FAILED, "id not found");
 		}
 		return address;		
 	}

@@ -1,4 +1,4 @@
-package com.kpr.training.jdbc.exception;
+package com.kpr.training.jdbc.exceptions;
 
 public enum ExceptionCode implements ErrorCodeConstant {
 

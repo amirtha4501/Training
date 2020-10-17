@@ -9,8 +9,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.kpr.training.jdbc.exception.AppException;
-import com.kpr.training.jdbc.exception.ExceptionCode;
+import com.kpr.training.jdbc.exceptions.AppException;
+import com.kpr.training.jdbc.exceptions.ExceptionCode;
 import com.kpr.training.jdbc.model.Address;
 import com.kpr.training.jdbc.model.Person;
 

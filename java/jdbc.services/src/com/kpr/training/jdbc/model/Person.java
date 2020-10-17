@@ -28,7 +28,7 @@ public class Person {
             
             Class.forName("com.mysql.jdbc.Driver");
             
-            String sql = "CREATE TABLE person (PRIMARY KEY (id), id BIGINT(20) AUTO_INCREMENT, name VARCHAR(50), email VARCHAR(100) UNIQUE, birth_date DATE, created_date DATETIME DEFAULT NOW(), address_id BIGINT(20), FOREIGN KEY (id) REFERENCES address(id))";												
+            String sql = "CREATE TABLE person (PRIMARY KEY (id), id BIGINT(20) AUTO_INCREMENT, name VARCHAR(50), email VARCHAR(100) UNIQUE, birth_date DATE, created_date DATETIME DEFAULT NOW(), address_id BIGINT(20), FOREIGN KEY (id) REFERENCES address(id) ON DELETE CASCADE)";												
             statement.executeUpdate(sql);
             
             return "Created Person table";

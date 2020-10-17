@@ -1,4 +1,4 @@
-package com.kpr.training.jdbc.exception;
+package com.kpr.training.jdbc.exceptions;
 
 public class AppException extends Exception {
 	
@@ -9,11 +9,13 @@ public class AppException extends Exception {
 	public AppException(ExceptionCode code) {
 		this.errorMessage = code.getErrorMessage();
 		this.errorCode = code.getId();
+		System.out.println(this.errorCode + ": " + this.errorMessage);
 	}
 	
 	public AppException(ExceptionCode code, String message) {
 		this.errorMessage = message;
 		this.errorCode = code.getId();
+		System.out.println(this.errorCode + ": " + this.errorMessage);
 	}
 
 	public int getErrorCode() {

@@ -1,4 +1,4 @@
-package com.kpr.training.jdbc.exception;
+package com.kpr.training.jdbc.exceptions;
 
 public interface ErrorCodeConstant {
 	int INVALID_INPUT_CODE = 1;

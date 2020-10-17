@@ -5,7 +5,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import com.kpr.training.jdbc.exception.AppException;
+import com.kpr.training.jdbc.exceptions.AppException;
 import com.kpr.training.jdbc.model.Address;
 import com.kpr.training.jdbc.model.Person;
 
@@ -66,17 +66,17 @@ class Tester {
 		AddressService addressService = new AddressService();
 		Address address = new Address();
 
-		System.out.println(addressService.create(address));
-		System.out.println(addressService.read(3));
-		System.out.println(addressService.readAll());
-		System.out.println(addressService.update(3, address));
-		System.out.println(addressService.delete(3));
+//		System.out.println(addressService.create(address));
+//		System.out.println(addressService.read(3));
+//		System.out.println(addressService.readAll());
+//		System.out.println(addressService.update(3, address));
+//		System.out.println(addressService.delete(3));
 		
 //		For Person
-		createPerson();
-		readPerson(0);
-		readAllPerson();
-		updatePerson(1);
-		deletePerson(1);
+//		createPerson();
+//		readPerson(0);
+//		readAllPerson();
+//		updatePerson(1);
+//		deletePerson(1);
 	}
 }

@@ -1,0 +1,58 @@
+REQUIREMENTS:
+1. To perform create operation for Address Service
+
+ENTITY:
+1. Address
+2. AddressService
+3. AppException
+4. ErrorCode
+
+METHOD SIGNATURE:
+1. public long create(Address address);
+
+WORK TO BE DONE:
+1. Check whether the postalCode is Empty
+    1.1 Throw AppException with message "postalCode should not be empty"
+2. Establish connection using JDBC driver and store it in con of type Connection
+3. Prepare insert query and store it in insertQuery of type String
+4. Prepare "ps" using con, return auto generated keys to return the generated id
+   and insertQuery
+5. Set address in ps and execute ps
+6. Check whether the generatedAddressId is zero
+    6.1 Throw AppException with message "Address creation failed"
+7. Return generatedAddressId
+
+PSEUDOCODE:
+
+    class AddressService {
+
+        public long create(Address address) {
+            
+            if (address.postalCode == 0) {
+                throw new AppException(errorCode, "postalCode should not be empty")
+            }
+            
+            String url;
+            String username;
+            String password;
+
+            try {
+                Connection con = DriverManager.getConnection(url, username, password);
+
+                String insertQuery = "INSERT INTO address VALUES(?, ?, ?)";
+                PreparedStatement ps = con.prepareStatement(insertQuery, RETURN_GENERATED_KEYS);
+                ps.setString(1, address.street);
+                ps.setString(2, address.city);
+                ps.setString(3, address.postalCode);
+                long generatedAddressId = ps.executeUpdate();
+            } catch() {
+                System.out.println(errorCode, errorMessage);
+            }
+
+            if (generatedAddressId == 0) {
+                throw new AppException(errorCode, "Address creation failed");
+            }
+
+            return generatedAddressId;      
+        }
+    }

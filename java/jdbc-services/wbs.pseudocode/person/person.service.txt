@@ -1,0 +1,15 @@
+REQUIREMENTS:
+1. To perform CRUD Operations for Person Service
+
+ENTITY:
+1. Person
+2. PersonService
+3. AppException
+4. ErrorCode
+
+WORK TO BE DONE:
+1. Create a Person
+2. Get Person 
+3. Get all Persons
+4. Update a Person
+5. Delete a Person

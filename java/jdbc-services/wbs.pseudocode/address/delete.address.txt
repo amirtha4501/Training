@@ -1,0 +1,51 @@
+REQUIREMENTS:
+1. To perform delete operation for Address Service
+
+ENTITY:
+1. Address
+2. AddressService
+3. AppException
+4. ErrorCode
+
+METHOD SIGNATURE:
+1. public String delete(int id);
+
+WORK TO BE DONE:
+1. Establish connection using JDBC driver and store it in con of type Connection
+2. Check whether the given id is invalid
+    2.2 Throw AppException with errorCode and message "id is invalid"
+3. Prepare delete query where the id is the input id and store it in deleteQuery of type String
+4. Prepare "ps" using con and deleteQuery
+5. Sets data
+6. Execute ps
+7. Return String
+
+PSEUDOCODE:
+
+    class AddressService {
+
+        public String delete(int id) {
+            
+            if (address.id <= 0) {
+                throw new AppException(errorCode, "id is invalid");
+            }
+            
+            String url;
+            String username;
+            String password;
+
+            try {
+                Connection con = DriverManager.getConnection(url, username, password);
+
+                String deleteQuery = "DELETE FROM address WHERE id = id";
+                PreparedStatement ps = con.prepareStatement(deleteQuery);
+                ps.setString();
+
+                int result = ps.executeUpdate(); 
+            } catch() {
+                System.out.println(errorCode, errorMessage);
+            }
+
+            return result + "Deleted";
+        }
+    }

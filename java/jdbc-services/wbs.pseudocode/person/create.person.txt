@@ -17,16 +17,38 @@ WORK TO BE DONE:
     2.1 Throw AppException with message "email is invalid"
 3. Establish connection using JDBC driver and store it in con of type Connection
 4. Prepare insert query and store it in insertQuery of type String
-5. Prepare "ps" using con, return auto generated keys to return the generated id
-   and insertQuery
-6. Set person in ps and execute ps
+5. Check if the address object is not empty for creating address if it's given
+    5.1 Invoke addressService create method and store the return value in addressId variable
+        Then set addressId value to person object
+6. Check if the person email is not isUnique
+    6.1 Throw AppException with message "Email unique constraint failed
+    6.2 If unique,
+        6.2.1 Prepare "ps" using con, return auto generated keys to return the generated id and insertQuery
+        6.2.1 Set person in ps and execute ps
 7. Check whether the generatedPersonId is zero
     7.1 Throw AppException with message "Person creation failed"
 8. Return generatedPersonId
+9. If the address is not given, do the same task with empty address using method overloading
 
 PSEUDOCODE:
 
     class PersonService {
+
+        public boolean isUnique(String email) throws SQLException {
+            boolean result = false;
+            int id = -1;
+
+            Connection con = DriverManager.getConnection(AppConfig.dbString, AppConfig.dbUsername, AppConfig.dbPassword);
+            PreparedStatement ps = con.prepareStatement(Query.selectEmailExists + email);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                id = rs.getInt("id");
+            }
+            if (id == -1) {
+                result = true;
+            }
+            return result;
+        }
 
         public long create(Person person) {
             

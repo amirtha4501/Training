@@ -16,9 +16,9 @@ WORK TO BE DONE:
     2.2 Throw AppException with errorCode and message "id is invalid"
 3. Prepare delete query where the id is the input id and store it in deleteQuery of type String
 4. Prepare "ps" using con and deleteQuery
-5. Sets data
-6. Execute ps
-7. Return String
+5. Execute ps
+6. Return String
+
 
 PSEUDOCODE:
 
@@ -39,8 +39,7 @@ PSEUDOCODE:
 
                 String deleteQuery = "DELETE FROM address WHERE id = id";
                 PreparedStatement ps = con.prepareStatement(deleteQuery);
-                ps.setString();
-
+                
                 int result = ps.executeUpdate(); 
             } catch() {
                 System.out.println(errorCode, errorMessage);

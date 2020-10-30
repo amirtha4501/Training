@@ -7,7 +7,8 @@ public enum ExceptionCode implements ErrorCodeConstant {
     DELETE_FAILED(DELETE_FAILED_CODE, "Deletion failed"),
     NOT_FOUND(NOT_FOUND_CODE, "Request not found"),
     READ_FAILED(READ_FAILED_CODE, "Read failed"),
-    CREATE_FAILED(CREATE_FAILED_CODE, "Read failed");
+    CREATE_FAILED(CREATE_FAILED_CODE, "Read failed"),
+    UNIQUE_CONSTRAINT_FAILED(UNIQUE_CONSTRAINT_FAILED_CODE, "Unique constraint failed");
 
     private final int id;
     private final String errorMessage;

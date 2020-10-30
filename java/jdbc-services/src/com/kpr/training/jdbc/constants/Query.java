@@ -17,4 +17,6 @@ public class Query {
     public static final String selectAllPersonQuery = "SELECT name, email, birth_date, created_date, address_id FROM person";
     public static final String updatePersonQuery = "UPDATE person SET name=?, email=?, birth_date=? WHERE id = ";
     public static final String deletePersonQuery = "DELETE FROM person WHERE id = ";
+
+    public static final String selectEmailExists = "SELECT id FROM person where email = ";
 }

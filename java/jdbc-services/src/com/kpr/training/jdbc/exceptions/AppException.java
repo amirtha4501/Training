@@ -4,7 +4,7 @@ public class AppException extends Exception {
 
     private static final long serialVersionUID = -1307493420921168255L;
     private int errorCode;
-    private String errorMessage;
+    private String errorMessage = "AppException occurred";
 
     public AppException(ExceptionCode code) {
         this.errorMessage = code.getErrorMessage();

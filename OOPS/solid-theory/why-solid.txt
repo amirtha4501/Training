@@ -1,0 +1,20 @@
+Ref: jrebel -blog - solid principles
+When developers design without using structured design principles like SOLID, they can create long-lasting problems for future developers working on the project, and limit potential success for the application they’re developing. These issues are commonly referred to as “code rot.”
+
+Code rot
+1. When an application becomes a festering mass of code that the developers find increasingly hard to maintain.
+
+So how can we identify future code rot? These signs probably indicate code rot to come:
+
+Rigidity – small changes causes the entire system to rebuild.
+Fragility – changes to one module causes other unrelated modules to misbehave. Imagine a car system in which changing the radio station affects windows.
+Immobility – a module’s internal components cannot be extracted and reused in new environments. For example, if an application’s login module cannot be used in entirely different system then this module is immobile, caused by couplings and dependencies between different modules. The strategy is to decouple central abstractions from low-level details, like a particular database schema or UI implementation (web, desktop) or specific frameworks.
+Viscosity – when building and testing are difficult to perform and take a long time to execute. When even a simple change is costly to make, and requires you to make changes in multiple places/levels.
+Users expect to get some value out of the software they use. An application’s value is determined by whether it helps users do something better, increasing productivity or time or money and saving on “waste”. With high-value software, people often pay money in exchange for it.
+
+But there is a secondary value that users get from great software.
+
+If software does what its users need without bug crashes and delays, then the secondary value of the software is high. Secondary value is achieved when the software meets the current needs of the user. But user needs change, and frequently; the behaviour that the software provides and what the user needs can easily get out of sync, leading to lower value. Your software must be able to keep up with the changing needs of your customer in order to keep the secondary value high. So here we come to the primary value of software, it has to be capable to tolerate and facilitate the ongoing change.
+Imagine that your software currently meets the needs of users, but is really hard and costly to change. Here, users get unhappier due to the app’s inflexibility, and profitability is likely to decrease.
+And now imagine other software that has low secondary value at first, but is easy and inexpensive to change. Profitability can go only up and users get happier and happier.
+

@@ -1,5 +1,6 @@
 package com.kpr.training.jdbc.tests;
 
+import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -28,8 +29,9 @@ class Tester {
         person.setName("janvi");
         person.setEmail("janvi@mail.com");
         person.setBirthDate(sqlDate);
-//        person.setAddressId(4);
+//        person.setAddressId(5);
 
+        address.setStreet("tuo");
         address.setCity("xyz");
         address.setPostalCode(98765);
         System.out.println(personService.create(person, address));
@@ -105,7 +107,7 @@ class Tester {
         System.out.println(addressService.delete(id));
     }
 
-    public static void main(String[] args) throws AppException, ParseException {
+    public static void main(String[] args) throws AppException, ParseException, SQLException {
 
         // For Address
 
@@ -122,5 +124,8 @@ class Tester {
         // readAllPerson();
         // updatePerson(6);
         // deletePerson(2);
+        
+//        PersonService personService = new PersonService();
+//        personService.isUnique("ammu@mail.com");
     }
 }

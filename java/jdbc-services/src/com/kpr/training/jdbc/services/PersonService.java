@@ -23,7 +23,7 @@ public class PersonService {
         int id = -1;
 
         Connection con = DriverManager.getConnection(AppConfig.dbString, AppConfig.dbUsername, AppConfig.dbPassword);
-        PreparedStatement ps = con.prepareStatement(Query.selectEmailExists + email);
+        PreparedStatement ps = con.prepareStatement(Query.selectEmailExists + email + "'");
         ResultSet rs = ps.executeQuery();
         if (rs.next()) {
             id = rs.getInt("id");
@@ -34,12 +34,9 @@ public class PersonService {
         return result;
     }
 
-    // ! check
     public long create(Person person, Address address) throws AppException {
         long generatedPersonId = 0;
         AddressService addressService = new AddressService();
-
-        PersonService personService = new PersonService();
 
         if (person.getName() == null || person.getEmail() == null || person.getBirthDate() == null) {
             throw new AppException(ExceptionCode.INVALID_INPUT, "Input should not be empty");
@@ -50,21 +47,23 @@ public class PersonService {
                     AppConfig.dbPassword);
             PreparedStatement ps = con.prepareStatement(Query.insertPersonQuery, Statement.RETURN_GENERATED_KEYS);
 
+            PreparedStatement setForeignChecks = con.prepareStatement(Query.setForeignChecks);
+            setForeignChecks.execute();
+            
             // creating address if it's given
             if (!address.isEmpty()) {
                 long addressId = addressService.create(address);
                 person.setAddressId((int) addressId);
-                System.out.println("address is not empty & the id is: " + person.getAddressId());
             }
 
-            if (personService.isUnique(person.getEmail()) == false) {
+            if (this.isUnique(person.getEmail()) == false) {
                 throw new AppException(ExceptionCode.UNIQUE_CONSTRAINT_FAILED, "Email violates unique constraint");
             } else {
                 ps.setString(1, person.getName());
                 ps.setString(2, person.getEmail());
                 ps.setDate(3, person.getBirthDate());
                 ps.setInt(4, person.getAddressId());
-
+                
                 ps.executeUpdate();
                 ResultSet rs = ps.getGeneratedKeys();
 
@@ -209,7 +208,6 @@ public class PersonService {
 
             int result = ps.executeUpdate();
             if (result == 0) {
-                System.out.println("adf");
                 throw new AppException(ExceptionCode.UPDATE_FAILED, "id not found");
             }
         } catch (AppException e) {

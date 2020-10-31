@@ -18,5 +18,6 @@ public class Query {
     public static final String updatePersonQuery = "UPDATE person SET name=?, email=?, birth_date=? WHERE id = ";
     public static final String deletePersonQuery = "DELETE FROM person WHERE id = ";
 
-    public static final String selectEmailExists = "SELECT id FROM person where email = ";
+    public static final String selectEmailExists = "SELECT id FROM person where email = '";
+    public static final String setForeignChecks = "SET FOREIGN_KEY_CHECKS = 0";
 }

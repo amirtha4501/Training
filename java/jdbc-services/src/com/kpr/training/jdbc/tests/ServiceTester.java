@@ -70,8 +70,8 @@ public class ServiceTester {
         Date date = formatter.parse(dob);
         java.sql.Date sqlDate = new java.sql.Date(date.getTime());
 
-        person.setName("janvi");
-        person.setEmail("janvi@mail.com");
+        person.setName("kavi");
+        person.setEmail("kavi@mail.com");
         person.setBirthDate(sqlDate);
 
         address.setCity("xyz");
@@ -94,8 +94,8 @@ public class ServiceTester {
         Date date = formatter.parse(dob);
         java.sql.Date sqlDate = new java.sql.Date(date.getTime());
 
-        person.setName("janvi");
-        person.setEmail("janvi@mail.com");
+        person.setName("ravi");
+        person.setEmail("ravi@mail.com");
         person.setBirthDate(sqlDate);
 
         creationStatus = personService.create(person);

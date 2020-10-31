@@ -1,0 +1,30 @@
+1. Single Responsibility Principle (SRP)
+
+The Single Responsibility Principle (SRP) states that there should never be more than one 
+reason for a class to change. This means that every class, or similar structure, in your code should have 
+only one job to do.
+Everything in the class should be related to that single purpose, i.e. be cohesive. It does not mean that
+your classes should only contain one method or property.
+
+There can be a lot of members as long as they relate to the single responsibility. 
+It may be that when the one reason to change occurs, multiple members of the class may need modification. 
+It may also be that multiple classes will require updates.
+
+How many responsibilities?
+
+class Employee {
+  public Pay calculatePay() {...}
+  public void save() {...}
+  public String describeEmployee() {...}
+}
+
+The correct answer is three
+
+Here we have pay 
+1) calculation logic with 
+2) database logic and 
+3) reporting logic all mixed up within one class. 
+If we have multiple responsibilities combined into one class, it might be difficult to change one part 
+without breaking others. Mixing responsibilities also makes the class harder to understand and harder to test, 
+decreasing cohesion. The easiest way to fix this is to split the class into three different classes, with each 
+having only one responsibility: database access, calculating pay and reporting, all separated.

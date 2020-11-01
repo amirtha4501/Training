@@ -15,3 +15,46 @@ Functionality can be added by creating new classes that implement the interfaces
 Applying OCP to your projects limits the need to change source code once it has been 
 written, tested and debugged. This reduces the risk of introducing new bugs to existing code, 
 leading to more robust software.
+
+Another side effect of the use of interfaces for dependencies is reduced coupling and increased flexibility.
+
+void checkOut(Receipt receipt) {
+  Money total = Money.zero;
+  for (item : items) {
+    total += item.getPrice();
+    receipt.addItem(item);
+  }
+  Payment p = acceptCash(total);
+  receipt.addPayment(p);
+}
+
+So how do we add credit card support? You *could* add an “if” statement like this, 
+but then that would be violation of OCP.
+
+Payment p;
+if (credit)
+  p = acceptCredit(total);
+else
+  p = acceptCash(total);
+receipt.addPayment(p);
+
+Here is a better solution:
+
+public interface PaymentMethod {void acceptPayment(Money total);}
+
+void checkOut(Receipt receipt, PaymentMethod pm) {
+  Money total = Money.zero;
+  for (item : items) {
+    total += item.getPrice();
+    receipt.addItem(item);
+  }
+  Payment p = pm.acceptPayment(total);
+  receipt.addPayment(p);
+}
+
+OCP helps only if the changes that are going to come are predictable, so you should apply it only 
+if a similar change has already happened. So, first do the simplest thing and then see what changes are 
+requested so you can more accurately predict the future changes.
+
+This means waiting for a customer to make a change and then invent the abstractions that will 
+protect yourself from a similar change in the future.

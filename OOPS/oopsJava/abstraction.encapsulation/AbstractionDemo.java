@@ -46,3 +46,11 @@ class AbstractionDemo {
         System.out.println(rectangle.getColor());
     }
 }
+
+
+chef - chinese, italian, 
+dish - south indian, notth, chinese noodles
+chef ta noodles kekkraan.
+atha epdi seiran not necessary.
+consumer class provided class oda implementation pathi edhum
+therinja kka num avasiyam. illai.

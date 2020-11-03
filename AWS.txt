@@ -1,0 +1,89 @@
+mobaxterm
+new terminal
+- ll
+- cd Desktop
+- ll
+-  ssh -i pemfile.pem ubuntu@13.43.21.134.131
+
+---------------------------------------------------------
+# Using Ubuntu
+curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+sudo apt-get install -y nodejs
+
+# Clone
+git clone https://github.com/amirtha4501/FinanceManagerBackend.git
+
+# Install packages
+cd FinanceManagerBackend
+npm install
+
+# Run 
+npm run start
+npm run start:dev
+
+-----------------------------------------------------------
+Setting up Postgres in Ubuntu EC2
+
+# Initiate Postgres
+sudo apt-get update && sudo apt-get -y upgrade	// sudo apt-get update
+sudo apt-get install postgresql postgresql-contrib​	//  sudo apt-get install postgresql postgresql-contrib
+
+# change the password of the user postgres
+sudo -u postgres psql
+postgres=#\password​
+# then enter new password
+
+# to quit
+\q 
+
+--------------------------------------------------------------------------------
+# Not Mandatory
+# update configuration for remote access for clients
+# Edit pg_hba.conf in vim
+sudo vim /etc/postgresql/10/main/pg_hba.conf
+
+# Near bottom of file after local rules, add rule (allows remote access):
+host    all             all             0.0.0.0/0               md5
+
+# save file​
+# Edit config in vim
+sudo vim /etc/postgresql/10/main/postgresql.conf
+
+# Change line 59 to listen to external requests:
+listen_address='*'
+  
+# save file​
+
+# Restart postgres server
+sudo /etc/init.d/postgresql restart​
+---------------------------------------------------------------------------------
+# create database
+$sudo su postgres
+$psql
+postgres=# CREATE DATABASE <database_name>;
+postgres=# CREATE USER <user> with encrypted password '<password>'; // eg. CREATE USER davide WITH PASSWORD 'jw8s0F4';
+postgres=# GRANT ALL PRIVILEGES ON DATABASE <database_name> TO <user>;​
+
+# Setup pm2
+sudo npm install pm2@latest -g
+pm2 startup
+
+
+----------------------------------------------------------------------------------
+DEPLOY ANGULAR FRONT END
+
+# Clone repo
+git clone https://github.com/amirtha4501/FinanceManager.git
+
+# Install angular cli
+npm install -g @angular/cli
+
+# Install all required node packages
+npm install
+
+
+
+
+
+
+

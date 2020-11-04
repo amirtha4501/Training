@@ -1,0 +1,115 @@
+REQUIREMENTS:
+1. To perform create operation for Person Service
+
+ENTITY:
+1. Person
+2. PersonService
+3. AppException
+4. ErrorCode
+
+METHOD SIGNATURE:
+1. public long create(Person person);
+
+WORK TO BE DONE:
+1. Check whether the name is Empty
+    1.1 Throw AppException with message "name should not be empty"
+2. Check whether the email is invalid
+    2.1 Throw AppException as INVALID_INPUT with message "email is invalid"
+3. Establish connection using JDBC driver and store it in con of type Connection
+4. Prepare insert query and store it in insertPersonQuery of type String
+5  Set the foreign key constraint to zero with PreparedStatement
+6. Check if the address object is not empty for creating address if it's given
+    6.1 Invoke addressService create method and store the return value in addressId variable
+        Then set addressId value to person object
+7. Check if the person email is not isUnique
+    7.1 Throw AppException as UNIQUE_CONSTRAINT_FAILED with message "Email unique constraint failed"
+    7.2 If unique,
+        7.2.1 Prepare "ps" using con, return auto generated keys to return the generated id and insertQuery
+        7.2.1 Set person in ps and execute ps
+8. Check whether the generatedPersonId is zero
+    8.1 Throw AppException as CREATE_FAILED with message "Person creation failed"
+9. Return generatedPersonId
+10. If the address is not given, do the same task with empty address using method overloading
+
+PSEUDOCODE:
+
+    class PersonService {
+
+        public boolean isUnique(String email, int updation_id) throws SQLException {
+            boolean result = false;
+            int id = -1;
+            PreparedStatement ps;
+            
+            Connection con = DriverManager.getConnection(AppConfig.dbString, AppConfig.dbUsername, AppConfig.dbPassword);
+            
+            if (updation_id == -1) {            
+                ps = con.prepareStatement(Query.selectEmailExists + email + "'");
+            } else {
+                ps = con.prepareStatement(Query.selectEmailExists + email + "'" + Query.emailExistsId + updation_id);
+            }
+            
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                id = rs.getInt("id");
+            }
+            if (id == -1) {
+                result = true;
+            }
+            return result;
+        }
+
+        public boolean isUnique(String email) throws SQLException {
+            return isUnique(email, -1);
+        }
+
+        public long create(Person person, Address address) throws AppException {
+            long generatedPersonId = 0;
+            AddressService addressService = new AddressService();
+
+            if (person.getName() == null || person.getEmail() == null || person.getBirthDate() == null) {
+                throw new AppException(ExceptionCode.INVALID_INPUT, "Input should not be empty");
+            }
+
+            try {
+                Connection con = DriverManager.getConnection(AppConfig.dbString, AppConfig.dbUsername,
+                        AppConfig.dbPassword);
+                PreparedStatement ps = con.prepareStatement(Query.insertPersonQuery, Statement.RETURN_GENERATED_KEYS);
+
+                PreparedStatement setForeignChecks = con.prepareStatement(Query.setForeignChecks);
+                setForeignChecks.execute();
+
+                // creating address if it's given
+                if (!address.isEmpty()) {
+                    long addressId = addressService.create(address);
+                    person.setAddressId((int) addressId);
+                }
+
+                if (this.isUnique(person.getEmail()) == false) {
+                    throw new AppException(ExceptionCode.UNIQUE_CONSTRAINT_FAILED, "Email violates unique constraint");
+                } else {
+                    ps.setString(1, person.getName());
+                    ps.setString(2, person.getEmail());
+                    ps.setDate(3, person.getBirthDate());
+                    ps.setInt(4, person.getAddressId());
+
+                    ps.executeUpdate();
+                    ResultSet rs = ps.getGeneratedKeys();
+
+                    if (rs.next()) {
+                        generatedPersonId = rs.getLong(1);
+                        System.out.println("Person created with id: " + generatedPersonId);
+                    }
+                }
+
+            } catch (Exception e) {
+                System.out.println("error: " + e.getMessage());
+            }
+
+            if (generatedPersonId == 0) {
+                addressService.delete(person.getAddressId());
+                throw new AppException(ExceptionCode.CREATE_FAILED, "Person creation failed");
+            }
+
+            return generatedPersonId;
+        }
+    }

@@ -1,0 +1,62 @@
+REQUIREMENTS:
+1. To perform create operation for Address Service
+
+ENTITY:
+1. Address
+2. AddressService
+3. AppException
+4. ErrorCode
+
+METHOD SIGNATURE:
+1. public long create(Address address);
+
+WORK TO BE DONE:
+1. Check whether the postalCode is Empty
+    1.1 Throw AppException as INVALID_INPUT with message "postalCode should not be empty"
+2. Establish connection using JDBC driver and store it in con of type Connection
+3. Prepare insert query and store it in insertAddressQuery of type String
+4. Prepare "ps" using con, return auto generated keys to return the generated id
+   and insertAddressQuery
+5. Set address in ps and execute ps
+6. Check whether the generatedAddressId is zero
+    6.1 Throw AppException as CREATE_FAILED with message "Address creation failed"
+7. Return generatedAddressId
+
+PSEUDOCODE:
+
+    class AddressService {
+
+        public long create(Address address) throws AppException {
+            long generatedAddressId = 0;
+
+            if (address.getPostalCode() == 0) {
+                throw new AppException(ExceptionCode.INVALID_INPUT, "postalCode should not be empty");
+            }
+
+            try {
+                Connection con = DriverManager.getConnection(AppConfig.dbString, AppConfig.dbUsername, AppConfig.dbPassword);
+                PreparedStatement ps = con.prepareStatement(Query.insertAddressQuery, Statement.RETURN_GENERATED_KEYS);
+
+                ps.setString(1, address.getStreet());
+                ps.setString(2, address.getCity());
+                ps.setLong(3, address.getPostalCode());
+
+                ps.executeUpdate();
+                ResultSet rs = ps.getGeneratedKeys();
+
+                if (rs.next()) {
+                    generatedAddressId = rs.getLong(1);
+                    System.out.println("Address created with id: " + generatedAddressId);
+                }
+
+            } catch (Exception e) {
+                System.out.println("error: " + e);
+            }
+
+            if (generatedAddressId == 0) {
+                throw new AppException(ExceptionCode.CREATE_FAILED, "Address creation failed");
+            }
+
+            return generatedAddressId;
+        }
+    }

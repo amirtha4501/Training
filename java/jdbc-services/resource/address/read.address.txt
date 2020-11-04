@@ -1,0 +1,59 @@
+REQUIREMENTS:
+1. To perform read operation for Address Service
+
+ENTITY:
+1. Address
+2. AddressService
+3. AppException
+4. ErrorCode
+
+METHOD SIGNATURE:
+1. public Address read(int id);
+
+WORK TO BE DONE:
+1. Check whether the id is invalid
+    1.1 Throw AppException as INVALID_INPUT with message "id is invalid"
+2. Establish connection using JDBC driver and store it in con of type Connection
+3. Prepare select query where the id is the input id and store it in selectAddressQuery of type String
+4. Prepare "ps" using con and selectAddressQuery
+5. Execute ps
+6. Return address
+
+PSEUDOCODE:
+
+    class AddressService {
+
+        public Address read(int id) throws AppException {
+
+            if (id <= 0) {
+                throw new AppException(ExceptionCode.INVALID_INPUT, "id is invalid");
+            }
+
+            Address address = new Address();
+
+            try {
+                Connection con = DriverManager.getConnection(AppConfig.dbString, AppConfig.dbUsername,
+                        AppConfig.dbPassword);
+                PreparedStatement ps = con.prepareStatement(Query.selectAddressQuery + id);
+
+                ResultSet rs = ps.executeQuery();
+
+                if (rs.next()) {
+                    String street = rs.getString("street");
+                    String city = rs.getString("city");
+                    long postalCode = rs.getLong("postal_code");
+
+                    address.setStreet(street);
+                    address.setCity(city);
+                    address.setPostalCode(postalCode);
+                }
+            } catch (Exception e) {
+                System.out.println("error: " + e.getMessage());
+            }
+
+            if (address.isEmpty()) {
+                throw new AppException(ExceptionCode.READ_FAILED, "id not found");
+            }
+            return address;
+        }    
+    }

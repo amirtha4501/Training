@@ -1,0 +1,71 @@
+REQUIREMENTS:
+1. To perform read all operation for Person Service
+
+ENTITY:
+1. Person
+2. PersonService
+3. AppException
+4. ErrorCode
+
+METHOD SIGNATURE:
+1. public List<Person> readAll();
+
+WORK TO BE DONE:
+1. Create a list of type Person named persons
+2. Establish connection using JDBC driver and store it in con of type Connection
+3. Prepare select query to query all persons and store it in selectAllPersonQuery of type String
+4. Prepare "ps" using con and selectAllPersonQuery
+5. Execute ps
+6. While rs has rows, add the rows to the persons list
+7. return persons list
+
+PSEUDOCODE:
+
+    class PersonService {
+        public List<Person> readAll() throws AppException {
+
+            List<Person> persons = new ArrayList<>();
+            Person person = new Person();
+
+            try {
+                Connection con = DriverManager.getConnection(AppConfig.dbString, AppConfig.dbUsername,
+                        AppConfig.dbPassword);
+                PreparedStatement ps = con.prepareStatement(Query.selectAllPersonQuery);
+
+                ResultSet rs = ps.executeQuery();
+
+                while (rs.next()) {
+
+                    String name = rs.getString("name");
+                    String email = rs.getString("email");
+                    Date birthDate = rs.getDate("birth_date");
+                    Date createdDate = rs.getDate("created_date");
+                    int addressId = rs.getInt("address_id");
+
+                    person.setName(name);
+                    person.setEmail(email);
+                    person.setBirthDate(birthDate);
+                    person.setCreatedDate(createdDate);
+                    person.setAddressId(addressId);
+
+                    PreparedStatement psPerson = con.prepareStatement(Query.selectAddressQuery + addressId);
+                    ResultSet rsPerson = psPerson.executeQuery();
+
+                    if (rsPerson.next()) {
+                        String street = rsPerson.getString("street");
+                        String city = rsPerson.getString("city");
+                        long postalCode = rsPerson.getLong("postal_code");
+
+                        person.setStreet(street);
+                        person.setCity(city);
+                        person.setPostalCode(postalCode);
+                    }
+
+                    persons.add(person);
+                }
+            } catch (Exception e) {
+                System.out.println("error: " + e);
+            }
+            return persons;
+        }
+    }

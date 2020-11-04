@@ -1,0 +1,51 @@
+REQUIREMENTS:
+1. To perform delete operation for Person Service
+
+ENTITY:
+1. Person
+2. PersonService
+3. AppException
+4. ErrorCode
+
+METHOD SIGNATURE:
+1. public String delete(int id);
+
+WORK TO BE DONE:
+1. Establish connection using JDBC driver and store it in con of type Connection
+2. Check whether the given id is valid
+    2.2 Throw AppException as INVALID_INPUT with errorCode and message "id is invalid"
+3. Prepare delete query where the id is the input id and store it in deletePersonQuery of type String
+4. Prepare "ps" using con and deletePersonQuery
+5. If the result is equal to zero
+    5.1 Throw AppException as DELETE_FAILED with the message "id not found"
+    5.2 Else print "person deleted"
+
+PSEUDOCODE:
+
+    class PersonService {
+        public void delete(int id) throws AppException {
+
+            int result = 0;
+
+            if (id <= 0) {
+                throw new AppException(ExceptionCode.INVALID_INPUT, "id is invalid");
+            }
+
+            try {
+                Connection con = DriverManager.getConnection(AppConfig.dbString, AppConfig.dbUsername,
+                        AppConfig.dbPassword);
+                PreparedStatement ps = con.prepareStatement(Query.deletePersonQuery + id);
+
+                result = ps.executeUpdate();
+                if (result == 0) {
+                    throw new AppException(ExceptionCode.DELETE_FAILED, "id not found");
+                } else {
+                    System.out.println("Person deleted");
+                }
+            } catch (AppException e) {
+                System.out.println("errorCode:" + e.getErrorCode() + " " + e.getErrorMessage());
+            } catch (Exception e) {
+                System.out.println("error: " + e);
+            }
+        }
+    }

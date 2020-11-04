@@ -1,0 +1,53 @@
+REQUIREMENTS:
+1. To perform update operation for Address Service
+
+ENTITY:
+1. Address
+2. AddressService
+3. AppException
+4. ErrorCode
+
+METHOD SIGNATURE:
+1. public Address update(int id, Address address);
+
+WORK TO BE DONE:
+1. Establish connection using JDBC driver and store it in con of type Connection
+2. Prepare update query where the id is the input id and store it in updateAddressQuery of type String
+3. Prepare "ps" using con and updateQuery
+4. Set values in the row according to the input. 
+5. Check if the result is equal to 0
+    5.1 Throw AppException as UPDATE_FAILED with the message "id not found"
+6. Execute ps
+7. Return address
+
+PSEUDOCODE:
+
+    class AddressService {
+        public Address update(int id, Address address) throws AppException {
+
+            if (id <= 0) {
+                throw new AppException(ExceptionCode.INVALID_INPUT, "id is invalid");
+            }
+
+            try {
+                Connection con = DriverManager.getConnection(AppConfig.dbString, AppConfig.dbUsername,
+                        AppConfig.dbPassword);
+                PreparedStatement ps = con.prepareStatement(Query.updateAddressQuery + id);
+
+                ps.setString(1, address.getStreet());
+                ps.setString(2, address.getCity());
+                ps.setLong(3, address.getPostalCode());
+
+                int result = ps.executeUpdate();
+                if (result == 0) {
+                    throw new AppException(ExceptionCode.UPDATE_FAILED, "id not found");
+                }
+            } catch (AppException e) {
+                System.out.println("errorCode:" + e.getErrorCode() + " " + e.getErrorMessage());
+            } catch (Exception e) {
+                System.out.println("error: " + e.getMessage());
+            }
+
+            return address;
+        }
+    }

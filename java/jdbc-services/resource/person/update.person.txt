@@ -1,0 +1,62 @@
+REQUIREMENTS:
+1. To perform update operation for Person Service
+
+ENTITY:
+1. Person
+2. PersonService
+3. AppException
+4. ErrorCode
+
+METHOD SIGNATURE:
+1. public Person update(int id, Person person);
+
+WORK TO BE DONE:
+1. Check if the id is valid
+    1.1 Throw AppException as INVALID_INPUT with the message "id is invalid" 
+2. Establish connection using JDBC driver and store it in con of type Connection
+3. Prepare update query where the id is the input id and store it in updateQuery of type String
+4. Prepare "ps" using con and updateQuery
+5. Check if the id is unique
+    5.1 Throw AppException as UNIQUE_CONSTRAINT_FAILED with the message "Email id voilates unique constraint"
+    5.2 Set values in the row according to the input and Execute ps
+6. If the result is equal to zero
+    6.1 Throw AppException as UPDATE_FAILED with the message as "id not found"
+7. Return person
+
+PSEUDOCODE:
+
+    class PersonService {
+        public Person update(int id, Person person) throws AppException {
+
+            int result;
+            
+            if (id <= 0) {
+                throw new AppException(ExceptionCode.INVALID_INPUT, "id is invalid");
+            }
+
+            try {
+                Connection con = DriverManager.getConnection(AppConfig.dbString, AppConfig.dbUsername,
+                        AppConfig.dbPassword);
+                PreparedStatement ps = con.prepareStatement(Query.updatePersonQuery + id);
+
+                if (this.isUnique(person.getEmail(), id) == false) {
+                    throw new AppException(ExceptionCode.UNIQUE_CONSTRAINT_FAILED, "Email violates unique constraint");
+                } else {                
+                    ps.setString(1, person.getName());
+                    ps.setString(2, person.getEmail());
+                    ps.setDate(3, person.getBirthDate());
+                    
+                    result = ps.executeUpdate();
+                }
+                if (result == 0) {
+                    throw new AppException(ExceptionCode.UPDATE_FAILED, "id not found");
+                }
+            } catch (AppException e) {
+                System.out.println("errorCode:" + e.getErrorCode() + " " + e.getErrorMessage());
+            } catch (Exception e) {
+                System.out.println("error: " + e.getMessage());
+            }
+
+            return person;
+        }
+    }

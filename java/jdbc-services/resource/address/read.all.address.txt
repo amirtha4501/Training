@@ -1,0 +1,54 @@
+REQUIREMENTS:
+1. To perform read all operation for Address Service
+
+ENTITY:
+1. Address
+2. AddressService
+3. AppException
+4. ErrorCode
+
+METHOD SIGNATURE:
+1. public List<Address> readAll();
+
+WORK TO BE DONE:
+1. Create a list named addresses of type List<Address>
+2. Establish connection using JDBC driver and store it in con of type Connection
+3. Prepare select query to query all addresses and store it in selectAllAddressQuery of type String
+4. Prepare "ps" using con and selectAllAddressQuery
+5. Execute ps
+6. While rs has rows, add the rows to the addresses list
+7. return addresses list
+
+PSEUDOCODE:
+
+    class AddressService {
+        public List<Address> readAll() throws AppException {
+
+            List<Address> addresses = new ArrayList<>();
+            Address address = new Address();
+
+            try {
+                Connection con = DriverManager.getConnection(AppConfig.dbString, AppConfig.dbUsername,
+                        AppConfig.dbPassword);
+                PreparedStatement ps = con.prepareStatement(Query.selectAllAddressQuery);
+
+                ResultSet rs = ps.executeQuery();
+
+                while (rs.next()) {
+
+                    String street = rs.getString("street");
+                    String city = rs.getString("city");
+                    long postalCode = rs.getLong("postal_code");
+
+                    address.setStreet(street);
+                    address.setCity(city);
+                    address.setPostalCode(postalCode);
+
+                    addresses.add(address);
+                }
+            } catch (Exception e) {
+                System.out.println("error: " + e);
+            }
+            return addresses;
+        }
+    }

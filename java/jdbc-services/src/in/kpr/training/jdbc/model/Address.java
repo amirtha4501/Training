@@ -54,7 +54,7 @@ public class Address {
 
             Class.forName("com.mysql.jdbc.Driver");
 
-            statement.executeUpdate(Query.createAddressTable);
+            statement.executeUpdate(Query.CREATE_ADDRESS_TABLE);
 
             return "Created Address table";
         } catch (Exception e) {
@@ -69,7 +69,7 @@ public class Address {
 
             Class.forName("com.mysql.jdbc.Driver");
 
-            statement.executeUpdate(Query.truncateAddressTable);
+            statement.executeUpdate(Query.TRUNCATE_ADDRESS_TABLE);
 
             return "Truncated Address table";
         } catch (Exception e) {
@@ -84,7 +84,7 @@ public class Address {
 
             Class.forName("com.mysql.jdbc.Driver");
 
-            statement.executeUpdate(Query.dropAddressTable);
+            statement.executeUpdate(Query.DROP_ADDRESS_TABLE);
 
             return "Dropped Address table";
         } catch (Exception e) {

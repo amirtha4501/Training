@@ -1,12 +1,10 @@
 package in.kpr.training.jdbc.tests;
 
-import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import in.kpr.training.jdbc.exceptions.AppException;
 import in.kpr.training.jdbc.model.Address;
 import in.kpr.training.jdbc.model.Person;
 import in.kpr.training.jdbc.services.AddressService;
@@ -16,7 +14,7 @@ class Tester {
 
     // Person CRUD operations
 
-    static void createPerson() throws AppException, ParseException {
+    static void createPerson() throws ParseException {
         Person person = new Person();
         Address address = new Address();
         PersonService personService = new PersonService();
@@ -27,9 +25,9 @@ class Tester {
         java.sql.Date sqlDate = new java.sql.Date(date.getTime());
 
         person.setName("pavi");
-        person.setEmail("pavi@mail.com");
+        person.setEmail("pavithra@mail.com");
         person.setBirthDate(sqlDate);
-//        person.setAddressId(5);
+        // person.setAddressId(5);
 
         address.setStreet("tuo");
         address.setCity("xyz");
@@ -37,18 +35,18 @@ class Tester {
         System.out.println(personService.create(person, address));
     }
 
-    static void readPerson(int id) throws AppException {
+    static void readPerson(int id) {
         PersonService personService = new PersonService();
 
-        System.out.println(personService.read(id, false).getPostalCode());
+        System.out.println(personService.read(id, false));
     }
 
-    static void readAllPerson() throws AppException {
+    static void readAllPerson() {
         PersonService personService = new PersonService();
         System.out.println(personService.readAll());
     }
 
-    static void updatePerson(int id) throws AppException, ParseException {
+    static void updatePerson(int id) throws ParseException {
         Person person = new Person();
         PersonService personService = new PersonService();
 
@@ -57,21 +55,21 @@ class Tester {
         Date date = formatter.parse(dob);
         java.sql.Date sqlDate = new java.sql.Date(date.getTime());
 
-        person.setName("ammu");
-        person.setEmail("ammu@mail.com");
+        person.setName("anu");
+        person.setEmail("anu@mail.com");
         person.setBirthDate(sqlDate);
 
-        System.out.println(personService.update(id, person));
+        personService.update(id, person);
     }
 
-    static void deletePerson(int id) throws AppException {
+    static void deletePerson(int id) {
         PersonService personService = new PersonService();
         personService.delete(id);
     }
 
     // Address CRUD operations
 
-    static void createAddress() throws AppException {
+    static void createAddress() {
         AddressService addressService = new AddressService();
         Address address = new Address();
 
@@ -81,17 +79,17 @@ class Tester {
         System.out.println(addressService.create(address));
     }
 
-    static void readAddress(int id) throws AppException {
+    static void readAddress(int id) {
         AddressService addressService = new AddressService();
         System.out.println(addressService.read(id));
     }
 
-    static void readAllAddress() throws AppException {
+    static void readAllAddress() {
         AddressService addressService = new AddressService();
         System.out.println(addressService.readAll());
     }
 
-    static void updateAddress(int id) throws AppException {
+    static void updateAddress(int id) {
         Address address = new Address();
         AddressService addressService = new AddressService();
 
@@ -99,32 +97,36 @@ class Tester {
         address.setCity("");
         address.setPostalCode(2332434);
 
-        System.out.println(addressService.update(id, address));
+        addressService.update(id, address);
     }
 
-    static void deleteAddress(int id) throws AppException {
+    static void deleteAddress(int id) {
         AddressService addressService = new AddressService();
         addressService.delete(id);
     }
 
-    public static void main(String[] args) throws AppException, ParseException, SQLException {
+    public static void main(String[] args) throws ParseException {
 
         // For Address
 
         // createAddress();
-        // readAddress(2);
+        // readAddress(3);
         // readAllAddress();
         // updateAddress(6);
-        // deleteAddress(2);
+        // deleteAddress(4);
 
         // For Person
-
+    	
         // createPerson();
-        // readPerson(7);
+        // readPerson(4);
         // readAllPerson();
-         updatePerson(8);
+        // updatePerson(3);
         // deletePerson(2);
-        
+
+        // Address address = new Address();
+        // Person person = new Person();
+        // person.createPersonTable();
+        // address.createAddressTable();
         // PersonService personService = new PersonService();
         // personService.isUnique("ammu@mail.com");
     }

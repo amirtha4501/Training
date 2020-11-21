@@ -1,6 +1,6 @@
 package in.kpr.training.jdbc.exceptions;
 
-public class AppException extends Exception {
+public class AppException extends RuntimeException {
 
     private static final long serialVersionUID = -1307493420921168255L;
     private int errorCode;
@@ -19,10 +19,10 @@ public class AppException extends Exception {
     }
 
     public int getErrorCode() {
-        return errorCode;
+        return this.errorCode;
     }
 
     public String getErrorMessage() {
-        return errorMessage;
+        return this.errorMessage;
     }
 }

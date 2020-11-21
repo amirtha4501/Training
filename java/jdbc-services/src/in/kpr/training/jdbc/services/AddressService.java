@@ -1,5 +1,6 @@
 package in.kpr.training.jdbc.services;
 
+import in.kpr.training.jdbc.constants.Constant;
 import in.kpr.training.jdbc.constants.Query;
 import in.kpr.training.jdbc.exceptions.AppException;
 import in.kpr.training.jdbc.exceptions.ExceptionCode;
@@ -16,7 +17,7 @@ import java.util.List;
 
 public class AddressService {
 
-    public long create(Address address) throws AppException {
+    public long create(Address address) {
         long generatedAddressId = 0;
 
         if (address.getPostalCode() == 0) {
@@ -25,7 +26,7 @@ public class AddressService {
 
         try {
             Connection con = DriverManager.getConnection(AppConfig.dbString, AppConfig.dbUsername, AppConfig.dbPassword);
-            PreparedStatement ps = con.prepareStatement(Query.insertAddressQuery, Statement.RETURN_GENERATED_KEYS);
+            PreparedStatement ps = con.prepareStatement(Query.INSERT_ADDRESS_QUERY, Statement.RETURN_GENERATED_KEYS);
 
             ps.setString(1, address.getStreet());
             ps.setString(2, address.getCity());
@@ -40,7 +41,7 @@ public class AddressService {
             }
 
         } catch (Exception e) {
-            System.out.println("error: " + e);
+        	throw new AppException(ExceptionCode.REQUEST_FAILED);
         }
 
         if (generatedAddressId == 0) {
@@ -50,7 +51,7 @@ public class AddressService {
         return generatedAddressId;
     }
 
-    public Address read(int id) throws AppException {
+    public Address read(int id) {
 
         if (id <= 0) {
             throw new AppException(ExceptionCode.INVALID_INPUT, "id is invalid");
@@ -61,21 +62,17 @@ public class AddressService {
         try {
             Connection con = DriverManager.getConnection(AppConfig.dbString, AppConfig.dbUsername,
                     AppConfig.dbPassword);
-            PreparedStatement ps = con.prepareStatement(Query.selectAddressQuery + id);
+            PreparedStatement ps = con.prepareStatement(Query.SELECT_ADDRESS_QUERY + id);
 
             ResultSet rs = ps.executeQuery();
 
             if (rs.next()) {
-                String street = rs.getString("street");
-                String city = rs.getString("city");
-                long postalCode = rs.getLong("postal_code");
-
-                address.setStreet(street);
-                address.setCity(city);
-                address.setPostalCode(postalCode);
+                address.setStreet(rs.getString(Constant.STREET));
+                address.setCity(rs.getString(Constant.CITY));
+                address.setPostalCode(rs.getLong(Constant.POSTAL_CODE));
             }
         } catch (Exception e) {
-            System.out.println("error: " + e.getMessage());
+        	throw new AppException(ExceptionCode.REQUEST_FAILED);
         }
 
         if (address.isEmpty()) {
@@ -84,7 +81,7 @@ public class AddressService {
         return address;
     }
 
-    public List<Address> readAll() throws AppException {
+    public List<Address> readAll() {
 
         List<Address> addresses = new ArrayList<>();
         Address address = new Address();
@@ -92,29 +89,24 @@ public class AddressService {
         try {
             Connection con = DriverManager.getConnection(AppConfig.dbString, AppConfig.dbUsername,
                     AppConfig.dbPassword);
-            PreparedStatement ps = con.prepareStatement(Query.selectAllAddressQuery);
+            PreparedStatement ps = con.prepareStatement(Query.SELECT_ALL_ADDRESS_QUERY);
 
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
-
-                String street = rs.getString("street");
-                String city = rs.getString("city");
-                long postalCode = rs.getLong("postal_code");
-
-                address.setStreet(street);
-                address.setCity(city);
-                address.setPostalCode(postalCode);
+                address.setStreet(rs.getString(Constant.STREET));
+                address.setCity(rs.getString(Constant.CITY));
+                address.setPostalCode(rs.getLong(Constant.POSTAL_CODE));
 
                 addresses.add(address);
             }
         } catch (Exception e) {
-            System.out.println("error: " + e);
+        	throw new AppException(ExceptionCode.REQUEST_FAILED);
         }
         return addresses;
     }
 
-    public Address update(int id, Address address) throws AppException {
+    public void update(int id, Address address) {
 
         if (id <= 0) {
             throw new AppException(ExceptionCode.INVALID_INPUT, "id is invalid");
@@ -123,28 +115,22 @@ public class AddressService {
         try {
             Connection con = DriverManager.getConnection(AppConfig.dbString, AppConfig.dbUsername,
                     AppConfig.dbPassword);
-            PreparedStatement ps = con.prepareStatement(Query.updateAddressQuery + id);
-
+            PreparedStatement ps = con.prepareStatement(Query.UPDATE_ADDRESS_QUERY + id);
+            
             ps.setString(1, address.getStreet());
             ps.setString(2, address.getCity());
             ps.setLong(3, address.getPostalCode());
 
             int result = ps.executeUpdate();
             if (result == 0) {
-                throw new AppException(ExceptionCode.UPDATE_FAILED, "id not found");
+            	throw new AppException(ExceptionCode.UPDATE_FAILED, "id not found");
             }
-        } catch (AppException e) {
-            System.out.println("errorCode:" + e.getErrorCode() + " " + e.getErrorMessage());
         } catch (Exception e) {
-            System.out.println("error: " + e.getMessage());
+        	throw new AppException(ExceptionCode.REQUEST_FAILED);
         }
-
-        return address;
     }
 
-    public void delete(int id) throws AppException {
-
-        int result = 0;
+    public void delete(int id) {
 
         if (id <= 0) {
             throw new AppException(ExceptionCode.INVALID_INPUT, "id is invalid");
@@ -153,18 +139,14 @@ public class AddressService {
         try {
             Connection con = DriverManager.getConnection(AppConfig.dbString, AppConfig.dbUsername,
                     AppConfig.dbPassword);
-            PreparedStatement ps = con.prepareStatement(Query.deleteAddressQuery + id);
+            PreparedStatement ps = con.prepareStatement(Query.DELETE_ADDRESS_QUERY + id);
 
-            result = ps.executeUpdate();
+            int result = ps.executeUpdate();
             if (result == 0) {
                 throw new AppException(ExceptionCode.DELETE_FAILED, "id not found");
-            } else {
-                System.out.println("Address deleted");
             }
-        } catch (AppException e) {
-            System.out.println("errorCode:" + e.getErrorCode() + " " + e.getErrorMessage());
         } catch (Exception e) {
-            System.out.println("error: " + e);
+        	throw new AppException(ExceptionCode.REQUEST_FAILED);
         }
     }
 }

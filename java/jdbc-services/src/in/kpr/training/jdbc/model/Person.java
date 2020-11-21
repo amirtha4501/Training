@@ -98,7 +98,7 @@ public class Person {
             Statement statement = connection.createStatement();
 
             Class.forName("com.mysql.jdbc.Driver");
-            statement.executeUpdate(Query.createPersonTable);
+            statement.executeUpdate(Query.CREATE_PERSON_TABLE);
 
             return "Created Person table";
         } catch (Exception e) {
@@ -114,7 +114,7 @@ public class Person {
 
             Class.forName("com.mysql.jdbc.Driver");
 
-            statement.executeUpdate(Query.truncatePersonTable);
+            statement.executeUpdate(Query.TRUNCATE_PERSON_TABLE);
 
             return "Truncated Person table";
         } catch (Exception e) {
@@ -130,7 +130,7 @@ public class Person {
 
             Class.forName("com.mysql.jdbc.Driver");
 
-            statement.executeUpdate(Query.dropPersonTable);
+            statement.executeUpdate(Query.DROP_PERSON_TABLE);
 
             return "Dropped Person table";
         } catch (Exception e) {

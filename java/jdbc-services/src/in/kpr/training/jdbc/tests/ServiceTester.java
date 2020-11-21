@@ -1,7 +1,5 @@
 package in.kpr.training.jdbc.tests;
 
-import java.sql.DriverManager;
-import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -10,27 +8,16 @@ import java.util.Date;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import com.mysql.jdbc.Connection;
 
-import in.kpr.training.jdbc.exceptions.AppException;
 import in.kpr.training.jdbc.model.Address;
 import in.kpr.training.jdbc.model.Person;
 import in.kpr.training.jdbc.services.AddressService;
-import in.kpr.training.jdbc.services.AppConfig;
 import in.kpr.training.jdbc.services.PersonService;
 
 public class ServiceTester {
 
-    @Test(priority = 1, description = "Connection activated")
-    public void isConnected() throws AppException, SQLException {
-        Connection connection = (Connection) DriverManager.getConnection(AppConfig.dbString, AppConfig.dbUsername,
-                AppConfig.dbPassword);
-
-        Assert.assertEquals(connection, connection);
-    }
-
     @Test(priority = 2, description = "Create Address")
-    public void createAddress() throws AppException {
+    public void createAddress() {
         long creationStatus = 0;
 
         AddressService addressService = new AddressService();
@@ -45,7 +32,7 @@ public class ServiceTester {
     }
 
     @Test(priority = 3, description = "Create Address without postalCode")
-    public void createAddressWithoutPincode() throws AppException {
+    public void createAddressWithoutPincode() {
         long creationStatus = 0;
 
         AddressService addressService = new AddressService();
@@ -59,7 +46,7 @@ public class ServiceTester {
     }
 
     @Test(priority = 4, description = "Create Person with address")
-    public void createPerson() throws AppException, ParseException {
+    public void createPerson() throws ParseException {
         long creationStatus = 0;
 
         Person person = new Person();
@@ -84,7 +71,7 @@ public class ServiceTester {
     }
 
     @Test(priority = 5, description = "Create Person without address")
-    public void createPersonWithoutAddress() throws AppException, ParseException {
+    public void createPersonWithoutAddress() throws ParseException {
         long creationStatus = 0;
 
         Person person = new Person();
@@ -105,7 +92,7 @@ public class ServiceTester {
     }
 
     @Test(priority = 6, description = "Person creation with duplicate email")
-    public void createPersonWithDuplicates() throws AppException, ParseException {
+    public void createPersonWithDuplicates() throws ParseException {
         long creationStatus = 0;
 
         Person person = new Person();
@@ -126,7 +113,7 @@ public class ServiceTester {
     }
 
     @Test(priority = 7, description = "Read person without address")
-    public void readPersonWithoutAddress() throws AppException {
+    public void readPersonWithoutAddress() {
         int id = 7;
         String personName = null;
         Person person = null;
@@ -138,7 +125,7 @@ public class ServiceTester {
     }
     
     @Test(priority = 8, description = "Read person with address")
-    public void readPersonWithAddress() throws AppException {
+    public void readPersonWithAddress() {
         int id = 7;
         String personName = null;
         Person person = null;

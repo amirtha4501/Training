@@ -5,8 +5,8 @@ import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.Statement;
 
-import in.kpr.training.jdbc.constants.Query;
-import in.kpr.training.jdbc.services.AppConfig;
+import in.kpr.training.jdbc.constant.Query;
+import in.kpr.training.jdbc.service.AppConfig;
 
 public class Person {
 

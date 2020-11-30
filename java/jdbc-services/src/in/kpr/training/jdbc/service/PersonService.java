@@ -1,12 +1,16 @@
 package in.kpr.training.jdbc.service;
 
+import java.io.FileReader;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+
+import org.apache.commons.csv.CSVFormat;
+import org.apache.commons.csv.CSVParser;
+import org.apache.commons.csv.CSVRecord;
 
 import in.kpr.training.jdbc.constant.Constant;
 import in.kpr.training.jdbc.constant.Query;
@@ -17,18 +21,20 @@ import in.kpr.training.jdbc.model.Person;
 
 public class PersonService {
 
-    public boolean isUnique(String email, Integer updation_id) {
+    public boolean isUnique(String email, Integer updationId) {
         boolean result = false;
         Integer id = null;
         PreparedStatement ps;
         
         try {
-            Connection con = DriverManager.getConnection(AppConfig.dbString, AppConfig.dbUsername, AppConfig.dbPassword);
+            ConnectionService connectionService = new ConnectionService();
+            Connection con = connectionService.init(); 
+//            		DriverManager.getConnection(AppConfig.dbString, AppConfig.dbUsername, AppConfig.dbPassword);
             
-            if (updation_id == null) {            
+            if (updationId == null) {            
                 ps = con.prepareStatement(Query.SELECT_EMAIL_EXISTS + email + "'");           
             } else {
-            	ps = con.prepareStatement(Query.SELECT_EMAIL_EXISTS + email + "'" + Query.EMAIL_EXISTS_ID + updation_id);
+            	ps = con.prepareStatement(Query.SELECT_EMAIL_EXISTS + email + "'" + Query.EMAIL_EXISTS_ID + updationId);
             }
             
             ResultSet rs = ps.executeQuery();
@@ -57,8 +63,9 @@ public class PersonService {
         }
 
         try {
-            Connection con = DriverManager.getConnection(AppConfig.dbString, AppConfig.dbUsername,
-                    AppConfig.dbPassword);
+            ConnectionService connectionService = new ConnectionService();
+            Connection con = connectionService.init();
+//            		DriverManager.getConnection(AppConfig.dbString, AppConfig.dbUsername, AppConfig.dbPassword);
             PreparedStatement ps = con.prepareStatement(Query.INSERT_PERSON_QUERY, Statement.RETURN_GENERATED_KEYS);
 
             PreparedStatement setForeignChecks = con.prepareStatement(Query.SET_FOREIGN_CHECKS);
@@ -71,7 +78,8 @@ public class PersonService {
             }
 
             if (this.isUnique(person.getEmail()) == false) {
-                throw new AppException(ExceptionCode.UNIQUE_CONSTRAINT_FAILED, "Email violates unique constraint");
+            	throw new AppException(ExceptionCode.UNIQUE_CONSTRAINT_FAILED);
+//                throw new AppException(ExceptionCode.UNIQUE_CONSTRAINT_FAILED, "Email violates unique constraint");
             } else {
                 ps.setString(1, person.getName());
                 ps.setString(2, person.getEmail());
@@ -88,11 +96,13 @@ public class PersonService {
 
         } catch (Exception e) {
         	throw new AppException(ExceptionCode.REQUEST_FAILED);
+//        	throw new AppException(ExceptionCode.REQUEST_FAILED, e);
         }
 
         if (generatedPersonId == 0) {
             addressService.delete(person.getAddressId());
-            throw new AppException(ExceptionCode.CREATE_FAILED, "Person creation failed");
+            throw new AppException(ExceptionCode.CREATE_FAILED);
+//            throw new AppException(ExceptionCode.CREATE_FAILED, "Person creation failed");
         }
 
         return generatedPersonId;
@@ -107,11 +117,12 @@ public class PersonService {
         if (id <= 0) {
             throw new AppException(ExceptionCode.INVALID_INPUT, "id is invalid");
         }
-        Person person = new Person();
+        Person person = new Person(); // declare as global
 
         try {
-            Connection con = DriverManager.getConnection(AppConfig.dbString, AppConfig.dbUsername,
-                    AppConfig.dbPassword);
+            ConnectionService connectionService = new ConnectionService();
+            Connection con = connectionService.init();
+//            Connection con = DriverManager.getConnection(AppConfig.dbString, AppConfig.dbUsername, AppConfig.dbPassword);
             PreparedStatement ps = con.prepareStatement(Query.SELECT_PERSON_QUERY + id);
 
             ResultSet rs = ps.executeQuery();
@@ -150,8 +161,9 @@ public class PersonService {
         Person person = new Person();
 
         try {
-            Connection con = DriverManager.getConnection(AppConfig.dbString, AppConfig.dbUsername,
-                    AppConfig.dbPassword);
+            ConnectionService connectionService = new ConnectionService();
+            Connection con = connectionService.init();
+//            Connection con = DriverManager.getConnection(AppConfig.dbString, AppConfig.dbUsername, AppConfig.dbPassword);
             PreparedStatement ps = con.prepareStatement(Query.SELECT_ALL_PERSON_QUERY);
 
             ResultSet rs = ps.executeQuery();
@@ -188,8 +200,9 @@ public class PersonService {
         }
 
         try {
-            Connection con = DriverManager.getConnection(AppConfig.dbString, AppConfig.dbUsername,
-                    AppConfig.dbPassword);
+            ConnectionService connectionService = new ConnectionService();
+            Connection con = connectionService.init();
+//            Connection con = DriverManager.getConnection(AppConfig.dbString, AppConfig.dbUsername, AppConfig.dbPassword);
             PreparedStatement ps = con.prepareStatement(Query.UPDATE_PERSON_QUERY + id);
 
             int result = 0;
@@ -221,8 +234,9 @@ public class PersonService {
         }
 
         try {
-            Connection con = DriverManager.getConnection(AppConfig.dbString, AppConfig.dbUsername,
-                    AppConfig.dbPassword);
+            ConnectionService connectionService = new ConnectionService();
+            Connection con = connectionService.init();
+//            Connection con = DriverManager.getConnection(AppConfig.dbString, AppConfig.dbUsername, AppConfig.dbPassword);
             PreparedStatement ps = con.prepareStatement(Query.DELETE_PERSON_QUERY + id);
 
             result = ps.executeUpdate();
@@ -233,4 +247,26 @@ public class PersonService {
         	throw new AppException(ExceptionCode.REQUEST_FAILED);
         }
     }
+    
+    public void createPersonWithCSV(String csvfile) {
+
+		try (CSVParser parser = new CSVParser(new FileReader(csvfile),
+				CSVFormat.DEFAULT.withFirstRecordAsHeader().withIgnoreHeaderCase().withTrim())){
+
+			PersonService personService = new PersonService();
+
+			for (CSVRecord record : parser) {
+				Person person = new Person();
+				personService.create(person);
+				
+				person.setName(record.get(Constant.NAME));
+				person.setName(record.get(Constant.EMAIL));
+				person.setName(record.get(Constant.BIRTH_DATE));
+				person.setName(record.get(Constant.CREATED_DATE));
+
+			}
+		} catch (Exception e) {
+			throw new AppException(ExceptionCode.REQUEST_FAILED);
+		}
+	}
 }

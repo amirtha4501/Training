@@ -125,19 +125,19 @@ public class AddressService {
         }
 
         ConnectionService connectionService = new ConnectionService();
-        Connection con = null;
+//        Connection con = null;
         
-        try {
-            con = connectionService.init();
+        try (PreparedStatement ps = connectionService.init().prepareStatement(Query.UPDATE_ADDRESS_QUERY + id)) {
+//            con = connectionService.init();
 //            		DriverManager.getConnection(AppConfig.dbString, AppConfig.dbUsername, AppConfig.dbPassword);
-            PreparedStatement ps = con.prepareStatement(Query.UPDATE_ADDRESS_QUERY + id);
+//            PreparedStatement ps = connectionService.init().prepareStatement(Query.UPDATE_ADDRESS_QUERY + id);
             
             ps.setString(1, address.getStreet());
             ps.setString(2, address.getCity());
             ps.setLong(3, address.getPostalCode());
 
-            int result = ps.executeUpdate();
-            if (result == 0) {
+//            int result = ps.executeUpdate();
+            if (ps.executeUpdate() == 0) {
             	throw new AppException(ExceptionCode.UPDATE_FAILED, "id not found");
             }
         } catch (Exception e) {
@@ -152,8 +152,9 @@ public class AddressService {
         }
 
         try {
-            Connection con = DriverManager.getConnection(AppConfig.dbString, AppConfig.dbUsername,
-                    AppConfig.dbPassword);
+            ConnectionService connectionService = new ConnectionService();
+            Connection con = connectionService.init(); 
+//            		DriverManager.getConnection(AppConfig.dbString, AppConfig.dbUsername, AppConfig.dbPassword);
             PreparedStatement ps = con.prepareStatement(Query.DELETE_ADDRESS_QUERY + id);
 
             int result = ps.executeUpdate();

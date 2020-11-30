@@ -27,8 +27,14 @@ public class ServiceTester {
         address.setCity("myd");
         address.setPostalCode(123456);
         creationStatus = addressService.create(address);
-        //
+
         Assert.assertTrue(creationStatus > 0);
+        
+//        if(createStatus > 0) {
+//			connectionService.commit(con);
+//        } else {
+//        	connectionService.rollback(con);
+//    	  }
     }
 
     @Test(priority = 3, description = "Create Address without postalCode")
@@ -43,6 +49,12 @@ public class ServiceTester {
         creationStatus = addressService.create(address);
         //
         Assert.assertTrue(creationStatus > 0);
+        
+//      if(createStatus > 0) {
+//			connectionService.commit(con);
+//      } else {
+//          connectionService.rollback(con);
+//  	}
     }
 
     @Test(priority = 4, description = "Create Person with address")
@@ -68,6 +80,12 @@ public class ServiceTester {
         creationStatus = personService.create(person, address);
 
         Assert.assertTrue(creationStatus > 0);
+
+//      if(createStatus > 0) {
+//			connectionService.commit(con);
+//      } else {
+//          connectionService.rollback(con);
+//  	}
     }
 
     @Test(priority = 5, description = "Create Person without address")
@@ -89,6 +107,12 @@ public class ServiceTester {
         creationStatus = personService.create(person);
 
         Assert.assertTrue(creationStatus > 0);
+
+//      if(createStatus > 0) {
+//			connectionService.commit(con);
+//      } else {
+//          connectionService.rollback(con);
+//  	}
     }
 
     @Test(priority = 6, description = "Person creation with duplicate email")
@@ -110,6 +134,12 @@ public class ServiceTester {
         creationStatus = personService.create(person);
 
         Assert.assertTrue(creationStatus > 0);
+        
+//      if(createStatus > 0) {
+//			connectionService.commit(con);
+//      } else {
+//          connectionService.rollback(con);
+//  	}
     }
 
     @Test(priority = 7, description = "Read person without address")
@@ -122,6 +152,12 @@ public class ServiceTester {
         person = personService.read(id, false);
         personName = person.getName();
         Assert.assertTrue(personName != null);
+
+//      if(personName != null) {
+//			connectionService.commit(con);
+//      } else {
+//          connectionService.rollback(con);
+//  	}
     }
     
     @Test(priority = 8, description = "Read person with address")
@@ -134,6 +170,11 @@ public class ServiceTester {
         person = personService.read(id, true);
         personName = person.getName();
         Assert.assertTrue(personName != null);
+        
+//      if(personName != null) {
+//			connectionService.commit(con);
+//      } else {
+//          connectionService.rollback(con);
+//  	}
     }
-
 }

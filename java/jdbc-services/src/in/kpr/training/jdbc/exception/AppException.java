@@ -18,6 +18,11 @@ public class AppException extends RuntimeException {
         System.out.println(this.errorCode + ": " + this.errorMessage);
     }
 
+
+    public AppException(ExceptionCode code, Exception e) {
+//    	super(code.getMessage(), e);
+    }
+
     public int getErrorCode() {
         return this.errorCode;
     }

@@ -11,7 +11,7 @@ curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
 sudo apt-get install -y nodejs
 
 # Clone
-git clone https://github.com/amirtha4501/FinanceManagerBackend.git
+git clone https://github.com/amirthaaaagtf/FinanceManagerBackend.git
 
 # Install packages
 cd FinanceManagerBackend
@@ -73,7 +73,7 @@ pm2 startup
 DEPLOY ANGULAR FRONT END
 
 # Clone repo
-git clone https://github.com/amirtha4501/FinanceManager.git
+git clone https://github.com/amirthacsdvbv/FinanceManager.git
 
 # Install angular cli
 npm install -g @angular/cli

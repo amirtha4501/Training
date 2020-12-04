@@ -1,0 +1,53 @@
+Data link layer mainly deals with framing, error control and flow control.
+
+Media access control sublayer of the data link layer performs data link functions 
+that depend upon the type of medium.
+
+Media access control (MAC) deals with transmission of data packets to and from the network-interface card, 
+and also to and from another remotely shared channel. 
+
+The MAC sublayer also prevents collision using protocols like CSMA/CD.
+
+In a frame, the header is a part of the data that contains all the required information about 
+the transmission of the file. 
+
+It contains information like synchronization bytes, addresses, frame identifier etc. 
+
+It also contains error control information for reducing the errors in the transmitted frames.
+
+Automatic repeat request error management mechanism is provided by logical link control layer.
+
+The logical link control is a sublayer of data link layer whose main function is to manage traffic, 
+flow and error control.
+
+When a single bit error occurs in a data, it is called single bit error. 
+When more than a single bit of data is corrupted or has error, it is called burst error. 
+If a single bit error occurs, the bit can be simply repaired by inverting it, but 
+in case of a burst error, the sender has to send the frame again.
+
+Cyclic redundancy check is a code that is added to a data which helps us to identify any error 
+that occurred during the transmission of the data. 
+CRC is only able to detect errors, not correct them. CRC is inserted in the frame trailer.
+
+There are many data link layer protocols. Some of them are 
+    - SDLC (synchronous data link protocol), 
+    - HDLC (High level data link control), 
+    - SLIP (serial line interface protocol), 
+    - PPP (Point to point protocol) etc. 
+    These protocols are used to provide the logical link control function of the Data Link Layer.
+
+In CSMA/CD, it deals with detection of collision after collision has occurred, whereas CSMA/CA deals 
+with preventing collision. 
+    CSMA/CD - Carrier Sensing Multiple Access/Collision detection. 
+    CSMA/CA - Carrier Sensing Multiple Access/Collision Avoidance. 
+These protocols are used for efficient multiple channel access.
+
+Piggybacking is a technique in which the acknowledgment is temporarily delayed so as to be hooked 
+with the next outgoing data frame. It saves a lot of channel bandwidth as in non-piggybacking system, 
+some bandwidth is reserved for acknowledgement.
+
+Spanning tree protocol (STP) is a network protocol that creates a loop free logical topology 
+for ethernet networks. It is a layer 2 protocol that runs on bridges and switches. 
+The main purpose of STP is to ensure that you do not create loops when you have redundant paths in your network.
+
+The ethernet protocol is for data link layer.

@@ -1,0 +1,21 @@
+TCP provides reliable and ordered delivery of a stream of bytes between hosts communicating via an IP network. 
+Major internet applications like www, email, file transfer etc rely on TCP. 
+TCP is connection oriented and it is optimized for accurate delivery rather than timely delivery.
+
+Socket is one end point in a two way communication link in the network. TCP layer can identify the 
+application that data is destined to be sent by using the port number that is bound to socket.
+
+Winsock is a programming interface which deals with input output requests for internet applications in 
+windows OS. It defines how windows network software should access network services.
+
+The datagram congestion control is a transport layer protocol which deals with reliable connection setup, 
+teardown, congestion control, explicit congestion notification, and feature negotiation.
+
+A port is a TCP name for a transport service access point.
+The network port identifies the application or service running on the computer. 
+A port number is 16 bits. 
+The combination of IP address preceded with the port number is called the socket address.
+
+The Stream Control Transmission Protocol (SCTP) is a transport layer protocol used in networking 
+system where streams of data are to be continuously transmitted between two connected network nodes. 
+Some of the other transport layer protocols are RDP, RUDP, TCP, DCCP, UDP etc.

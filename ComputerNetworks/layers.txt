@@ -1,0 +1,36 @@
+The data from application layer is sent to transport layer and is converted to segments. 
+These segments are then transferred to the network layer and these are called packets. These packets 
+are then sent to data link layer where they are encapsulated into frames. These frames are then transferred 
+to physical layer where the frames are converted to bits. Error control and flow control data is inserted 
+in the frames at the data link layer.
+
+Error control is a function of the data link layer and the transport layer.
+
+Physical layer 
+    - It is responsible for the movements of individual bits from one hop(node) to the next.
+    - To transmit over a medium, to provide mechanical and electrical specifications.
+
+Data link layer(node to node)
+    - It is responsible for the movements of frames from one hop(node) to the next.
+    - To organize bits into frames and to provide hop-to-hop delivery
+
+Network layer 
+    - It is responsible for the movements of individual packets from the source host to the destination host.
+    - To provide internetworking.
+
+Transport layer(process to process)
+    - It is responsible for the delivery of the message from one process to another and responsible for 
+    segmentation of the data.
+    - To provide reliable process-to-process message delivery using ports and error recovery.
+
+Session layer 
+    - It is responsible for dialog control and synchronization.
+    - To establish, manage and terminate sessions.
+
+Presentation layer 
+    - It is responsible for translation, compression and encryption.
+
+Application layer 
+    - It is responsible for providing services to the user.
+    - To allow access to the Network resources.
+

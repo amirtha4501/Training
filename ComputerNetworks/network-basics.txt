@@ -1,0 +1,84 @@
+Each layer adds its own header to the packet from the previous layer. For example, in the Internet layer, 
+the IP header is added over the TCP header on the data packet that came from the transport layer.
+
+The structure and format of data are defined using syntax. Semantics defines how a particular 
+pattern to be interpreted, and what action is to be taken based on that interpretation.
+
+In simplex transmission, data flows in single direction which in this case refers to the data flowing 
+from the keyboard to the computer. Another example would be of the mouse where the data flows from the mouse to the computer only.
+
+Messages travel from sender to receiver via a physical path called the medium using a set of methods/rules called protocol. 
+Mediums can be guided (wired) or unguided (wireless).
+
+In communications, a protocol refers to a set of rules and regulations that allow a network of nodes to 
+transmit and receive information. Each layer in the network model has a protocol set, for example, 
+the transport layer has TCP and UDP protocols.
+
+A multipoint communication is established when three or many network nodes are connected to each other. 
+Frame relay, Ethernet and ATM are some examples of multipoint connections.
+
+An overlay network is a computer network that is built on top of another network. 
+Some examples of an overlay network are Virtual Private Networks (VPN) and Peer-to-Peer Networks (P2P)
+
+In a computer network, a node can be anything that is capable of sending data or receiving data or even routing 
+the data to its destination. Routers, Computers and Smartphones are some examples of network nodes.
+
+Bluetooth is a wireless technology used to create a wireless personal area network for data transfer up to 
+a distance of 10 meters. It operates on 2.45 GHz frequency band for transmission.
+
+A router is a networking device that forwards data packets between computer networks. Routers 
+perform the traffic directing functions on the Internet. They make use of routing protocols like 
+RIP to find the cheapest path to the destination.
+
+A protocol stack refers to a group of protocols that are running concurrently that are employed 
+for the implementation of network protocol suite. Each layer in the network model has to use 
+one specific protocol from the protocol stack.
+
+A virtual private network extends a private network across a public network, and enables users 
+to send and receive data across shared or public networks as if their computing devices were directly
+connected to the private network.VPN provides enhanced security and online anonymity to users on the internet. 
+It is also used to unblock websites which are unavailable in certain regions.
+
+Most local-area networks use a 48-bit (6-byte) physical address written as 12 hexadecimal digits; 
+every byte (2 hexadecimal digits) is separated by a colon
+
+The physical addresses will change from hop to hop, but the logical addresses usually remain the same.
+
+A port address is a 16-bit address represented by one decimal number.
+
+Categories of Networks:
+    Local Area Networks (LANs)
+        Short distances
+        Designed to provide local interconnectivity
+    Wide Area Networks (WANs)
+        Long distances
+        Provide connectivity over large areas
+    Metropolitan Area Networks (MANs)
+        Provide connectivity over areas such as a city, a campus
+
+A protocol is synonymous with rule. It consists of a set of rules that govern data communications. 
+The key elements of a protocol are:
+    Syntax
+        Structure or format of the data
+        Indicates how to read the bits - field delineation
+    Semantics
+        Interprets the meaning of the bits
+        Knows which fields define what action
+    Timing
+        When data should be sent and what
+        Speed at which data should be sent or speed at which it is being received.
+
+The physical, logical, port and specific addresses are used in TCP/IP protocol. 
+All the addressing schemes, that is physical (MAC) and logical address, port address and specific address 
+are employed in both TCP/IP model and OSI model. 
+In TCP/IP, the addresses are more focused on the internet implementation of these addresses.
+
+A port number is a way to identify a specific process to which an Internet or other network message 
+is to be forwarded when it arrives at a server. Some examples of port numbers are port 20 which is used 
+for FTP data, port 22 which is used for SSH remote login ,and port 23 which is used for TELNET.
+
+Physical layer deals with network cables or the standards in use like connectors, 
+pins, electric current used etc. Basically the transmission speed is determined by the cables and 
+connectors used. Hence it is physical layer that determines the transmission speed in network. 
+Some of the cables used for high speed data transmission are optical fiber cables and twisted pair cables.
+

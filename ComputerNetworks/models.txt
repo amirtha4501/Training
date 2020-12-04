@@ -1,0 +1,24 @@
+There are five layers in the Internet Protocol stack. 
+The five layers in Internet Protocol stack is 
+        Application, 
+        Transport, 
+        Network, 
+        Data link and 
+        Physical layer. 
+The internet protocol stack model is also called the TCP/IP model and it’s used in modern Internet Communication.
+
+The seven layers in ISO OSI reference model is 
+        Application, 
+        Presentation, 
+        Session, 
+        Transport, 
+        Network, 
+        Data link and 
+        Physical layer. 
+OSI stands for Open System Interconnect and it is a generalized model.
+
+Application layer, presentation layer, session layer and transport layer are implemented in the end system. 
+
+Physical, data link and network layers are network support layers.
+Session, presentation and application layers are user support layers. 
+The transport layer links these layers by segmenting and rearranging the data. It uses protocols like TCP and UDP.

@@ -1,0 +1,39 @@
+The network layer is concerned with packets of data.
+
+It provides data routing paths for network communications.
+
+A 4 byte IP address consists of network address and host address.
+The size of the host address and network address depends upon the class of 
+the address in classful IP addressing.
+
+In virtual circuit network each packet contains a short VC number.
+    A short VC number also called as VCID (virtual circuit identifier) is a type of identifier 
+    which is used to distinguish between several virtual circuits in a connection oriented circuit 
+    switched network. 
+    Each virtual circuit is used to transfer data over a larger packet switched network.
+
+The routing algorithm is what decides where a packet should go next.
+    There are several routing techniques like
+        - shortest path algorithm, 
+        - static and dynamic routing, 
+        - decentralized routing, 
+        - distance vector routing, 
+        - link state routing, 
+        - Hierarchical routing etc.
+
+In multi-destination routing, there is more than one receiver and the route for each destination 
+which is contained in a list of destinations is to be found by the routing algorithm. 
+Multi-destination routing is also used in broadcasting.
+
+The Routing Information Protocol (RIP) is used by the network layer for the function of dynamic routing.
+
+Congestion control focuses on the flow of the traffic in the network and uses algorithms like traffic 
+aware routing, admission control and load shedding to deal with congestion.
+
+There are several protocols used in Network layer. Some of them are IP, ICMP, CLNP, ARP, IPX, HRSP etc.
+
+ICMP - Internet Control Message Protocol 
+    It is used by networking devices to send error messages and operational information indicating a host 
+    or router cannot be reached. 
+    ICMP operates over the IP packet to provide error reporting functionality as IP by itself cannot
+    report errors.

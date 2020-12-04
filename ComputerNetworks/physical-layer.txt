@@ -1,0 +1,19 @@
+Physical layer deals with bit to bit delivery in networking. 
+
+The data unit in the physical layer is bits.
+
+Fiber optics is considered to have the highest transmission speed mostly. The fiber optics transmission
+runs at 1000Mb/s. It is called as 1000Base-Lx whereas IEEE standard = 802.3z. 
+It is used for modern network connections due to its high transmission rate.
+
+The portion of physical layer that interfaces with the medium access control sublayer 
+is Physical Signalling Sublayer. 
+The main function of this layer is 
+    character encoding, 
+    reception, 
+    decoding and 
+    performs optional isolation functions. 
+It handles which media connection the signal should be forwarded to physically.
+
+Anything dealing with a network cable or the standards in use – including pins, 
+connectors and the electric current used is dealt in the physical layer.

@@ -1,0 +1,27 @@
+Topology in networks is the structure or pattern in which each and every node in the network is connected.
+
+Topology types:
+    mesh
+    star
+    bus
+    ring
+    hybrid
+
+In star topology, no computer is connected to another computer directly but all the computers are connected 
+to a central hub. Every message sent from a source computer goes through the hub and the hub then forwards 
+the message only to the intended destination computer.
+
+In bus topology, there is a single cable to which all the network nodes are connected. 
+So whenever a node tries to send a message or data to other nodes, this data passes through all 
+other nodes in the network through the cable. It is really simple to install but it’s not secure enough 
+to be used in most of the computer network applications.
+
+WAN - Wide Area Network. 
+    This network extends over a large geographical area such as to connect cities, states or even countries. 
+    A wireless connection is required to build a WAN. The best example of WAN is the Internet.
+    They can be connected through leased lines or satellites.
+
+LAN - Local Area Network. 
+    This network interconnects computers in a small area such as schools, offices, residence etc. 
+    It is the most versatile kind of data communication system where most of the computer network concepts 
+    can be visibly used.

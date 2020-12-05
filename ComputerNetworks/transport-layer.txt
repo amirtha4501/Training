@@ -19,3 +19,6 @@ The combination of IP address preceded with the port number is called the socket
 The Stream Control Transmission Protocol (SCTP) is a transport layer protocol used in networking 
 system where streams of data are to be continuously transmitted between two connected network nodes. 
 Some of the other transport layer protocols are RDP, RUDP, TCP, DCCP, UDP etc.
+
+Resource reservation protocol is used in transport layer. It is designed to reserve resources across 
+a network for quality of service using the integrated services model.

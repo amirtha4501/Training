@@ -1,3 +1,6 @@
+IP address lets you know where the network is located. Whereas MAC address is a unique address 
+for every device. Port address identifies a process or service you want to carry on.
+
 Each layer adds its own header to the packet from the previous layer. For example, in the Internet layer, 
 the IP header is added over the TCP header on the data packet that came from the transport layer.
 
@@ -82,3 +85,40 @@ pins, electric current used etc. Basically the transmission speed is determined 
 connectors used. Hence it is physical layer that determines the transmission speed in network. 
 Some of the cables used for high speed data transmission are optical fiber cables and twisted pair cables.
 
+Packet sniffers involve passive receiver
+The function of packet sniffers is to just silently receive the packets flowing in the channel. 
+If they inject any packets into the channel, they might alert the other users about the intrusion.
+
+Switches make sure that the packet is sent to the intended receiver and no one else, 
+thus preventing Sniffers to perform their function. 
+Intelligent switches are hence used preferably for the network.
+
+UDP is more vulnerable to attacks, so firewalls are often configured to block suspicious UDP traffic.
+
+Unshielded twisted pair(UTP) is commonly used in home access.
+
+Coaxial cable has an inner conductor surrounded by a insulating layer, which is surrounded by a 
+conducting shield. Coaxial cable is used to carry high frequency signals with low losses.
+
+The base unit of transmission rates in optical fibre is 51.8 Mbits/s. So an optical carrier 
+represented as OC-n has n*51.8 Mbits/s transmission speed. For eg. OC-3 has 3*51.8 Mbits/s speed.
+
+Radio channels can penetrate walls, can be used to provide connectivity to mobile users and can also 
+carry signals for long distances.
+
+ A local telephone network is an example of a circuit switched network.
+
+Circuit switching is implemented in the Physical layer, whereas packet switching is implemented in 
+the Network layer. Internet too is based on the concept of circuit switching.
+
+Most packet switches use this principle 'store and forward'
+    The packet switch will not transmit the first bit to outbound link until it receives the entire packet. 
+    If the entire packet is not received and the time-out period expires, the packet switch will 
+    inform the sender to resend the part of packet or the entire packet based on the algorithm being used.
+
+The equation to find the end to end delay when no. of bits (L), transmission rate(R) and no. of routers(N)
+is given by (N*L)/R
+
+Packet switching and Circuit switching are two different types of switching methods used to connect the 
+multiple communicating devices with one another. Packet switching is used in conventional LAN systems 
+and circuit switching is used in telephonic systems.

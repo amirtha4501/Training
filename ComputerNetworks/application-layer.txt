@@ -1,0 +1,50 @@
+Application layer protocols:
+    -> Remote login to hosts: Telnet
+    -> File transfer: File Transfer Protocol (FTP), Trivial File Transfer Protocol (TFTP)
+    -> Electronic mail transport: Simple Mail Transfer Protocol (SMTP)
+    -> Networking support: Domain Name System (DNS)
+    -> Host initialization: BOOTP
+    -> Remote host management: Simple Network Management Protocol (SNMP), 
+                               Common Management Information Protocol over TCP (CMOT)
+
+End to End service is provided in the application layer.
+
+For Application, Presentation and Session layers there is no data format for message. 
+Message is message as such in these three layers.
+
+Application layer provides the interface between applications and the network. 
+So application developer can decide what transport layer to use and what should be its maximum buffer size.
+
+E-mail is Elastic application. Because it can work with available throughput.
+
+The services provided by the application layer are network virtual terminal, file transfer, 
+access and management, mail services, directory services, various file and data operations.
+
+The transport services that are provided to application are reliable data transfer, security and timing. 
+These are very important for proper end to end services.
+
+Email uses various protocols like SMTP, IMAP and POP. 
+The most prominent one used in application layer is SMTP.
+
+Domain name system is the way the internet domain names are stored and translated to IP addresses. 
+The domain names systems matches the name of website to ip addresses of the website.
+
+Telnet is used for accessing remote computers. Using telnet a user can access computer remotely. 
+With Telnet, you can log on as a regular user with whatever privileges you may have been granted to the 
+specific application and data on the computer.
+
+Application layer deals with the user interface, what message is to be sent or the message format, 
+syntax and semantics. A user has access to application layer for sending and receiving messages.
+
+SMTP - Simple Mail Transfer Protocol is an application layer protocol. 
+A client who wishes to send a mail creates a TCP connection to the SMTP server and then sends the 
+mail across the connection.
+
+The ASCII encoding of binary data is called base 64 encoding.
+
+Simple Network Management Protocol is an internet standard protocol for managing devices on IP network.
+SNMP is a set of protocols for network management and monitoring. This protocol is included in the 
+application layer. SNMP uses 7 protocol data units.
+
+Session Initiation Protocol (SIP) is a signaling protocol in which its function includes initiating, 
+maintaining and terminating real time sessions. SIP is used for signaling and controlling multimedia sessions.

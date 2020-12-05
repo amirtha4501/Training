@@ -1,0 +1,44 @@
+Multiplexing is a method using which one can send multiples signals through a shared medium at the same time.
+This helps in using less resources and thus saving the cost of sending messages.
+
+TDM - Time division multiplexing. 
+    It is technique for combining several low rate channels to a single high rate channel. 
+    For a certain time slot, the several channels could use the maximum bandwidth. 
+    Each channel is inactive for a period of time too. 
+    The slots are further divided into frames.
+    TDM is used to transmit digital signals.
+
+FDM - Frequency Division Multiplexing.
+    FDM is the multiplexing technique that shifts each signal to a different carrier frequency. 
+    This technique is used when the bandwidth of the channel is greater than the combined bandwidth 
+    of all the signals which are to be transmitted. 
+    The channel is active at all times unless a collision occurs with another channel trying to use 
+    the same frequency.
+    FDM is used for analog signals.
+
+Circuit switching is a switching method by which one can obtain a physical path between end points. 
+Circuit switching method is also called a connection oriented network. Two nodes must be physically 
+and logically connected to each other to create a circuit switching network.
+
+If there are n signal sources of same data rate, then the TDM link has n slots.
+In TDM, the total unit of time is divided equally among all the signal sources and each and every source 
+has access to the complete channel bandwidth during its allotted time slot. When the time slot of the source 
+is not active, it remains idle and waits for its slot to begin.
+
+If link transmits 4000frames per second, and each slot has 8 bits, the transmission rate of circuit this TDM is
+    Transmission rate= frame rate * number of bits in a slot.
+    Frame rate = 4000/sec and number of bits in slot = 8
+    Thus, Transmission rate = (4000 * 8) bps
+        = 32000bps
+        = 32kbps
+
+The state when dedicated signals are idle are called silent period.
+
+Multiplexing helps us to transfer our messages over a shared channel. 
+Multiplexing has high efficiency and high privacy when implemented because in the implementation, 
+the transport layer of the OSI network model handles the function of multiplexing through interfaces 
+called ports which provide the required efficiency and privacy.
+
+In TDM the transmission rate provided by the path that is multiplexed will always be 
+greater than the sum of transmission rates of the single sources. 
+This happens because the transmission rate is provided to each source only for a small period of time.

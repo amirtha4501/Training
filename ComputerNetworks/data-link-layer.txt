@@ -1,3 +1,12 @@
+Data link protocols:
+    -> Synchronous Data Link Protocol (SDLC)
+    -> High-Level Data Link Protocol (HDLC)
+    -> Serial Line Interface Protocol (SLIP) 
+    -> Point to Point Protocol (PPP)
+    -> Link Control Protocol (LCP) 
+    -> Link Access Procedure (LAP) 
+    -> Network Control Protocol (NCP)
+
 Data link layer mainly deals with framing, error control and flow control.
 
 Media access control sublayer of the data link layer performs data link functions 

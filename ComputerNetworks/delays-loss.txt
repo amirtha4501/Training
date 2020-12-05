@@ -1,0 +1,34 @@
+Queuing delay:
+    When there are multiple packets which are to be sent, the packets have to wait in the queue that time
+    is called queuing delay.
+
+Transmission delay:
+    There will be a delay to convert the packet into bits to be transmitted.
+
+Propagation delay:
+    There will be delay to propagate the bits through the physical medium.
+
+Processing delay:
+    The time required to examine the packet’s header and determine where to direct the packet.
+
+Transmission delay = L/R (length / transmission rate)
+    For a 10Mbps Ethernet link, if the length of the packet is 32bits, the transmission delay is
+        = 32/10 
+        = 3.2 microseconds.
+
+Transmission delay does not depend on Distance between the routers
+    Transmission delay = packet length / transmission rate. 
+    The transmission rate depends upon the bandwidth of the medium.
+
+Traffic Intensity = (Number of bits in packet * Average Transmission rate) / Current Transmission rate
+                  = La/R 
+
+N = number of routers + final node
+
+The total nodal delay is given by 
+    dnodal = dproc + dqueue + dtrans + dprop
+
+Propagation delay is caused when the packet is in its electric signal form and is travelling through a 
+medium (a wire or a electromagnetic wave). Propagation delay is the time it takes a bit to propagate from 
+one router to the next. If the distance between the routers is increased, it will take longer time to 
+propagate, that is, there would be more propagation delay.

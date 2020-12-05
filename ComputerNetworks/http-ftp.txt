@@ -1,0 +1,72 @@
+By default the http connection is issued with persistent connection. In persistent connection server 
+leaves connection open after sending response. As little as one RTT (Time for a small packet to travel 
+from client to server and back) is required for all referenced objects.
+
+In first step client sends a segment to establish a connection with the server. 
+In the second the step the client waits for the acknowledgement to be received from the server. 
+After receiving the acknowledgement, the client sends actual data in the third step.
+
+By default the http connection will be persistent connection. Hence it will take only 1 RTT 
+to fetch a webpage from a server.
+
+The first line of HTTP request message is called Request line. The line followed by request line 
+are called header lines and status line is the initial part of response message.
+
+The values GET, POST, HEAD etc are specified in the request line of HTTP message.
+
+HEAD method is much faster than GET method. In HEAD method much smaller amount of data is transferred. 
+The HEAD method asks only for information about a document and not for the document itself.
+
+Web cache or also known as HTTP cache is a temporary storage where HTML pages and images are stored 
+temporarily so that server lag could be reduced.
+
+The HTTP protocol requests the server of the website its trying to access so that it can store its files, 
+images etc. in cache memory. This request of asking the server for a document considering a specific parameter 
+is called conditional GET Request.
+
+Multiple objects can be sent over a TCP connection between client and server in a persistent HTTP connection.
+
+The Uniform Resource Identifier is a name and locator for the resource to be located by the HTTP. 
+The URLs and URNs are derived through the identifier.
+
+HTTP clients perform requests using a TCP connection, because the TCP connection provides a more 
+reliable service. UDP is not a reliable protocol, border gateway protocol is used on top of TCP, while 
+domain host control protocol is a network layer protocol.
+
+HTTP pipelining helps the client make multiple requests without having to waiting for each response, 
+thus saving a lot of time and bandwidth for the client.
+
+FTP server listens for connection on port number 21
+Port 20 is used for FTP data. 
+Port 22 is used for SSH remote login. 
+Port 23 is used for TELNET.
+
+In Passive mode of FTP, the client initiates both data and control connections, 
+while in Active mode, the client initiates the control connection and then the server initiates the 
+data connection.
+
+The File Transfer Protocol is built on client server architecture.
+The FTP connection includes a Server and a Client which wish to share files. The server can have multiple 
+clients at the same time while the client communicates with only one server at a time.
+
+In Stream mode, the data is transferred in a continuous stream.
+In Block mode, data is transferred after being divided into smaller blocks.
+In Compressed mode, data is transferred after being compressed using some compression algorithm.
+
+FTP uses 2 parallel TCP connections to transfer a file.
+Control connection using FTP port: 21, and data connection using FTP port: 20. 
+The FTP session is started or ended using port 21 and the actual data i.e. files are sent through port 20.
+
+The client would first initiate the TCP control connection through port 21. 
+Then for every file transfer, a separate connection would be made through port 20. 
+Now, since we have five files to be transferred, 
+    1 control connection + 5 data connections = 6 total TCP connections.
+
+FTP server maintains state information of every control connection to keep track of the active
+and inactive connections in the session. This helps the server decide which connection to terminate, 
+in case the connection is inactive for too long.
+
+FTP was designed to transmit commands only in English characters that are possible with just 7 bits in ASCII.
+
+Stream mode is the default mode of FTP, in which the TCP transforms/fragments the data into segments, and 
+then after the transmission is completed, converts it back to stream of bytes.

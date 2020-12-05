@@ -1,0 +1,27 @@
+Simple Mail Transfer Protocol (SMTP) - client-server architecture
+
+When the mail server sends mail to other mail servers it becomes SMTP client
+
+Since only 7-bit ASCII codes are transmitted through SMTP, it is mandatory to convert binary multimedia
+data to 7-bit ASCII before it is sent using SMTP.
+
+In SMTP, the command to write receiver’s mail address is written with the command RCPT TO
+
+In SMTP, the sending mail server pushes the mail to receiving mail server hence it is push protocol. 
+In a pull protocol such as HTTP, the receiver pulls the resource from the sending server.
+
+The ports 15, 35 and 50 are all UDP ports.
+SMTP only uses TCP port 25 for reliability.
+
+When the sender and the receiver of an email are on different systems, we need only Two UAs and two MTAs.
+The sender’s User Agent (UA) submits the message to a Message Transfer Agent (MTA). Then the MTA sends 
+the message to another MTA i.e. a mail relay. Then the receiver receives the message from the mail relay 
+whenever it is available.
+
+The user agent is basically a software program that allows the user to send, and receive e-mail messages. 
+Routing of the message is done by the Message Transfer Agent.
+
+SMTP connections secured by SSL are known as SMTPS.
+
+ODMR is an extension to SMTP, in which mails are relayed to the receivers after they are authenticated. 
+It allows only the authorized receivers to receive the mail.

@@ -1,0 +1,17 @@
+An entire hostname can have a maximum of 255 characters.
+
+DNS client also known as DNS resolver also known as DNS lookup helps to resolve DNS requests 
+using an external DNS server.
+
+DNS database contains name server records, hostname-to-address records, hostname aliases.
+
+If a server has no clue about where to find the address for a hostname then server asks to the root server.
+
+Dynamic DNS or in short DDNS or DynDNS helps in automatically updating a name server in the DNS.
+
+The ICANN (Internet Corporation for Assigned Names and Numbers) deals with IP address space allocation, 
+protocol identifier assignment, generic and country code Top Level domain name system 
+management (gTLD and ccTLD).
+
+A domain name system is maintained by a distributed database system. It is a collection of multiple, 
+logically interrelated databases distributed over a computer network.

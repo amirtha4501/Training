@@ -30,7 +30,7 @@ Session layer
 Presentation layer 
     - It is responsible for translation, compression and encryption.
 
-Application layer 
+Application layer(end to end service)
     - It is responsible for providing services to the user.
     - To allow access to the Network resources.
 

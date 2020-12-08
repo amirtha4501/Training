@@ -22,3 +22,47 @@ Some of the other transport layer protocols are RDP, RUDP, TCP, DCCP, UDP etc.
 
 Resource reservation protocol is used in transport layer. It is designed to reserve resources across 
 a network for quality of service using the integrated services model.
+
+TCP:
+-----
+
+TCP groups a number of bytes together into a packet called segments. A segment may be collection of data 
+from many send () statements. TCP transmits each segment as a stream of bytes.
+
+In segment header, sequence number and acknowledgement number fields refer to Byte number to ensure ordered
+delivery of packets.
+
+TCP port 21 is used for FTP, 
+TCP port 22 is used for SSH, 
+TCP port 25 is used for SMTP. 
+Telnet provides access to a command line interface on a remote computer using the TCP port number 23.
+
+Flow control is done to prevent the receiver from being overflowed with data. It is done using various 
+open-loop (prevention) methods and closed-loop (recovery) methods.
+
+Size of TCP segment header ranges between 20 and 60 bytes.
+
+A three-way handshake allows both, the server and the client to choose their Initial Sequence Number 
+and inform about it to the other party.
+
+The sizes of source and destination port address in TCP header are 16-bits and 16-bits respectively.
+
+Sequence numbers allow receivers to discard duplicate packets and properly sequence reordered packets. 
+Acknowledgments allow senders to determine when to retransmit lost packets.
+
+UDP:
+-----
+
+UDP is an unreliable, connectionless transport layer protocol that provides message-based data transmission.
+
+UDP provides low overhead, and higher speed.
+
+The Network Time Protocol is a clock synchronization network protocol implemented by using UDP port 
+number 123 to send and receive time stamps.
+
+The fixed size of the UDP packet header is 8 bytes. It contains four two-byte fields: Source port address, 
+Destination port address, Length of packet, and checksum.
+
+The maximum size of a UDP datagram is 65,535 bytes (8 byte header + 65,527 bytes of data).
+
+Checksum field is used to detect errors over the entire user datagram.

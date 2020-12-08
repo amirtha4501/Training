@@ -1,0 +1,5 @@
+Telnet stands for teletype network.
+
+SNMP stands for Simple Network Management Protocol. It is an application-level protocol in which 
+a few manager stations control a set of agents. It is used under the TCP/IP protocol suite and is used for 
+managing devices on the internet.

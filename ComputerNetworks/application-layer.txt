@@ -24,7 +24,8 @@ The transport services that are provided to application are reliable data transf
 These are very important for proper end to end services.
 
 Email uses various protocols like SMTP, IMAP and POP. 
-The most prominent one used in application layer is SMTP.
+The most prominent one used in application layer is SMTP. PGP is an encryption method used in e-mail 
+security to encrypt and decrypt the content of an e-mail transmitted over the internet.
 
 Domain name system is the way the internet domain names are stored and translated to IP addresses. 
 The domain names systems matches the name of website to ip addresses of the website.
@@ -32,6 +33,9 @@ The domain names systems matches the name of website to ip addresses of the webs
 Telnet is used for accessing remote computers. Using telnet a user can access computer remotely. 
 With Telnet, you can log on as a regular user with whatever privileges you may have been granted to the 
 specific application and data on the computer.
+
+Telnet provides a bi-directional, 8-bit byte oriented communications facility through which operations are 
+sent as 8-bit bytes for the server to interpret.
 
 Application layer deals with the user interface, what message is to be sent or the message format, 
 syntax and semantics. A user has access to application layer for sending and receiving messages.

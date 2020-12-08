@@ -1,0 +1,11 @@
+The Authentication Header (AH) authenticates the origin of data, and guarantees the integrity of the 
+information that’s being sent using IPSec. It also provides anti-reply security.
+
+AH ensures that there is no retransmission of data from an unauthorized source, and protects against 
+data tampering. ESP provides with content protection and ensures that there is integrity and 
+confidentiality for the message. ESP can operate in two modes, transport mode and tunnel mode.
+
+Integrity means that computer system assets can be modified only by authorized parities. 
+Confidentiality means that the assets can only be accessed by authorized parties. 
+Availability refers to the accessibility of the resource to the authorized parties. 
+Authenticity means that the asset is not unethically changed.

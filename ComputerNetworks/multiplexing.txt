@@ -42,3 +42,8 @@ called ports which provide the required efficiency and privacy.
 In TDM the transmission rate provided by the path that is multiplexed will always be 
 greater than the sum of transmission rates of the single sources. 
 This happens because the transmission rate is provided to each source only for a small period of time.
+
+Demultiplexing is the process of error checking and dropping of the header, delivering messages to 
+appropriate process based on port number. The transport layer does this on the receiver’s end after 
+the packet is received and takes help of the header attached by the sender’s side transport layer 
+during multiplexing.

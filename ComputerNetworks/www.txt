@@ -1,0 +1,16 @@
+URLs are locators for resources present on the World Wide Web. 
+A plugin provides extra functionality to the webpage. 
+An extension provides modification allowance for the core functionality of a webpage. 
+Hyperlink is piece of icon or image on a web page associated with another webpage.
+
+Dynamic web page generates on demand by a program or a request from browser.
+
+Common gateway interface(CGI) is used to generate executable files from web content by web server.
+
+A web cookie is a small piece of data sent from a website and stored in user’s web browser while 
+a user is browsing the website and is used to remember stateful information about the user’s operations 
+on the website. This can help the website provide a better browsing experience to the user.
+
+TTL stands for Time to Live. This field specifies the life of the IP packet based on the number of hops 
+it makes (Number of routers it goes through). TTL field is decremented by one each time the datagram is 
+processed by a router. When the value is 0, the packet is automatically destroyed.

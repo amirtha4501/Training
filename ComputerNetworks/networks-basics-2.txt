@@ -1,0 +1,31 @@
+Packet switching and Circuit switching are two different types of switching methods used to connect the 
+multiple communicating devices with one another. Packet switching is used in conventional LAN systems 
+and circuit switching is used in telephonic systems.
+
+Global address is a network address that is unique internationally and is used as a common address 
+by all the users of the network. It is used to create a virtual circuit identifier.
+
+The Identifier that is used for data transfer in virtual circuit network is called Virtual circuit identifier.
+
+A virtual circuit identifier is a type of numeric identifying address that is used to distinguish 
+between different virtual circuits in a circuit-switched network. It is used for data transfer 
+and has a switch scope.
+
+---------------------------------------------------------------------------------------------------------
+The protocol field enables the demultiplexing feature so that the IP protocol can be used to carry payloads 
+of more than one protocol type. Its most used values are 17 and 6 for UDP and TCP respectively.
+
+IP does not provide reliable delivery service for the data. It’s dependent upon the transport layer 
+protocols like TCP to offer reliability.
+
+Offset field helps to check rearrangement of the fragments. 
+The offset of the first fragment will always be 0.
+
+In classless addressing, there are no classes but addresses are still granted in blocks.
+
+There are only five classes of IP addresses: 
+    Class A (0.0.0.0 to 127.255.255.255), 
+    Class B (128.0.0.0 to 191.255.255.255), 
+    Class C (192.0.0.0 to 223.255.255.255), 
+    Class D (224.0.0.0 to 239.255.255.255), and 
+    Class E (240.0.0.0 to 255.255.255.255).

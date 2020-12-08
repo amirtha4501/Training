@@ -1,0 +1,19 @@
+Internet Control Message Protocol (ICMP) has been designed to compensate 
+    Error-reporting
+    Error-correction
+    Host and management queries
+
+An ICMP message has an 8-byte header and a variable size data section.
+
+ICMP error message will not be generated for a datagram having a special address such as 127.0.0.0(spl address/ loopback address)
+
+The source-quench message in ICMP was designed to add a kind of flow control to the IP.
+
+In case of time exceeded error, when the datagram visits a router, the value of time to live field is Decremented by 1
+
+The round-trip time refers to the total time taken combining the time taken for a packet sent from 
+a source to reach a destination and the time taken the acknowledgement sent by the destination to reach 
+the source. The Router sends destination unreachable message if the destination is not found.
+
+Ping program is used to find if a host is alive and responding.
+Traceroute(unix) / Tracert(windows) is a program used to find the shortest route to the destination IP.

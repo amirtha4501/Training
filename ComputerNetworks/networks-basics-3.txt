@@ -1,0 +1,37 @@
+An IPv6 address is 128 bits long. 
+Therefore, 2128 i.e. 340 undecillion addresses are possible in IPv6. 
+
+IPv4(32-bits) has only 4 billion possible addresses.
+
+IPv6 datagram has fixed header length of 40bytes.
+
+In the IPv6 header, the traffic class field is similar to Type of Service(ToS) field in the IPv4 header.
+
+There is no concept of broadcast address in IPv6. Instead, there is an anycast address in IPv6 which 
+allows sending messages to a group of devices but not all devices in a network. 
+Anycast address is not standardized in IPv4.
+
+The Hop limit field determines the lifetime of IPv6 datagram.
+
+Suppose two IPv6 nodes want to interoperate using IPv6 datagrams, but they are connected to each other 
+by intervening IPv4 routers. The best solution here is Tunneling.
+
+Dual-stack approach refers to node has both IPv4 and IPv6 support.
+
+A link local address of local addresses is used in an Isolated subnet.
+
+In subcategories of reserved address in IPv6, address that is used by a host to test itself without 
+going into network is called loop back address. 
+IPv6 loopback address is 0000:0000:0000:0000:0000:0000:0000:0001. 
+IPv4 loopback address is 127.0.0.1. It’s a reserved address.
+
+Prefix is the bits in the IPv6 address which are placed in leftmost position.
+
+In IPv6 address format, the starting bits are specified with eight 0s to represent reserved addresses. 
+These reserved addresses have a certain function pre-defined like the loop-back address is used to test 
+a network card. Reserved addresses cannot be allotted to a machine.
+
+Range of port numbers in Internet model is 0 and 65,535(16-bit).
+    - Well-known port numbers range from 0 to 1023
+    - registered port numbers are from 1024 to 49151
+    - dynamic port numbers are from 49152 to 65535

@@ -3,8 +3,24 @@ Secure shell (SSH) network protocol is used for
     - remote command-line login
     - remote command execution
 
+Port 22 is used for contacting ssh servers
+
 SSH provides high encryption and security features while communicating through a network. 
 It is a cryptographic network protocol.
 
 SCP (Secure copy protocol), SFTP (SSH File Transfer Protocol) and Rsync all are file transfer protocols 
 which are used by SSH.
+
+SSH2 is a more secure, portable and efficient version of SSH that includes SFTP, which is functionally 
+similar to FTP, but is SSH2 encrypted.
+
+SSH-1 only provide strong authentication and guarantee confidentiality.
+
+SSH-2 provide features such as password changing, periodic replacement of session keys, support for 
+public-key certificates.
+
+RCP - Rate Control Protocol 
+    It is a congestion control algorithm for fast user response times.
+
+SSH used public key authentication, Password authentication, Host based authentication, keyboard 
+authentication and authentication of servers.

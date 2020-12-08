@@ -1,0 +1,18 @@
+DHCP (dynamic host configuration protocol) provides IP address to the client.
+DHCP is used for both IPv4 and IPv6 addressing.
+
+Whenever a DHCP server gets a request from a client it responds with a DHCP offer containing IP address 
+being offered, network mask offered, the amount of time that the client can use and keep it, the ip address 
+of the DHCP server making this offer.
+
+DHCP uses UDP port 67 for sending data to the server.
+67 is the UDP port number that is used as the destination port of a server. 
+Whereas UDP port number 68 is used by the client.
+
+DHCP client and servers on the same subnet communicate via UDP broadcast
+
+ARP - address resolution protocol 
+    It is used for mapping IP addresses to MAC addresses that are present in the local network.
+
+DHCP snooping is a security feature that is used in OS of a network in the layer 2. This technology 
+prevents unauthorized DHCP servers offering IP addresses to DHCP clients.

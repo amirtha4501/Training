@@ -15,3 +15,6 @@ management (gTLD and ccTLD).
 
 A domain name system is maintained by a distributed database system. It is a collection of multiple, 
 logically interrelated databases distributed over a computer network.
+
+When a DNS server accepts and uses incorrect information from a host that has no authority giving that 
+information, then it is called DNS spoofing(DNS cache poisoning)

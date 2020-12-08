@@ -1,0 +1,31 @@
+Two broad categories of congestion control are Open-loop and Closed-loop.
+
+Open loop congestion control techniques are used to prevent congestion before it even happens by 
+enforcing certain policies. Retransmission policy, window policy and acknowledgement policy are 
+some policies that might be enforced.
+
+Closed loop congestion control techniques are used to treat congestion after it has happened.
+Some of the methods used are backpressure and choke packet.
+
+The technique in which a congested node stops receiving data from the immediate upstream node or nodes 
+is called as Backpressure, where (the congested node propagates in the opposite direction of the data flow 
+to inform the predecessor node to reduce the flow of packets).
+
+Backpressure technique can be applied only to Virtual circuit networks.
+
+The packet sent by a node to the source to inform it of congestion is called Choke.
+
+In Selective Repeat, the sender side uses a searching algorithm to find the packets which need 
+to be retransmitted based on the negative acknowledgements received and then resends only those 
+packets thus saving bandwidth.
+
+In Go-Back-N window, when the timer of the packet times out, several packets have to be resent even 
+some may have arrived safe. 
+
+In slow-start algorithm, the size of the congestion window increases exponentially until it reaches a 
+threshold. When it reaches the threshold, it stops increasing and continues sending packets through 
+the threshold window thus preventing congestion.
+
+In the congestion avoidance algorithm, the size of the congestion window increases additively until 
+congestion is detected. Once congestion is detected, the size of congestion window is decreased once 
+and then the packets are transmitted to achieve congestion avoidance.

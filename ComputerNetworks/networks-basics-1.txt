@@ -118,7 +118,3 @@ Most packet switches use this principle 'store and forward'
 
 The equation to find the end to end delay when no. of bits (L), transmission rate(R) and no. of routers(N)
 is given by (N*L)/R
-
-Packet switching and Circuit switching are two different types of switching methods used to connect the 
-multiple communicating devices with one another. Packet switching is used in conventional LAN systems 
-and circuit switching is used in telephonic systems.

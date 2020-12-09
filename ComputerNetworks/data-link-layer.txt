@@ -7,6 +7,15 @@ Data link protocols:
     -> Link Access Procedure (LAP) 
     -> Network Control Protocol (NCP)
 
+LCP stands for Link Control Protocol and NCP stands for Network Control Protocol. LCP and NCP are the PPP 
+protocols which provide interface for handling the capabilities of the connection/link on the network.
+
+PPP allows termination of the link at any time in any phase because it works on the data link layer which 
+is the layer in control of the link of the communication. 
+
+The link necessarily begins and ends with the link dead phase. During this phase, the LCP automata will be 
+in the initial or its final state. The link is non-functioning or inactive during the link dead phase.
+
 Data link layer mainly deals with framing, error control and flow control.
 
 Media access control sublayer of the data link layer performs data link functions 

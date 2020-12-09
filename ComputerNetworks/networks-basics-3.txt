@@ -35,3 +35,16 @@ Range of port numbers in Internet model is 0 and 65,535(16-bit).
     - Well-known port numbers range from 0 to 1023
     - registered port numbers are from 1024 to 49151
     - dynamic port numbers are from 49152 to 65535
+
+Cipher is a method to implement encryption and decryption of messages travelling in a network. 
+It’s used to increase the confidentiality of the messages.
+
+Multiple objects can be sent over a TCP connection between client and server in a persistent HTTP connection.
+
+In DNS spoofing, also known as DNS cache poisoning, an attacker gets the valid credentials from a victim 
+by spoofing the intended resource, and tricking the victim to give his/her valid authorization credentials.
+
+Datagram switching is normally done at network layer. 
+
+A proxy firewall filters at Application layer.
+A packet filter firewall filters at Network layer or Transport layer.

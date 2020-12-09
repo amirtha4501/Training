@@ -1,0 +1,16 @@
+Access point in a wireless network is any device that will allow the wireless devices to a wired network. 
+A router is the best example of an Access Point.
+
+A Wireless Distribution System allows the connection of multiple access points together. It is used to 
+expand a wireless network to a larger network.
+
+Piconet is the basic unit of a bluetooth system having a master node and upto seven active slave nodes. 
+A collection of piconets is called scatternet.
+
+Bluetooth is a wireless technology used to create a wireless personal area network for data transfer up 
+to a distance of 10 meters. It operates on 2.45 GHz frequency band for transmission.
+
+Unauthorised access of information from a wireless device through a bluetooth connection is called Bluesnarfing.
+
+RTP - Real-time transport protocol and is for delivering audio and video over IP networks. 
+Its applications include streaming media, video teleconference, and television services.

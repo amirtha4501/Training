@@ -1,0 +1,19 @@
+The Ethernet frame has a header that contains the source and destination MAC address. 
+Each MAC address is of 48 bits.
+
+The start frame delimiter is a 1 byte field in the Ethernet frame that indicates that the 
+preceding bits are the start of the frame. It is always set to 10101011.
+
+autonegotiation is a procedure by which two connected devices choose common transmission parameters. 
+It is a signaling mechanism used in Ethernet over Twisted pair cables.
+
+A point-to-point protocol over ethernet is a network protocol for encapsulating PPP frames inside 
+ethernet frames.
+
+The five broad categories of network management are
+    • Fault Management
+    • Configuration Management
+    • Accounting (Administration)
+    • Performance Management
+    • Security Management.
+    

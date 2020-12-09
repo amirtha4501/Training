@@ -1,0 +1,16 @@
+The combination of Subnet number and host number is often termed the local address of the local portion 
+of the IP address.
+
+Static subnetting implies that all subnets obtained from the same subnet mask.
+
+We've an IP address of 172.16.13.5 with a 255.255.255.128 subnet mask. What is the class of address, 
+subnet address, and broadcast address?
+    // Class A, Subnet 172.16.13.0, Broadcast address 172.16.13.127
+       Class B, Subnet 172.16.13.0, Broadcast address 172.16.13.127
+    // Class B, Subnet 172.16.13.0, Broadcast address 172.16.13.255
+    // Class B, Subnet 172.16.0.0, Broadcast address 172.16.255.255
+The prefix 172 lies in class B (128 to 191) of IPv4 addresses. 
+From the subnet mask, the class is divided into 2 subnets: 172.16.13.0 to 172.16.13.127 
+                                                           172.16.13.128 to 172.16.13.255. 
+The IP 172.16.13.5 lies in the first subnet. So the starting address 172.16.13.0 is the subnet address 
+and last address 172.16.13.127 is the broadcast address.

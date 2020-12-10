@@ -1,0 +1,12 @@
+Transport Layer Protocols:
+    It presently encapsulates TCP and UDP.
+
+    Like IP, User Datagram Protocol is connectionless
+    and it can be used to prioritize time over reliability.
+
+    TCP is a connection-oriented transport layer protocol that
+    prioritizes reliability over latency.
+
+    TCP describes transferring data in the same order as it was sent, 
+    retransmitting lost packets, and controls affecting the rate
+    of data transmission.

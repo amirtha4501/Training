@@ -1,0 +1,13 @@
+Application Layer Protocols:
+    This layer describes the protocols that software applications
+    interact with most often.
+
+    The specification includes descriptions of the remote login protocol
+    Telnet, the FTP and the SMTP.
+
+    Also HTTP, and HTTPS
+
+    HTTPS is secured by Transport Layer Security(TLS)
+
+    TLS can be said to be the top-most layer of the networking model
+    described by the Internet protocol suite.

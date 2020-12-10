@@ -1,0 +1,15 @@
+Internet layer protocols
+
+    Protocols in this layer describe how data is sent and received
+    over the Internet.
+
+    The process involves packaging data into packets, addressing and
+    transmitting packets, and receiving incoming packets of data.
+
+    IP is a connectionless protocol, meaning that it provides no guarantee
+    that packets are sent or received in the right order, along the same
+    path, or even in their entirety.
+
+    Reliability is handled by other protocols in the suite, such as in 
+    the transport layer.
+    

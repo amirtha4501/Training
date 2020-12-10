@@ -1,0 +1,13 @@
+Internet Protocol Suite:
+
+    Since the foundational protocols in the suite are the Transmission Control Protocol
+    and the Internet Protocol, the Internet Protocol Suite is also known as TCP/IP.
+
+    IP suite is the conceptual model and set of communication protocols used in the 
+    internet and similar computer networks.
+
+    These protocols describe how data on the Internet is packaged, 
+    addressed, sent, and received.
+
+    The  layers in the context of computer networking are mostly composed of protocols, 
+    algorithms, and configurations, with some data sprinkled in.

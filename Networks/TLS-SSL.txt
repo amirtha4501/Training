@@ -1,0 +1,20 @@
+    Transport Layer Security, or TLS, is a widely adopted security protocol designed to facilitate privacy 
+and data security for communications over the Internet. A primary use case of TLS is encrypting the 
+communication between web applications and servers, such as web browsers loading a website. TLS can 
+also be used to encrypt other communications such as email, messaging, and voice over IP (VoIP). In this 
+article we will focus on the role of TLS in web application security.
+
+    TLS evolved from a previous encryption protocol called Secure Sockets Layer (SSL)
+
+    HTTPS is an implementation of TLS encryption on top of the HTTP protocol, which is used by all websites 
+as well as some other web services. Any website that uses HTTPS is therefore employing TLS encryption.
+
+    There are three main components to what the TLS protocol accomplishes: Encryption, Authentication, and 
+Integrity.
+    Encryption: hides the data being transferred from third parties.
+    Authentication: ensures that the parties exchanging information are who they claim to be.
+    Integrity: verifies that the data has not been forged or tampered with
+
+    SSL stands for Secure Sockets Layer and, in short, it's the standard technology for keeping an internet 
+connection secure and safeguarding any sensitive data that is being sent between two systems, preventing 
+criminals from reading and modifying any information transferred, including potential personal details.

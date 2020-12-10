@@ -1,0 +1,14 @@
+IPv4 and IPv6
+    The both versions describe how devices on the Internet are
+    assigned IP addresses.
+
+IPv4:
+    It has only 32 bits for addressing, allowing for about 4.3 billion
+    possible address.
+
+    IPv4 will eventually suffer from address exhaustion as more and more
+    people use more devices on the Internet.
+
+IPv6:
+    It aims tp solve address exhaustion by using 128 bits for addresses.
+    

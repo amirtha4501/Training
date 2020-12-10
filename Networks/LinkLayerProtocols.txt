@@ -1,0 +1,12 @@
+Link layer protocols
+   
+    It is the most basic, or lowest-level, classification of communication protocol. 
+   
+    It deals with sending information between hosts on the same local network, 
+    and translating data from the higher layers to the physical layer.
+
+    Protocols in the link layer describe how data interacts with the transmission 
+    medium, such as electronic signals sent over specific hardware. 
+    
+    Unlike other layers, link layer protocols are dependent on the 
+    hardware being used.

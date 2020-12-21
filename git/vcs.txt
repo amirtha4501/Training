@@ -1,0 +1,18 @@
+Advantages:
+    - Enabling multiple developers to work on the same set of files at the same time.
+    - Proper management of the changes made in the project.
+    - Enabling restore and revert changes options.
+    - Back up of a project.
+
+Origin:
+    - Creator: Linus torvalds (creator of linux).
+
+GitHub is a web application that serves as a git repository.
+
+
+Repository:
+    A repository refers to a collection of files that are
+    related to a specific git project
+.git:
+    It is a subdirectory that is always in the root directory.
+    

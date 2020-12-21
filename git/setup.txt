@@ -1,0 +1,19 @@
+To check git version:
+    git --version
+
+Install github desktop:
+
+    https://desktop.github.com/
+    https://windows.github.com/
+
+Git installation on UNIX/LINUX:
+
+    Ubuntu/Debian: apt-get install git
+    Fedora upto 21: yum install git
+    Fedora 22 or later: dnf install git
+
+Setup:
+
+    git config --global user.name "username"
+    git config --global user.email "email@g.com"
+    

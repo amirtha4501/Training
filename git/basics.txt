@@ -1,0 +1,13 @@
+To initialize git repository:
+    - Inside a project directory
+        git init
+    - With explicitly specified directory
+        git init in/test/project
+
+In git terminology:
+    index - It is just a preparation area for our next commit action.
+            It's not aware of any files we add to the project directory unless
+            we inform it.
+    commit - It refers to instructing the system that some changes have been
+             made to the project.
+

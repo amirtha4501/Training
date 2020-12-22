@@ -1,0 +1,120 @@
+git add
+--------
+    - It adds a change in the working directory to the staging area.
+    - It doesn't affect the repository in any significant way i.e. the
+    changes are not recorded until we run git commit.
+
+Command: git add index.html // to add the specified file
+         git add . // to add all files in the current directory
+        
+
+git commit
+---------- 
+    - It commit the changes to the repository.
+    - The commit command does not save changes in remote servers, 
+    only in the local repository of Git.
+    - Commits are meant to be small and atomic which helps to undo
+    unnecessary changes more easily and keeping a more accurate track
+    of the changes in the project.
+    - The --author is to change the author of the commit(s) and 
+    the --date is to set the date.
+
+Command: git commit -message "Added index.html file"
+         git commit -m "Added header tag" // short form of the previous command
+         git commit --author "Ammu" --date --m "Provided footer tag"
+
+Output:
+    // if it is a first commit
+    [master (root-commit) 69c7fc4] Added index.html file
+    1 files changed, 13 insertions (+), 0 deletion (-)
+    create mode 100644 index.html
+
+    // if not a first commit
+    [master 4b93e29] Added header tag
+    1 file changed, 1 insertions(+)
+
+Analysis:
+    - The first line refers to the branch in which the changes were
+    committed, master branch, together with a shortened SHA-1 hash
+    to uniquely identify the change and also the message with which
+    we described the change.
+    - The (root-commit) indicates that this change is the first one.
+    and first commit doesn't have a parent.
+    - The second line shows the number of files changed, and gives
+    the number of insertions, deletions or modifications.
+    - The last line shows the filename with the UNIX file permissions.
+
+
+changes status, log
+--------------------
+    - Git status gives the current status of the file system.
+    - Enables to have a look at the various changes that have been made
+    to the current repository by using the git log command.
+
+Commands:
+    git status
+    git log
+    git log --oneline
+
+Output:
+status output:
+    On branch master
+    Your branch is up to date with 'origin/master'.
+
+    Changes not staged for commit:
+    (use "git add <file>..." to update what will be committed)
+    (use "git restore <file>..." to discard changes in working directory)
+            modified:   src/repository/category.repository.ts        
+            modified:   src/service/categories.service.ts
+
+    no changes added to commit (use "git add" and/or "git commit -a")
+
+log output:
+    commit 40d0d090cedebb40532b9b9e6275fbf615b6031e (HEAD -> master, origin/master)
+    Author: ammu <ammu@gmail.com>
+    Date:   Sat Nov 28 23:31:51 2020 +0530
+
+        Added category updation service
+
+    commit bc928cc314680fc341c6b9769aad62c980365984
+    Author: ammu <ammu@gmail.com>
+    Date:   Fri Nov 27 22:29:59 2020 +0530
+
+        Added categories service
+
+Analysis:
+    - Git status command gives the status of working directory i.e. It 
+    shows whether the files that is added, deleted or modified is added to index/commits.
+    - Each stanza obtained by git log command, contains the commit hash value, the author, the date
+    and the commit message.
+
+
+git diff
+---------
+    - The diff command will show the differences that happened to a file since it's last commit.
+
+Command:
+    git diff
+
+Output:
+    diff --git a/src/repository/category.repository.ts b/src/repository/category.repository.ts
+    index 126c97a..65ao9ae 100834
+    --- a/src/repository/category.repository.ts
+    +++ b/src/repository/category.repository.ts
+    @@ -3,6 +3,7 @@ import { User } from "src/entity/user.entity";
+    import { EntityRepository, Repository } from "typeorm";
+    import { Category } from "../entity/category.entity";
+    import { CreateCategoryDto } from "../dto/create-category.dto";
+    +import { id } from "date-fns/locale";
+
+    @EntityRepository(Category)
+    export class CategoryRepository extends Repository<Category> {
+    @@ -13,7 +14,7 @@ export class CategoryRepository extends Repository<Category> {
+                // food
+                {
+                    name: "food",
+    -                parent_name: "",
+    +                parent_name: null,
+                    starred: false,
+                    type: "expense",
+    :

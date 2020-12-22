@@ -1,0 +1,31 @@
+To create a repository for the project
+    git remote add origin https://github.com/username/repo_name
+
+To double check:
+    git remote --verbose
+
+    output: 
+        origin https://github.com/username/repo_name (fetch)
+        origin https://github.com/username/repo_name (push)
+    
+To push the changes to the remote repository
+    git push -u origin master
+    git push
+
+    - Here -u tracks the origin 
+
+
+To pull the changes to local repository
+    git pull
+
+-----------------
+git stash
+git checkout mybranch
+git pull
+git checkout -b feature/authentication
+git stash pop
+git checkout develop
+git add .
+git commit -message ""
+git push
+git config user.email

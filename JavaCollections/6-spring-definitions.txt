@@ -1,0 +1,86 @@
+* POJO - Plain Old Java Object
+* Java Beans - Simple objects with only getters and setters
+* Spring Beans - POJOs configured in the application context
+* DTO - Bean used to move state between layers
+
+INVERSION OF CONTROL (IOC):
+* central pattern to Spring framework
+* provides mechanism of dependency injection
+* Application Context wraps the Bean Factory which serves the beans at the runtime of the application
+* Spring Boot provides auto-configuration of the Application Context
+* container maintains your class dependencies
+* objects injected at runtime or startup time
+* an object accepts the dependencies for construction instead of constructing them
+* IOC container - Bean Factory
+
+ANNOTIONS
+* Native support in Java
+* Metadata for code
+* Often used for compiler or runtime instructions
+
+PROXIES
+* Beans in Bean Factory are proxied
+* Annotation drive proxies
+* Annotations are easy extension points, for your own abstracts too
+* Method calling order matters
+
+QUIZ NOTES:
+* Spring Boot Auto configuration benefits - default opinionated configuration out of the box, easy to override defaults, 
+                                            configuration based on presence
+* POJO is a Java Object that contains both attributes and methods that can be used as a spring bean within the application context.
+
+SPRING BOOT:
+* supports rapid development, removes boilerplate of application setup and so on
+* Cloud Native support but also traditional
+* Key Aspects:
+  - Embedded tomcat(or others)
+  - Auto-configuration of Application Context
+  - Automatic Servelt Mappings
+  - Database support and Hibernate/JPA dialect
+  - Automatic Controller Mappings
+
+SPRING DATA:
+* provides common set of interfaces
+* provides common naming convention
+* provides aspected behaviour
+* provides repository and data mapping convention
+
+BENEFITS FO SPRING DATA:
+* remove boilerplate code
+* allows for swapping datasources easier
+* allows to focus on business logic
+
+KEY COMPONENTS:
+* Repository interface
+* Entity Object
+* DataSource
+
+NOTE SPRING DATA:
+* By simply putting an embeddable database on the classpath, through a dependency manager
+  like Maven, and not overriding the properties for datasource configuration, the embedded
+  database will be automatically configured.
+* To utilize spring data for repository behavior, you simply need to extend and of the
+  repository interfaces for your database technology using generics.
+
+SERVICE ABSTRACTIONS:
+* Encapsulete layers
+* Abstract 3rd party APIs
+* Simplify implementations
+* Swap out implementations as runtime
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

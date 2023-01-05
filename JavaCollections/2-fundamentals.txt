@@ -1,0 +1,6 @@
+Collection:
+An object that stores other objects together as a single group
+
+Object comparison:
+1-> Identify - Determines if two objects are the same object, meaning they are the same object in memory. (o1 == o2)
+2-> Determines if two objects are logically equivalent, meaning they are equal in value. (o1.equals(o2))

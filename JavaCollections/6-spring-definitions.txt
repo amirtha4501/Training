@@ -68,18 +68,51 @@ SERVICE ABSTRACTIONS:
 * Simplify implementations
 * Swap out implementations as runtime
 
+How to build service ABSTRACTIONS:
+* Define our interface (or class)
+* Create the APIs
+* Inject the dependencies
+* Annotate or configure
+* Code the implementation
 
+SERVICE TIER:
+ComponentScanning, XMLConfig, JavaConfig provides mechanisms for the developer to configure the BeanFactory or IOC container.
 
+The @Service annotation is a stereotype of @Component and is used for component scanning,
+but it also allows you a point for your own service base aspects and proxies if you desire.
 
+The reason for building a service abstraction is to provide encapsulation of logical layers of code.
 
+GATHERED:
+* Spring IoC container are called BEANS.
+* A bean is an object that is instantiated, assembled, and otherwise managed by a Spring IoC container.
 
+WEB PAGES WITH SPRING:
 
+MVC - Model View Controller
+  * Fundamental pattern for web application development
+  * Model is the data
+  * View is the visual display that is populated
+  * Controller wires the view with the model
 
+Spring Controller
+  * Spring bean
+  * Annotated for the servlet mapping
+  * Responds to incoming web requests
+  * Outputs a view or data
 
+Template Engines
+  * Eg: Thymeleaf (Provides a DSL for HTML leaving raw html documents)
 
+@RequestMapping annotation
+* It defines the HTTP Verb the method responds to.
+* It defines the URL path the method or class responds to.
+* It can be additive from a URL perspective within a class on specific methods.
 
+The @Controller annotation is used to define the Controller portion of the MVC pattern within Spring 
+and is a stereotype of @Component, it however doesn't define the mapping to URLs, @RequestMapping does that function.
 
-
+By default, templates live in src/main/resources/templates, however this can be configured via properties.
 
 
 
